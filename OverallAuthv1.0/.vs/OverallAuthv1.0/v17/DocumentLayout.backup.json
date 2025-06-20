@@ -1,0 +1,287 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Code\\Work\\Demo_Code\\OverallAuthv1.0\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|c:\\code\\work\\demo_code\\overallauthv1.0\\overallauthv1.0\\migrations\\20250620072640_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|solutionrelative:overallauthv1.0\\migrations\\20250620072640_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|c:\\code\\work\\demo_code\\overallauthv1.0\\overallauthv1.0\\efcore\\config\\userconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|solutionrelative:overallauthv1.0\\efcore\\config\\userconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|c:\\code\\work\\demo_code\\overallauthv1.0\\overallauthv1.0\\efcore\\config\\roleconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|solutionrelative:overallauthv1.0\\efcore\\config\\roleconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|c:\\code\\work\\demo_code\\overallauthv1.0\\overallauthv1.0\\efcore\\config\\menuconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|solutionrelative:overallauthv1.0\\efcore\\config\\menuconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|c:\\code\\work\\demo_code\\overallauthv1.0\\overallauthv1.0\\efcore\\mydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|solutionrelative:overallauthv1.0\\efcore\\mydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|c:\\code\\work\\demo_code\\overallauthv1.0\\overallauthv1.0\\controllers\\overallauthcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|solutionrelative:overallauthv1.0\\controllers\\overallauthcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|c:\\code\\work\\demo_code\\overallauthv1.0\\overallauthv1.0\\controllers\\menucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|solutionrelative:overallauthv1.0\\controllers\\menucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|c:\\code\\work\\demo_code\\overallauthv1.0\\overallauthv1.0\\controllers\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|solutionrelative:overallauthv1.0\\controllers\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|c:\\code\\work\\demo_code\\overallauthv1.0\\overallauthv1.0\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|solutionrelative:overallauthv1.0\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|c:\\code\\work\\demo_code\\overallauthv1.0\\overallauthv1.0\\efcore\\model\\commommodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|solutionrelative:overallauthv1.0\\efcore\\model\\commommodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|c:\\code\\work\\demo_code\\overallauthv1.0\\overallauthv1.0\\efcore\\model\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|solutionrelative:overallauthv1.0\\efcore\\model\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|c:\\code\\work\\demo_code\\overallauthv1.0\\overallauthv1.0\\efcore\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|solutionrelative:overallauthv1.0\\efcore\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|c:\\code\\work\\demo_code\\overallauthv1.0\\overallauthv1.0\\efcore\\model\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|solutionrelative:overallauthv1.0\\efcore\\model\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|c:\\code\\work\\demo_code\\overallauthv1.0\\overallauthv1.0\\overallauthv1.0.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|solutionrelative:overallauthv1.0\\overallauthv1.0.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|c:\\code\\work\\demo_code\\overallauthv1.0\\overallauthv1.0\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|solutionrelative:overallauthv1.0\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "20250620072640_Init.cs",
+              "DocumentMoniker": "C:\\Code\\Work\\Demo_Code\\OverallAuthv1.0\\OverallAuthv1.0\\Migrations\\20250620072640_Init.cs",
+              "RelativeDocumentMoniker": "OverallAuthv1.0\\Migrations\\20250620072640_Init.cs",
+              "ToolTip": "C:\\Code\\Work\\Demo_Code\\OverallAuthv1.0\\OverallAuthv1.0\\Migrations\\20250620072640_Init.cs",
+              "RelativeToolTip": "OverallAuthv1.0\\Migrations\\20250620072640_Init.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAcwFUAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T07:26:41.248Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "OverallAuthController.cs",
+              "DocumentMoniker": "C:\\Code\\Work\\Demo_Code\\OverallAuthv1.0\\OverallAuthv1.0\\Controllers\\OverallAuthController.cs",
+              "RelativeDocumentMoniker": "OverallAuthv1.0\\Controllers\\OverallAuthController.cs",
+              "ToolTip": "C:\\Code\\Work\\Demo_Code\\OverallAuthv1.0\\OverallAuthv1.0\\Controllers\\OverallAuthController.cs",
+              "RelativeToolTip": "OverallAuthv1.0\\Controllers\\OverallAuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwUAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T07:24:52.817Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MenuController.cs",
+              "DocumentMoniker": "C:\\Code\\Work\\Demo_Code\\OverallAuthv1.0\\OverallAuthv1.0\\Controllers\\MenuController.cs",
+              "RelativeDocumentMoniker": "OverallAuthv1.0\\Controllers\\MenuController.cs",
+              "ToolTip": "C:\\Code\\Work\\Demo_Code\\OverallAuthv1.0\\OverallAuthv1.0\\Controllers\\MenuController.cs",
+              "RelativeToolTip": "OverallAuthv1.0\\Controllers\\MenuController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T07:24:33.095Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "RoleController.cs",
+              "DocumentMoniker": "C:\\Code\\Work\\Demo_Code\\OverallAuthv1.0\\OverallAuthv1.0\\Controllers\\RoleController.cs",
+              "RelativeDocumentMoniker": "OverallAuthv1.0\\Controllers\\RoleController.cs",
+              "ToolTip": "C:\\Code\\Work\\Demo_Code\\OverallAuthv1.0\\OverallAuthv1.0\\Controllers\\RoleController.cs",
+              "RelativeToolTip": "OverallAuthv1.0\\Controllers\\RoleController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T07:24:16.826Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Code\\Work\\Demo_Code\\OverallAuthv1.0\\OverallAuthv1.0\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "OverallAuthv1.0\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Code\\Work\\Demo_Code\\OverallAuthv1.0\\OverallAuthv1.0\\Controllers\\UserController.cs",
+              "RelativeToolTip": "OverallAuthv1.0\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T07:23:57.158Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Role.cs",
+              "DocumentMoniker": "C:\\Code\\Work\\Demo_Code\\OverallAuthv1.0\\OverallAuthv1.0\\EFcore\\Model\\Role.cs",
+              "RelativeDocumentMoniker": "OverallAuthv1.0\\EFcore\\Model\\Role.cs",
+              "ToolTip": "C:\\Code\\Work\\Demo_Code\\OverallAuthv1.0\\OverallAuthv1.0\\EFcore\\Model\\Role.cs",
+              "RelativeToolTip": "OverallAuthv1.0\\EFcore\\Model\\Role.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAADwvwkAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T07:10:18.655Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Menu.cs",
+              "DocumentMoniker": "C:\\Code\\Work\\Demo_Code\\OverallAuthv1.0\\OverallAuthv1.0\\EFcore\\Model\\Menu.cs",
+              "RelativeDocumentMoniker": "OverallAuthv1.0\\EFcore\\Model\\Menu.cs",
+              "ToolTip": "C:\\Code\\Work\\Demo_Code\\OverallAuthv1.0\\OverallAuthv1.0\\EFcore\\Model\\Menu.cs",
+              "RelativeToolTip": "OverallAuthv1.0\\EFcore\\Model\\Menu.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABsAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T07:08:56.561Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CommomModel.cs",
+              "DocumentMoniker": "C:\\Code\\Work\\Demo_Code\\OverallAuthv1.0\\OverallAuthv1.0\\EFcore\\Model\\CommomModel.cs",
+              "RelativeDocumentMoniker": "OverallAuthv1.0\\EFcore\\Model\\CommomModel.cs",
+              "ToolTip": "C:\\Code\\Work\\Demo_Code\\OverallAuthv1.0\\OverallAuthv1.0\\EFcore\\Model\\CommomModel.cs",
+              "RelativeToolTip": "OverallAuthv1.0\\EFcore\\Model\\CommomModel.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAADwvxIAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T07:06:00.354Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Code\\Work\\Demo_Code\\OverallAuthv1.0\\OverallAuthv1.0\\EFcore\\Model\\User.cs",
+              "RelativeDocumentMoniker": "OverallAuthv1.0\\EFcore\\Model\\User.cs",
+              "ToolTip": "C:\\Code\\Work\\Demo_Code\\OverallAuthv1.0\\OverallAuthv1.0\\EFcore\\Model\\User.cs",
+              "RelativeToolTip": "OverallAuthv1.0\\EFcore\\Model\\User.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAADwvw8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T07:05:36.346Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MyDbContext.cs",
+              "DocumentMoniker": "C:\\Code\\Work\\Demo_Code\\OverallAuthv1.0\\OverallAuthv1.0\\EFcore\\MyDbContext.cs",
+              "RelativeDocumentMoniker": "OverallAuthv1.0\\EFcore\\MyDbContext.cs",
+              "ToolTip": "C:\\Code\\Work\\Demo_Code\\OverallAuthv1.0\\OverallAuthv1.0\\EFcore\\MyDbContext.cs",
+              "RelativeToolTip": "OverallAuthv1.0\\EFcore\\MyDbContext.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAADwvxwAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T07:00:55.074Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserConfig.cs",
+              "DocumentMoniker": "C:\\Code\\Work\\Demo_Code\\OverallAuthv1.0\\OverallAuthv1.0\\EFcore\\Config\\UserConfig.cs",
+              "RelativeDocumentMoniker": "OverallAuthv1.0\\EFcore\\Config\\UserConfig.cs",
+              "ToolTip": "C:\\Code\\Work\\Demo_Code\\OverallAuthv1.0\\OverallAuthv1.0\\EFcore\\Config\\UserConfig.cs",
+              "RelativeToolTip": "OverallAuthv1.0\\EFcore\\Config\\UserConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvxIAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T06:58:42.929Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RoleConfig.cs",
+              "DocumentMoniker": "C:\\Code\\Work\\Demo_Code\\OverallAuthv1.0\\OverallAuthv1.0\\EFcore\\Config\\RoleConfig.cs",
+              "RelativeDocumentMoniker": "OverallAuthv1.0\\EFcore\\Config\\RoleConfig.cs",
+              "ToolTip": "C:\\Code\\Work\\Demo_Code\\OverallAuthv1.0\\OverallAuthv1.0\\EFcore\\Config\\RoleConfig.cs",
+              "RelativeToolTip": "OverallAuthv1.0\\EFcore\\Config\\RoleConfig.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA8AAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T06:58:40.575Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MenuConfig.cs",
+              "DocumentMoniker": "C:\\Code\\Work\\Demo_Code\\OverallAuthv1.0\\OverallAuthv1.0\\EFcore\\Config\\MenuConfig.cs",
+              "RelativeDocumentMoniker": "OverallAuthv1.0\\EFcore\\Config\\MenuConfig.cs",
+              "ToolTip": "C:\\Code\\Work\\Demo_Code\\OverallAuthv1.0\\OverallAuthv1.0\\EFcore\\Config\\MenuConfig.cs",
+              "RelativeToolTip": "OverallAuthv1.0\\EFcore\\Config\\MenuConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T06:58:24.89Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "OverallAuthv1.0",
+              "DocumentMoniker": "C:\\Code\\Work\\Demo_Code\\OverallAuthv1.0\\OverallAuthv1.0\\OverallAuthv1.0.csproj",
+              "RelativeDocumentMoniker": "OverallAuthv1.0\\OverallAuthv1.0.csproj",
+              "ToolTip": "C:\\Code\\Work\\Demo_Code\\OverallAuthv1.0\\OverallAuthv1.0\\OverallAuthv1.0.csproj*",
+              "RelativeToolTip": "OverallAuthv1.0\\OverallAuthv1.0.csproj*",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-06-20T06:45:42.196Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Code\\Work\\Demo_Code\\OverallAuthv1.0\\OverallAuthv1.0\\Program.cs",
+              "RelativeDocumentMoniker": "OverallAuthv1.0\\Program.cs",
+              "ToolTip": "C:\\Code\\Work\\Demo_Code\\OverallAuthv1.0\\OverallAuthv1.0\\Program.cs",
+              "RelativeToolTip": "OverallAuthv1.0\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T06:45:13.944Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

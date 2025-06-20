@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\OverallAuthv1.0.props" />
+</Project>
