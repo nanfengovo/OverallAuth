@@ -7,7 +7,7 @@ using OverallAuthv1._0.EFcore.Model;
 
 namespace OverallAuthDEMO.EFcore.Model
 {
-    internal class Menu:CommomModel
+    public class Menu:CommomModel
     {
         /// <summary>
         /// 菜单ID

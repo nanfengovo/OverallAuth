@@ -1,0 +1,308 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OverallAuthv1.0</name>
+    </assembly>
+    <members>
+        <member name="T:OverallAuthv1._0.Controllers.MenuController">
+            <summary>  
+            菜单控制器  
+            </summary>  
+        </member>
+        <member name="M:OverallAuthv1._0.Controllers.MenuController.GetAllMenu">
+            <summary>  
+            获取所有菜单  
+            </summary>  
+            <returns></returns>  
+        </member>
+        <member name="M:OverallAuthv1._0.Controllers.MenuController.AddMenu(OverallAuthv1._0.Domain.DTO.AddMenuDTO)">
+            <summary>
+            添加菜单
+            </summary>
+            <param name="menus"></param>
+            <returns></returns>
+        </member>
+        <member name="T:OverallAuthv1._0.Controllers.OverallAuthController">
+            <summary>
+            OverallAuth Controller 1、给角色分配菜单 2、给用户分配角色
+            </summary>
+        </member>
+        <member name="T:OverallAuthv1._0.Controllers.RoleController">
+            <summary>
+            Role Controller
+            </summary>
+        </member>
+        <member name="M:OverallAuthv1._0.Controllers.RoleController.AddRole(OverallAuthv1._0.Domain.DTO.AddRole)">
+            <summary>
+            添加角色
+            </summary>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="T:OverallAuthv1._0.Controllers.UserController">
+            <summary>
+            User Controller
+            </summary>
+        </member>
+        <member name="M:OverallAuthv1._0.Controllers.UserController.AddUser(OverallAuthv1._0.Domain.DTO.AddUser)">
+            <summary>
+            Add User
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.AddMenuDTO.Name">
+            <summary>
+            菜单名
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.AddMenuDTO.Icon">
+            <summary>
+            菜单图标
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.AddMenuDTO.URL">
+            <summary>
+            菜单路径
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.AddMenuDTO.Describe">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.AddMenuDTO.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.AddMenuDTO.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.AddMenuDTO.UpdateTime">
+            <summary>
+            最后更新时间
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.AddRole.Name">
+            <summary>
+            角色名
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.AddRole.Describe">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.AddRole.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.AddRole.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.AddRole.UpdateTime">
+            <summary>
+            最后更新时间
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.AddUser.Name">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.AddUser.Pwd">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.AddUser.Describe">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.AddUser.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.AddUser.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.AddUser.UpdateTime">
+            <summary>
+            最后更新时间
+            </summary>
+        </member>
+        <member name="T:OverallAuthv1._0.Domain.IService.IMenuService">
+            <summary>
+            菜单服务接口
+            </summary>
+        </member>
+        <member name="M:OverallAuthv1._0.Domain.IService.IMenuService.GetAllMenuAsync">
+            <summary>
+            获取所有菜单
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OverallAuthv1._0.Domain.IService.IMenuService.AddMenuAsync(OverallAuthv1._0.Domain.DTO.AddMenuDTO)">
+            <summary>
+            添加菜单
+            </summary>
+            <param name="menus"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OverallAuthv1._0.Domain.IService.IRoleService.AddRoleAsync(OverallAuthv1._0.Domain.DTO.AddRole)">
+            <summary>
+            add role
+            </summary>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OverallAuthv1._0.Domain.IService.IUserService.AddUserAsync(OverallAuthv1._0.Domain.DTO.AddUser)">
+            <summary>
+            add user
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:OverallAuthv1._0.EFcore.Model.CommomModel.Describe">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.EFcore.Model.CommomModel.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.EFcore.Model.CommomModel.IsDeleted">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.EFcore.Model.CommomModel.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.EFcore.Model.CommomModel.UpdateTime">
+            <summary>
+            最后更新时间
+            </summary>
+        </member>
+        <member name="T:OverallAuthv1._0.Migrations.Init">
+            <inheritdoc />
+        </member>
+        <member name="M:OverallAuthv1._0.Migrations.Init.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:OverallAuthv1._0.Migrations.Init.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:OverallAuthv1._0.Migrations.Init.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="P:OverallAuthv1._0.Result.Code">
+            <summary>
+            返回给前端的代码
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Result.Msg">
+            <summary>
+            信息
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Result.Data">
+            <summary>
+            数据
+            </summary>
+        </member>
+        <member name="P:OverallAuthDEMO.EFcore.Model.Menu.Id">
+            <summary>
+            菜单ID
+            </summary>
+        </member>
+        <member name="P:OverallAuthDEMO.EFcore.Model.Menu.Name">
+            <summary>
+            菜单名
+            </summary>
+        </member>
+        <member name="P:OverallAuthDEMO.EFcore.Model.Menu.Icon">
+            <summary>
+            菜单图标
+            </summary>
+        </member>
+        <member name="P:OverallAuthDEMO.EFcore.Model.Menu.URL">
+            <summary>
+            菜单路径
+            </summary>
+        </member>
+        <member name="P:OverallAuthDEMO.EFcore.Model.Menu.Roles">
+            <summary>
+            拥有该菜单的角色
+            </summary>
+        </member>
+        <member name="P:OverallAuthDEMO.EFcore.Model.Role.Id">
+            <summary>
+            角色id
+            </summary>
+        </member>
+        <member name="P:OverallAuthDEMO.EFcore.Model.Role.Name">
+            <summary>
+            角色名
+            </summary>
+        </member>
+        <member name="P:OverallAuthDEMO.EFcore.Model.Role.Users">
+            <summary>
+            该角色分配的用户
+            </summary>
+        </member>
+        <member name="P:OverallAuthDEMO.EFcore.Model.Role.Menus">
+            <summary>
+            该角色分配的菜单 
+            </summary>
+        </member>
+        <member name="P:OverallAuthDEMO.EFcore.Model.User.Id">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="P:OverallAuthDEMO.EFcore.Model.User.Name">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:OverallAuthDEMO.EFcore.Model.User.Pwd">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:OverallAuthDEMO.EFcore.Model.User.Roles">
+            <summary>
+            该用户拥有的角色列表
+            </summary>
+        </member>
+        <member name="P:OverallAuthDEMO.EFcore.MyDbContext.Users">
+            <summary>
+            用户
+            </summary>
+        </member>
+        <member name="P:OverallAuthDEMO.EFcore.MyDbContext.Roles">
+            <summary>
+            角色
+            </summary>
+        </member>
+        <member name="P:OverallAuthDEMO.EFcore.MyDbContext.Menus">
+            <summary>
+            菜单
+            </summary>
+        </member>
+    </members>
+</doc>

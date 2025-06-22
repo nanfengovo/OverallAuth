@@ -7,7 +7,7 @@ using OverallAuthv1._0.EFcore.Model;
 
 namespace OverallAuthDEMO.EFcore.Model
 {
-    internal class Role:CommomModel
+    public class Role:CommomModel
     {
         /// <summary>
         /// 角色id

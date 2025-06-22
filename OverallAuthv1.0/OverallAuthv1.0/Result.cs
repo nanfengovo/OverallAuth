@@ -3,18 +3,18 @@
     public class Result
     {
         /// <summary>
-        /// 状态码
+        /// 返回给前端的代码
         /// </summary>
-        int Code;
+        public int Code { get; set; }
 
         /// <summary>
-        /// 返回的信息
+        /// 信息
         /// </summary>
-        string Msg;
+        public string? Msg { get; set; }
 
         /// <summary>
         /// 数据
         /// </summary>
-        object? Data;
+        public object? Data { get; set; }
     }
 }

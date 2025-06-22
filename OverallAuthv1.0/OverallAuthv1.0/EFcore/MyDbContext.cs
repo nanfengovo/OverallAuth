@@ -11,15 +11,24 @@ using OverallAuthDEMO.EFcore.Model;
 
 namespace OverallAuthDEMO.EFcore
 {
-    internal class MyDbContext:DbContext
+    public class MyDbContext:DbContext
     {
+        /// <summary>
+        /// 用户
+        /// </summary>
         public DbSet<User> Users { get; set; }
+        /// <summary>
+        /// 角色
+        /// </summary>
         public DbSet<Role> Roles { get; set; }
+        /// <summary>
+        /// 菜单
+        /// </summary>
         public DbSet<Menu> Menus { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=OverallAuth.db").LogTo(Console.WriteLine, LogLevel.Information); // 输出到控制台;  // 连接字符串
+            optionsBuilder.UseSqlite("Data Source=OverallAuthV1.0.db").LogTo(Console.WriteLine, LogLevel.Information); // 输出到控制台;  // 连接字符串
         }
 
         //加载单独配置的所以程序

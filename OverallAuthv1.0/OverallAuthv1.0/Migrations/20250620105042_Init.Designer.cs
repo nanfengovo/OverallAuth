@@ -11,7 +11,7 @@ using OverallAuthDEMO.EFcore;
 namespace OverallAuthv1._0.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20250620072640_Init")]
+    [Migration("20250620105042_Init")]
     partial class Init
     {
         /// <inheritdoc />

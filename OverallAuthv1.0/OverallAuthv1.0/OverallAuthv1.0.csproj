@@ -5,14 +5,15 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>OverallAuthv1._0</RootNamespace>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="OverallAuth.db" />
+    <None Remove="OverallAuthV1.0.db" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="OverallAuth.db">
+    <Content Include="OverallAuthV1.0.db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -25,12 +26,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Domain\IService\" />
-    <Folder Include="Domain\Service\" />
-    <Folder Include="Domain\DTO\" />
   </ItemGroup>
 
 </Project>
