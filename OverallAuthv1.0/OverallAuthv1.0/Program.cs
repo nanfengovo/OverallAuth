@@ -27,6 +27,7 @@ namespace OverallAuthv1._0
             builder.Services.AddScoped<IMenuService,MenuService>();
             builder.Services.AddScoped<IUserService,UserService>();
             builder.Services.AddScoped<IRoleService,RoleService>();
+            builder.Services.AddScoped<IOverallAuthService,OverallAuthService>();
 
             var app = builder.Build();
 

@@ -45,6 +45,8 @@ namespace OverallAuthv1._0.Domain.Service
             }
         }
 
+
+
         async Task<(bool success, List<Menu> menus)> IMenuService.GetAllMenuAsync()
         {
             var menus = await _dbContext.Menus.ToListAsync();

@@ -47,5 +47,11 @@ namespace OverallAuthv1._0.Domain.Service
                 return (false, ex.Message);
             }
         }
+
+        public async Task<bool> GetRoleByNameAsync(string roleName)
+        {
+            var exist = await _dbContext.Roles.FirstOrDefaultAsync(r => r.Name == roleName && r.IsEnable && !r.IsDeleted);
+            return exist != null;
+        }
     }
 }

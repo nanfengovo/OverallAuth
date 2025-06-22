@@ -166,6 +166,13 @@
             <param name="role"></param>
             <returns></returns>
         </member>
+        <member name="M:OverallAuthv1._0.Domain.IService.IRoleService.GetRoleByNameAsync(System.String)">
+            <summary>
+            角色是否存在且启用
+            </summary>
+            <param name="roleName"></param>
+            <returns></returns>
+        </member>
         <member name="M:OverallAuthv1._0.Domain.IService.IUserService.AddUserAsync(OverallAuthv1._0.Domain.DTO.AddUser)">
             <summary>
             add user

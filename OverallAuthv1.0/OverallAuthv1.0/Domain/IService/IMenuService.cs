@@ -20,6 +20,8 @@ namespace OverallAuthv1._0.Domain.IService
         /// <param name="menus"></param>
         /// <returns></returns>
 
-        Task<(bool success, string msg)> AddMenuAsync(AddMenuDTO menus); 
+        Task<(bool success, string msg)> AddMenuAsync(AddMenuDTO menus);
+
+
     }
 }

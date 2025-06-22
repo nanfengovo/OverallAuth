@@ -46,6 +46,37 @@
     ]
   },
   {
+    "ContainingType": "OverallAuthv1._0.Controllers.OverallAuthController",
+    "Method": "GiveRoleMenu",
+    "RelativePath": "api/OverallAuth",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roleName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "menuIds",
+        "Type": "System.Int32[]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "OverallAuthv1._0.Result",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "OverallAuthv1._0.Controllers.RoleController",
     "Method": "AddRole",
     "RelativePath": "api/Role",

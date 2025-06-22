@@ -85,6 +85,75 @@
         }
       }
     },
+    "/api/OverallAuth": {
+      "post": {
+        "tags": [
+          "OverallAuth"
+        ],
+        "parameters": [
+          {
+            "name": "roleName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Role": {
       "post": {
         "tags": [
@@ -319,6 +388,10 @@
     {
       "name": "Menu",
       "description": "菜单控制器"
+    },
+    {
+      "name": "OverallAuth",
+      "description": "OverallAuth Controller 1、给角色分配菜单 2、给用户分配角色"
     },
     {
       "name": "Role",
