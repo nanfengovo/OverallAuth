@@ -46,9 +46,35 @@
     ]
   },
   {
+    "ContainingType": "OverallAuthv1._0.Controllers.MenuController",
+    "Method": "GetMenuByRole",
+    "RelativePath": "api/Menu/GetMenuByRole",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "OverallAuthv1._0.Result",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "OverallAuthv1._0.Controllers.OverallAuthController",
     "Method": "GiveRoleMenu",
-    "RelativePath": "api/OverallAuth",
+    "RelativePath": "api/OverallAuth/GiveRoleMenu",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -62,6 +88,68 @@
         "Name": "menuIds",
         "Type": "System.Int32[]",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "OverallAuthv1._0.Result",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "OverallAuthv1._0.Controllers.OverallAuthController",
+    "Method": "GiveUserRole",
+    "RelativePath": "api/OverallAuth/GiveUserRole",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "rolesName",
+        "Type": "System.String[]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "OverallAuthv1._0.Result",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "OverallAuthv1._0.Controllers.OverallAuthController",
+    "Method": "Login",
+    "RelativePath": "api/OverallAuth/Login",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "password",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [

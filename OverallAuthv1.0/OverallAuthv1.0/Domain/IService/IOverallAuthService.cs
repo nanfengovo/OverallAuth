@@ -1,8 +1,26 @@
 ﻿
+using OverallAuthDEMO.EFcore.Model;
+
 namespace OverallAuthv1._0.Domain.IService
 {
     public interface IOverallAuthService
     {
+        /// <summary>
+        /// 给角色分配菜单
+        /// </summary>
+        /// <param name="roleName"></param>
+        /// <param name="menuIds"></param>
+        /// <returns></returns>
         Task<(bool success,string msg)> GiveRoleMenuAsync(string roleName, int[] menuIds);
+
+        /// <summary>
+        /// 给用户分配角色
+        /// </summary>
+        /// <param name="roleName"></param>
+        /// <param name="roles"></param>
+        /// <returns></returns>
+        Task<(bool success, string msg)> GiveUserRoleAsync(string roleName, string[] rolesName);
+
+
     }
 }

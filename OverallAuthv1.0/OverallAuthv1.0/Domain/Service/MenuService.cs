@@ -52,5 +52,33 @@ namespace OverallAuthv1._0.Domain.Service
             var menus = await _dbContext.Menus.ToListAsync();
             return (true, menus);
         }
+
+
+        public async Task<(bool success, List<Menu> menus)> GetMenuByRoleAsync(string userName)
+        {
+            try
+            {
+                // 1. 通过用户名获取用户及其关联的所有角色ID
+                var roleIds = await _dbContext.Users
+                    .Where(u => u.Name == userName)
+                    .SelectMany(u => u.Roles.Select(r => r.Id)) // 提取所有角色ID
+                    .Distinct()
+                    .ToListAsync();
+
+                if (!roleIds.Any())
+                    return (false, new List<Menu>());
+
+                // 2. 通过角色ID列表查询菜单
+                var menus = await _dbContext.Menus
+                    .Where(m => m.Roles.Any(r => roleIds.Contains(r.Id))).ToListAsync(); // 匹配任意角色
+  
+
+                return (true, menus);
+            }
+            catch (Exception ex)
+            {
+                return (false, new List<Menu>());
+            }
+        }
     }
 }

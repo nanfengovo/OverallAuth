@@ -22,6 +22,10 @@ namespace OverallAuthv1._0.Domain.IService
 
         Task<(bool success, string msg)> AddMenuAsync(AddMenuDTO menus);
 
-
+        /// <summary>
+        /// 获取某个用户拥有的菜单
+        /// </summary>
+        /// <returns></returns>
+        Task<(bool success, List<Menu> menus)> GetMenuByRoleAsync(string userName);
     }
 }

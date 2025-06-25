@@ -113,5 +113,43 @@ namespace OverallAuthv1._0.Controllers
                 };
             }
         }
+
+
+        [HttpGet]
+        public async Task<Result> GetMenuByRole(string userName)
+        {
+            try
+            {
+                var result = await _menuService.GetMenuByRoleAsync(userName);
+                if (result.success)
+                {
+                    return new Result
+                    {
+                        Code = 200,
+                        Msg = "获取成功",
+                        Data = result.menus
+                    };
+                }
+                else
+                {
+                    return new Result
+                    {
+                        Code = 500,
+                        Msg = ""
+                    };
+                }
+                    
+            }
+            catch (Exception ex)
+            {
+                return new Result
+                {
+                    Code = 400,
+                    Msg = "服务器错误: " + ex.Message,
+                };
+
+
+            }
+        }
     }
 }

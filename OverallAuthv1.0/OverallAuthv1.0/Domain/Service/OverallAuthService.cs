@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OverallAuthDEMO.EFcore;
+using OverallAuthDEMO.EFcore.Model;
 using OverallAuthv1._0.Domain.IService;
 
 namespace OverallAuthv1._0.Domain.Service
@@ -19,37 +20,83 @@ namespace OverallAuthv1._0.Domain.Service
             using var transaction = await _dbcontext.Database.BeginTransactionAsync();
             try
             {
-                var role = await _dbcontext.Roles.FirstOrDefaultAsync(x => x.Name == roleName && x.IsDeleted == false && x.IsEnable);
-                // 一次性查询所有匹配的菜单项
-                var menus = _dbcontext.Menus
-                    .Where(x => menuIds.Contains(x.Id))  // 批量查询
-                    .AsNoTracking()                      // 禁用变更跟踪（仅读场景）
-                    .ToList();                           // 立即执行查询
+                var role = await _dbcontext.Roles
+                    .Include(r => r.Menus)  // 确保加载关联的菜单
+                    .FirstOrDefaultAsync(x => x.Name == roleName && x.IsDeleted == false && x.IsEnable);
 
-                role.Menus.Clear();     // 清除原有权限
-                role.Menus.AddRange(menus); // 批量添加新权限
+                if (role == null)
+                {
+                    await transaction.RollbackAsync();
+                    return (false, "角色不存在或已被禁用");
+                }
 
+                // 获取要移除的菜单
+                var menusToRemove = await _dbcontext.Menus
+                    .Where(x => x.IsDeleted == false && x.IsEnable)
+                    .ToListAsync();
+
+                // 批量移除（不在循环中保存）
+                foreach (var item in menusToRemove)
+                {
+                    role.Menus.Remove(item);
+                }
+
+                var addMenu = await _dbcontext.Menus
+                    .Where(x => x.IsDeleted == false && x.IsEnable && menuIds.Contains(x.Id))
+                    .ToListAsync();
+
+                role.Menus.AddRange(addMenu);
+
+                // 只保存一次
                 await _dbcontext.SaveChangesAsync();
                 await transaction.CommitAsync();
 
-                return (true, $"已成功分配 {menus.Count} 个菜单权限");
-            }
-            catch (DbUpdateException dbEx)
-            {
-                await transaction.RollbackAsync();
-                return (false, $"数据库更新错误: {dbEx.Message}");
-            }
-            catch (InvalidOperationException invOpEx)
-            {
-                await transaction.RollbackAsync();
-                return (false, $"操作错误: {invOpEx.Message}");
+                return (true, $"已成功分配 菜单权限");
             }
             catch (Exception ex)
             {
+                await transaction.RollbackAsync();
                 return (false, ex.Message);
             }
-          
 
+
+
+        }
+
+        public async Task<(bool success, string msg)> GiveUserRoleAsync(string roleName, string[] rolesName)
+        {
+            using var transaction = _dbcontext.Database.BeginTransaction();
+            try
+            {
+                var user = await _dbcontext.Users.FirstOrDefaultAsync(x => x.Name == roleName && !x.IsDeleted && x.IsEnable);
+                if (user == null)
+                {
+                    await transaction.RollbackAsync();
+                    return (false, "用户不存在或已被禁用");
+                }
+                // 获取要移除的角色
+                var rolesToRemove = await _dbcontext.Roles.Include(x => x.Users).Where(x => x.IsDeleted == false && x.IsEnable).ToListAsync();
+
+                foreach (var role in rolesToRemove)
+                {
+                    user.Roles.Remove(role);
+                }
+
+                var addRole = await _dbcontext.Roles.Where(x =>  x.IsDeleted == false && x.IsEnable && rolesName.Contains(x.Name)).ToListAsync();
+
+                user.Roles.AddRange(addRole);
+
+                // 只保存一次
+                await _dbcontext.SaveChangesAsync();
+                await transaction.CommitAsync();
+
+                return (true, $"已成功分配角色");
+            }
+            catch (Exception ex)
+            {
+                await transaction.RollbackAsync();
+                return (false, ex.Message);
+            }
         }
     }
 }

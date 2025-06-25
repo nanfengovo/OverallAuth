@@ -47,7 +47,17 @@ namespace OverallAuthv1._0.Domain.Service
             }
         }
 
+        public async Task<bool> UserIsexistAsync(string userName)
+        {
+            var exist = await _dbcontext.Users.FirstOrDefaultAsync(u => u.Name == userName && u.IsEnable && !u.IsDeleted);
+            return exist != null;
+        }
 
 
+        public async Task<User> GetUserByNameAsync(string userName)
+        {
+            var exist = await _dbcontext.Users.FirstOrDefaultAsync(u => u.Name == userName && u.IsEnable && !u.IsDeleted);
+            return exist;
+        }
     }
 }

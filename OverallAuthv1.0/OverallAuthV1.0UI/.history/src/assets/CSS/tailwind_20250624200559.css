@@ -1,0 +1,3 @@
+@tailwind base; /* 基础样式重置 */
+@tailwind components; /* 组件类 */
+@tailwind utilities; /* 工具类 */

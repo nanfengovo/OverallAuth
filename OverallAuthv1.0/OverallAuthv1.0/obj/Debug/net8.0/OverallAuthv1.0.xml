@@ -27,6 +27,30 @@
             OverallAuth Controller 1、给角色分配菜单 2、给用户分配角色
             </summary>
         </member>
+        <member name="M:OverallAuthv1._0.Controllers.OverallAuthController.Login(System.String,System.String)">
+            <summary>
+            登录
+            </summary>
+            <param name="userName"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OverallAuthv1._0.Controllers.OverallAuthController.GiveRoleMenu(System.String,System.Int32[])">
+            <summary>
+            给角色分配菜单
+            </summary>
+            <param name="roleName"></param>
+            <param name="menuIds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OverallAuthv1._0.Controllers.OverallAuthController.GiveUserRole(System.String,System.String[])">
+            <summary>
+            给用户分配角色
+            </summary>
+            <param name="userName"></param>
+            <param name="roleName"></param>
+            <returns></returns>
+        </member>
         <member name="T:OverallAuthv1._0.Controllers.RoleController">
             <summary>
             Role Controller
@@ -159,6 +183,28 @@
             <param name="menus"></param>
             <returns></returns>
         </member>
+        <member name="M:OverallAuthv1._0.Domain.IService.IMenuService.GetMenuByRoleAsync(System.String)">
+            <summary>
+            获取某个用户拥有的菜单
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OverallAuthv1._0.Domain.IService.IOverallAuthService.GiveRoleMenuAsync(System.String,System.Int32[])">
+            <summary>
+            给角色分配菜单
+            </summary>
+            <param name="roleName"></param>
+            <param name="menuIds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OverallAuthv1._0.Domain.IService.IOverallAuthService.GiveUserRoleAsync(System.String,System.String[])">
+            <summary>
+            给用户分配角色
+            </summary>
+            <param name="roleName"></param>
+            <param name="roles"></param>
+            <returns></returns>
+        </member>
         <member name="M:OverallAuthv1._0.Domain.IService.IRoleService.AddRoleAsync(OverallAuthv1._0.Domain.DTO.AddRole)">
             <summary>
             add role
@@ -177,6 +223,20 @@
             <summary>
             add user
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OverallAuthv1._0.Domain.IService.IUserService.UserIsexistAsync(System.String)">
+            <summary>
+            验证是否存在
+            </summary>
+            <param name="userName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OverallAuthv1._0.Domain.IService.IUserService.GetUserByNameAsync(System.String)">
+            <summary>
+            根据用户名获取用户信息
+            </summary>
+            <param name="userName"></param>
             <returns></returns>
         </member>
         <member name="P:OverallAuthv1._0.EFcore.Model.CommomModel.Describe">
