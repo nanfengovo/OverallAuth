@@ -15,7 +15,8 @@
 admin 拥有拥有全部的菜单
 ![image](https://github.com/user-attachments/assets/ddfcc888-e4a9-43e7-a0af-3973327d3b45)
 test 用户只拥有仪表盘的权限
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/bb61e116-94f3-4b1f-9dcc-4b5567eb2729)
+
 
 
 
