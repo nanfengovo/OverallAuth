@@ -39,6 +39,6 @@ import Header from './Header-Page.vue';
 
 .footer {
     background-color: #e9eef3;
-    height: 60px;
+    height: auto;
 }
 </style>

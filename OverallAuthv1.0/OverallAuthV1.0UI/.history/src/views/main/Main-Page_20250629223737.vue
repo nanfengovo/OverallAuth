@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted } from 'vue';
 import * as echarts from 'echarts';
 import axios from 'axios';
 
@@ -10,38 +10,9 @@ const menuChartRef = ref<HTMLDivElement>();
 const relationChartRef = ref<HTMLDivElement>();
 
 // Data
-interface Role {
-    name: string;
-    menusName: string[];
-    isEnable: boolean;
-    describe?: string;
-    createTime?: string;
-    updateTime?: string;
-}
-
-interface MenuItem {
-    id: number;
-    name: string;
-    icon: string;
-    url: string;
-    roles: string[];
-    children?: MenuItem[];
-    isEnable: boolean;
-}
-
-interface UserStat {
-    name: string;
-    value: number;
-}
-
-const userStats = ref<UserStat[]>([
-    { name: '管理员', value: 1048 },
-    { name: '普通用户', value: 735 },
-    { name: '访客', value: 580 }
-]);
-
-const roleData = ref<Role[]>([]);
-const menuData = ref<MenuItem[]>([]);
+const userData = ref<any[]>([]);
+const roleData = ref<any[]>([]);
+const menuData = ref<any[]>([]);
 
 // Fetch all data
 const fetchData = async () => {
@@ -96,10 +67,14 @@ const initUserChart = () => {
                 label: { show: true, fontSize: 18, fontWeight: 'bold' }
             },
             labelLine: { show: false },
-            data: userStats.value,
+            data: [
+                { value: 1048, name: '管理员' },
+                { value: 735, name: '普通用户' },
+                { value: 580, name: '访客' }
+            ],
             animationType: 'scale',
             animationEasing: 'elasticOut',
-            animationDelay: function () {
+            animationDelay: function (idx: number) {
                 return Math.random() * 200;
             }
         }]
@@ -110,8 +85,8 @@ const initUserChart = () => {
 const initRoleChart = () => {
     if (!roleChartRef.value || !roleData.value.length) return;
     const chart = echarts.init(roleChartRef.value);
-    const enabledCount = roleData.value.filter(r => r.isEnable).length;
-    const disabledCount = roleData.value.filter(r => !r.isEnable).length;
+    const enabledCount = roleData.value.filter((r: any) => r.isEnable).length;
+    const disabledCount = roleData.value.filter((r: any) => !r.isEnable).length;
 
     chart.setOption({
         title: { text: '角色状态分布', left: 'center' },
@@ -135,7 +110,7 @@ const initRoleChart = () => {
             },
             animationType: 'scale',
             animationEasing: 'elasticOut',
-            animationDelay: function () {
+            animationDelay: function (idx: number) {
                 return Math.random() * 200;
             }
         }]
@@ -147,12 +122,12 @@ const initMenuChart = () => {
     if (!menuChartRef.value || !menuData.value.length) return;
     const chart = echarts.init(menuChartRef.value);
 
-    const convertToTreeData = (menus: MenuItem[]) => {
+    const convertToTreeData = (menus: any[]) => {
         return {
             name: '菜单结构',
             children: menus.map(menu => ({
                 name: menu.name,
-                children: menu.children?.map(child => ({
+                children: menu.children?.map((child: any) => ({
                     name: child.name,
                     itemStyle: { color: child.isEnable ? '#67C23A' : '#F56C6C' }
                 })) || [],
@@ -196,14 +171,14 @@ const initRelationChart = () => {
     const chart = echarts.init(relationChartRef.value);
 
     const nodes = [
-        ...roleData.value.map(role => ({
+        ...roleData.value.map((role: any) => ({
             id: role.name,
             name: role.name,
             symbolSize: 30,
             category: 0,
             itemStyle: { color: role.isEnable ? '#67C23A' : '#F56C6C' }
         })),
-        ...menuData.value.map(menu => ({
+        ...menuData.value.map((menu: any) => ({
             id: menu.name,
             name: menu.name,
             symbolSize: 20,
@@ -212,7 +187,7 @@ const initRelationChart = () => {
         }))
     ];
 
-    const links = roleData.value.flatMap(role =>
+    const links = roleData.value.flatMap((role: any) =>
         role.menusName?.map((menuName: string) => ({
             source: role.name,
             target: menuName
@@ -264,19 +239,10 @@ const initRelationChart = () => {
 
 onMounted(() => {
     fetchData();
-    const handleResize = () => {
+    window.addEventListener('resize', () => {
         [userChartRef, roleChartRef, menuChartRef, relationChartRef].forEach(ref => {
-            if (ref.value) {
-                const instance = echarts.getInstanceByDom(ref.value);
-                instance?.resize();
-            }
+            ref.value && echarts.getInstanceByDom(ref.value)?.resize();
         });
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    onUnmounted(() => {
-        window.removeEventListener('resize', handleResize);
     });
 });
 </script>
@@ -327,4 +293,5 @@ onMounted(() => {
     height: 100%;
     min-height: 300px;
 }
+</style>
 </style>

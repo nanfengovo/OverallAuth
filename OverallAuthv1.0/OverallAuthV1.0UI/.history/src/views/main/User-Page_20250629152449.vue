@@ -192,6 +192,6 @@ const fetchUserData = async () => {
 }
 
 .content {
-    min-height: 450px;
+    min-height: 45%0px;
 }
 </style>

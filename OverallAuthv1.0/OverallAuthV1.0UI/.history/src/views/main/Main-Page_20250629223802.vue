@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted } from 'vue';
 import * as echarts from 'echarts';
 import axios from 'axios';
 
@@ -99,7 +99,7 @@ const initUserChart = () => {
             data: userStats.value,
             animationType: 'scale',
             animationEasing: 'elasticOut',
-            animationDelay: function () {
+            animationDelay: function (idx: number) {
                 return Math.random() * 200;
             }
         }]
@@ -135,7 +135,7 @@ const initRoleChart = () => {
             },
             animationType: 'scale',
             animationEasing: 'elasticOut',
-            animationDelay: function () {
+            animationDelay: function (idx: number) {
                 return Math.random() * 200;
             }
         }]
@@ -327,4 +327,5 @@ onMounted(() => {
     height: 100%;
     min-height: 300px;
 }
+</style>
 </style>

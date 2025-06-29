@@ -1,15 +1,18 @@
 <template>
+    <div class="chart-container">
+        <div ref="roleChart" style="width: 100%; height: 300px;"></div>
+    </div>
     <el-card shadow="hover" class="search-card">
         <el-form label-width="80px" :model="searchForm" ref="formRef">
             <el-row :gutter="20" ref="formRef" justify="center">
                 <el-col :span="8">
-                    <el-form-item label="用户名:" prop="name">
-                        <el-input type="text" v-model="searchForm.name" placeholder="请输入需要查询的用户名:" />
+                    <el-form-item label="角色名:" prop="name">
+                        <el-input type="text" v-model="searchForm.role" placeholder="请输入需要查询的角色名:" />
                     </el-form-item>
                 </el-col>
                 <el-col :span="8">
-                    <el-form-item label="角色:" prop="role">
-                        <el-input type="text" v-model="searchForm.role" placeholder="请输入需要查询的角色:" />
+                    <el-form-item label="权限:" prop="Permissions">
+                        <el-input type="text" v-model="searchForm.Permissions" placeholder="请输入包含的权限查询:" />
                     </el-form-item>
                 </el-col>
                 <el-col :span="8">
@@ -23,13 +26,13 @@
             </el-row>
         </el-form>
     </el-card>
-    <div class="user-content">
+    <div class="role-content">
         <div class="content-top">
             <div class="title">
                 <el-button type="primary" icon="Refresh">刷新</el-button>
                 <el-button type="danger" icon="delete">删除</el-button>
             </div>
-            <el-button icon="Plus" type="primary">新增用户</el-button>
+            <el-button icon="Plus" type="primary">新增角色</el-button>
         </div>
         <div class="content">
             <el-scrollbar max-height="550px">
@@ -46,8 +49,8 @@
                             </el-button> -->
                         <!-- </template> -->
                     </el-table-column>
-                    <el-table-column align="center" prop="name" label="用户名" width="180" />
-                    <el-table-column align="center" prop="rolesName" label="角色" width="280" />
+                    <el-table-column align="center" prop="name" label="角色名" width="180" />
+                    <el-table-column align="center" prop="menusName" label="菜单" width="280" />
 
                     <el-table-column align="center" prop="describe" label="描述" width="180" />
                     <el-table-column align="center" prop="isEnable" label="是否启用" width="100">
@@ -71,15 +74,15 @@
     </div>
 </template>
 <script setup lang="ts">
-// import { ref } from 'vue'
+import * as echarts from 'echarts';
 import type { ElForm } from 'element-plus';
-import { onMounted } from 'vue';
 import { reactive, ref } from 'vue';
+import { onMounted } from 'vue';
 import axios from 'axios';
 
 const formRef = ref<InstanceType<typeof ElForm>>()
 const searchForm = reactive({
-    'name': '',
+    'Permissions': '',
     'role': ''
 })
 
@@ -88,86 +91,98 @@ function headleResetClick() {
     formRef.value?.resetFields();
 }
 
+const roleChart = ref<HTMLElement>();
+
 onMounted(() => {
-    fetchUserData();
+    fetchRoleData().then(() => {
+        initRoleChart();
+    });
 })
 
-interface User {
+function initRoleChart() {
+    if (!roleChart.value) return;
+
+    const chart = echarts.init(roleChart.value);
+    const enabledCount = data.value.filter(r => r.isEnable).length;
+    const disabledCount = data.value.filter(r => !r.isEnable).length;
+
+    chart.setOption({
+        title: {
+            text: '角色启用状态分布',
+            left: 'center'
+        },
+        tooltip: {
+            trigger: 'item'
+        },
+        legend: {
+            orient: 'vertical',
+            left: 'left'
+        },
+        series: [
+            {
+                name: '角色状态',
+                type: 'pie',
+                radius: '50%',
+                data: [
+                    { value: enabledCount, name: '已启用' },
+                    { value: disabledCount, name: '已禁用' }
+                ],
+                emphasis: {
+                    itemStyle: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        ]
+    });
+}
+
+interface Role {
     name: string;
-    rolesName: string[];
+    menusName: string[];
     describe?: string;
     isEnable: boolean;
     createTime?: string;
     updateTime?: string;
 }
 
-const data = ref<User[]>([]);
+const data = ref<Role[]>([]);
 
-const fetchUserData = async () => {
+const fetchRoleData = async () => {
     try {
-        const res = await axios.get("http://127.0.0.1:5141/api/OverallAuth/GetAllUser");
+        const res = await axios.get("http://127.0.0.1:5141/api/OverallAuth/GetAllRole");
         if (res.data.code === 200) {
-            data.value = res.data.data.map((item: User) => ({
+            data.value = res.data.data.map((item: Role) => ({
                 name: item.name,
-                rolesName: item.rolesName,
+                menusName: item.menusName,
                 describe: item.describe || '',
                 isEnable: item.isEnable,
                 createTime: item.createTime,
                 updateTime: item.updateTime
             }));
         } else {
-            console.error('获取用户数据失败:', res.data.message);
+            console.error('获取角色数据失败:', res.data.message);
         }
     } catch (error) {
-        console.error('获取用户数据失败:', error);
+        console.error('获取角色数据失败:', error);
     }
 }
 
-// const data = [{
-//     name: '张三',
-//     role: '管理员'
-// },
-// {
-//     name: '李四',
-//     role: '管理员'
-// },
-// {
-//     name: '张三',
-//     role: '管理员'
-// },
-// {
-//     name: '李四',
-//     role: '管理员'
-// },
-// {
-//     name: '张三',
-//     role: '管理员'
-// },
-// {
-//     name: '李四',
-//     role: '管理员'
-// },
-// {
-//     name: '张三',
-//     role: '管理员'
-// },
-// {
-//     name: '李四',
-//     role: '管理员'
-// },
-// {
-//     name: '张三',
-//     role: '管理员'
-// }
-// ]
+
+
 </script>
 
 <style lang="less" scoped>
-.search-card {
+.chart-container {
+    background: #fff;
     border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
 }
 
-.user-content {
+.role-content {
     margin-top: 20px;
     background-color: #fff;
     border-radius: 20px;
@@ -193,5 +208,9 @@ const fetchUserData = async () => {
 
 .content {
     min-height: 450px;
+}
+
+.search-card {
+    border-radius: 20px;
 }
 </style>
