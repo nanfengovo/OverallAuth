@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using OverallAuthDEMO.EFcore.Model;
 using OverallAuthv1._0.Domain.IService;
+using OverallAuthv1._0.Domain.Service;
 
 namespace OverallAuthv1._0.Controllers
 {
@@ -184,6 +186,89 @@ namespace OverallAuthv1._0.Controllers
                         Data = null
                     };
                 }
+            }
+        }
+
+
+        /// <summary>
+        /// 获取所有的角色
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<Result> GetAllRole()
+        {
+            try
+            {
+                var result = await _overallAuthService.GetAllRoleAsync();
+                if (result.success)
+                {
+                    return new Result
+                    {
+                        Code = 200,
+                        Msg = "获取成功",
+                        Data = result.roles
+                    };
+                }
+                else
+                {
+                    return new Result
+                    {
+                        Code = 500,
+                        Msg = "获取失败",
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return new Result
+                {
+                    Code = 500,
+                    Msg = "获取失败"+ex.Message,
+                };
+            }
+
+            
+        }
+
+        /// <summary>
+        /// 获取所有的用户
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<Result> GetAllUser()
+        {
+            try
+            {
+                var result = await _overallAuthService.GetAllUserAsync();
+                if (result.success)
+                {
+                    return new Result
+                    {
+                        Code = 200,
+                        Msg = "获取成功",
+                        Data = result.user
+                    };
+                }
+                else
+                {
+                    return new Result 
+                    {
+                        Code = 500,
+                        Msg = "获取失败: " + result.Msg,
+                        Data = null
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return new Result
+                {
+                    Code = 500,
+                    Msg = "获取失败；服务端发生异常：" + ex.Message,
+                    Data = null
+                };
             }
         }
 

@@ -115,6 +115,12 @@ namespace OverallAuthv1._0.Controllers
         }
 
 
+        /// <summary>
+        /// 根据角色获取菜单
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns></returns>
+
         [HttpGet]
         public async Task<Result> GetMenuByRole(string userName)
         {

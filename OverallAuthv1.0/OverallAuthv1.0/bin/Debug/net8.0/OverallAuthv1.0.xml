@@ -22,6 +22,13 @@
             <param name="menus"></param>
             <returns></returns>
         </member>
+        <member name="M:OverallAuthv1._0.Controllers.MenuController.GetMenuByRole(System.String)">
+            <summary>
+            根据角色获取菜单
+            </summary>
+            <param name="userName"></param>
+            <returns></returns>
+        </member>
         <member name="T:OverallAuthv1._0.Controllers.OverallAuthController">
             <summary>
             OverallAuth Controller 1、给角色分配菜单 2、给用户分配角色
@@ -49,6 +56,18 @@
             </summary>
             <param name="userName"></param>
             <param name="roleName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OverallAuthv1._0.Controllers.OverallAuthController.GetAllRole">
+            <summary>
+            获取所有的角色
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OverallAuthv1._0.Controllers.OverallAuthController.GetAllUser">
+            <summary>
+            获取所有的用户
+            </summary>
             <returns></returns>
         </member>
         <member name="T:OverallAuthv1._0.Controllers.RoleController">
@@ -165,6 +184,66 @@
             最后更新时间
             </summary>
         </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.RoleInfoDTO.Name">
+            <summary>
+            角色名
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.RoleInfoDTO.Describe">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.RoleInfoDTO.menusName">
+            <summary>
+            拥有的菜单
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.RoleInfoDTO.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.RoleInfoDTO.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.RoleInfoDTO.UpdateTime">
+            <summary>
+            最后更新时间
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.UserInfoDTO.Name">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.UserInfoDTO.RolesName">
+            <summary>
+            该用户拥有的角色列表
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.UserInfoDTO.Describe">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.UserInfoDTO.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.UserInfoDTO.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.UserInfoDTO.UpdateTime">
+            <summary>
+            最后更新时间
+            </summary>
+        </member>
         <member name="T:OverallAuthv1._0.Domain.IService.IMenuService">
             <summary>
             菜单服务接口
@@ -203,6 +282,18 @@
             </summary>
             <param name="roleName"></param>
             <param name="roles"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OverallAuthv1._0.Domain.IService.IOverallAuthService.GetAllRoleAsync">
+            <summary>
+            获取所有角色
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OverallAuthv1._0.Domain.IService.IOverallAuthService.GetAllUserAsync">
+            <summary>
+            获取所有的用户
+            </summary>
             <returns></returns>
         </member>
         <member name="M:OverallAuthv1._0.Domain.IService.IRoleService.AddRoleAsync(OverallAuthv1._0.Domain.DTO.AddRole)">

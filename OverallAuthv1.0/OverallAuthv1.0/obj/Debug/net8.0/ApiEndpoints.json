@@ -73,6 +73,46 @@
   },
   {
     "ContainingType": "OverallAuthv1._0.Controllers.OverallAuthController",
+    "Method": "GetAllRole",
+    "RelativePath": "api/OverallAuth/GetAllRole",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "OverallAuthv1._0.Result",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "OverallAuthv1._0.Controllers.OverallAuthController",
+    "Method": "GetAllUser",
+    "RelativePath": "api/OverallAuth/GetAllUser",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "OverallAuthv1._0.Result",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "OverallAuthv1._0.Controllers.OverallAuthController",
     "Method": "GiveRoleMenu",
     "RelativePath": "api/OverallAuth/GiveRoleMenu",
     "HttpMethod": "POST",

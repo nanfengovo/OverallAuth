@@ -1,5 +1,6 @@
 ﻿
 using OverallAuthDEMO.EFcore.Model;
+using OverallAuthv1._0.Domain.DTO;
 
 namespace OverallAuthv1._0.Domain.IService
 {
@@ -21,6 +22,17 @@ namespace OverallAuthv1._0.Domain.IService
         /// <returns></returns>
         Task<(bool success, string msg)> GiveUserRoleAsync(string roleName, string[] rolesName);
 
+        /// <summary>
+        /// 获取所有角色
+        /// </summary>
+        /// <returns></returns>
+        Task<(bool success, List<RoleInfoDTO> roles)> GetAllRoleAsync();
 
+
+        /// <summary>
+        /// 获取所有的用户
+        /// </summary>
+        /// <returns></returns>
+        Task<(bool success, List<UserInfoDTO> user, string Msg)> GetAllUserAsync();
     }
 }

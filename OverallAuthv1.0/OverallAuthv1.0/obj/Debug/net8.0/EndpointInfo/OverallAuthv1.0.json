@@ -90,10 +90,12 @@
         "tags": [
           "Menu"
         ],
+        "summary": "根据角色获取菜单",
         "parameters": [
           {
             "name": "userName",
             "in": "query",
+            "description": "",
             "schema": {
               "type": "string"
             }
@@ -287,6 +289,66 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/OverallAuth/GetAllRole": {
+      "get": {
+        "tags": [
+          "OverallAuth"
+        ],
+        "summary": "获取所有的角色",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/OverallAuth/GetAllUser": {
+      "get": {
+        "tags": [
+          "OverallAuth"
+        ],
+        "summary": "获取所有的用户",
         "responses": {
           "200": {
             "description": "OK",
