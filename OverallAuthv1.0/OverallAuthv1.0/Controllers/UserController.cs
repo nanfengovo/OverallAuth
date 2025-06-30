@@ -8,7 +8,7 @@ namespace OverallAuthv1._0.Controllers
     /// <summary>
     /// User Controller
     /// </summary>
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class UserController : ControllerBase
     {

@@ -233,7 +233,7 @@
   {
     "ContainingType": "OverallAuthv1._0.Controllers.UserController",
     "Method": "AddUser",
-    "RelativePath": "api/User",
+    "RelativePath": "api/User/AddUser",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

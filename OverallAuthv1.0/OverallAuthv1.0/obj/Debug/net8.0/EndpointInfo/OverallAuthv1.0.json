@@ -423,7 +423,7 @@
         }
       }
     },
-    "/api/User": {
+    "/api/User/AddUser": {
       "post": {
         "tags": [
           "User"

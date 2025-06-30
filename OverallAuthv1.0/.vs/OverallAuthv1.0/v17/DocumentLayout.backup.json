@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "E:\\Code\\\u9879\u76EE--\u5B66\u4E60\\OverallAuth\\OverallAuth\\OverallAuthv1.0\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|e:\\code\\\u9879\u76EE--\u5B66\u4E60\\overallauth\\overallauth\\overallauthv1.0\\overallauthv1.0\\controllers\\menucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|solutionrelative:overallauthv1.0\\controllers\\menucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|e:\\code\\\u9879\u76EE--\u5B66\u4E60\\overallauth\\overallauth\\overallauthv1.0\\overallauthv1.0\\domain\\dto\\roleinfodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|solutionrelative:overallauthv1.0\\domain\\dto\\roleinfodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|e:\\code\\\u9879\u76EE--\u5B66\u4E60\\overallauth\\overallauth\\overallauthv1.0\\overallauthv1.0\\domain\\service\\overallauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|solutionrelative:overallauthv1.0\\domain\\service\\overallauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -27,20 +35,12 @@
       "RelativeMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|solutionrelative:overallauthv1.0\\domain\\iservice\\imenuservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|e:\\code\\\u9879\u76EE--\u5B66\u4E60\\overallauth\\overallauth\\overallauthv1.0\\overallauthv1.0\\controllers\\menucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|solutionrelative:overallauthv1.0\\controllers\\menucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|e:\\code\\\u9879\u76EE--\u5B66\u4E60\\overallauth\\overallauth\\overallauthv1.0\\overallauthv1.0\\domain\\dto\\addmenudto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|solutionrelative:overallauthv1.0\\domain\\dto\\addmenudto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|e:\\code\\\u9879\u76EE--\u5B66\u4E60\\overallauth\\overallauth\\overallauthv1.0\\overallauthv1.0\\domain\\service\\roleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|solutionrelative:overallauthv1.0\\domain\\service\\roleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|e:\\code\\\u9879\u76EE--\u5B66\u4E60\\overallauth\\overallauth\\overallauthv1.0\\overallauthv1.0\\domain\\dto\\roleinfodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|solutionrelative:overallauthv1.0\\domain\\dto\\roleinfodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CDE0FFC0-C3A2-4E16-8148-30EDB1009EEC}|OverallAuthv1.0\\OverallAuthv1.0.csproj|e:\\code\\\u9879\u76EE--\u5B66\u4E60\\overallauth\\overallauth\\overallauthv1.0\\overallauthv1.0\\controllers\\overallauthcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -134,7 +134,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 13,
           "Children": [
             {
               "$type": "Bookmark",
@@ -158,33 +158,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "MenuService.cs",
-              "DocumentMoniker": "E:\\Code\\\u9879\u76EE--\u5B66\u4E60\\OverallAuth\\OverallAuth\\OverallAuthv1.0\\OverallAuthv1.0\\Domain\\Service\\MenuService.cs",
-              "RelativeDocumentMoniker": "OverallAuthv1.0\\Domain\\Service\\MenuService.cs",
-              "ToolTip": "E:\\Code\\\u9879\u76EE--\u5B66\u4E60\\OverallAuth\\OverallAuth\\OverallAuthv1.0\\OverallAuthv1.0\\Domain\\Service\\MenuService.cs",
-              "RelativeToolTip": "OverallAuthv1.0\\Domain\\Service\\MenuService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-20T12:34:46.125Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UserInfoDTO.cs",
-              "DocumentMoniker": "E:\\Code\\\u9879\u76EE--\u5B66\u4E60\\OverallAuth\\OverallAuth\\OverallAuthv1.0\\OverallAuthv1.0\\Domain\\DTO\\UserInfoDTO.cs",
-              "RelativeDocumentMoniker": "OverallAuthv1.0\\Domain\\DTO\\UserInfoDTO.cs",
-              "ToolTip": "E:\\Code\\\u9879\u76EE--\u5B66\u4E60\\OverallAuth\\OverallAuth\\OverallAuthv1.0\\OverallAuthv1.0\\Domain\\DTO\\UserInfoDTO.cs",
-              "RelativeToolTip": "OverallAuthv1.0\\Domain\\DTO\\UserInfoDTO.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAgwCMAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-29T02:28:57.523Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "RoleService.cs",
               "DocumentMoniker": "E:\\Code\\\u9879\u76EE--\u5B66\u4E60\\OverallAuth\\OverallAuth\\OverallAuthv1.0\\OverallAuthv1.0\\Domain\\Service\\RoleService.cs",
               "RelativeDocumentMoniker": "OverallAuthv1.0\\Domain\\Service\\RoleService.cs",
@@ -197,20 +171,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "OverallAuthService.cs",
               "DocumentMoniker": "E:\\Code\\\u9879\u76EE--\u5B66\u4E60\\OverallAuth\\OverallAuth\\OverallAuthv1.0\\OverallAuthv1.0\\Domain\\Service\\OverallAuthService.cs",
               "RelativeDocumentMoniker": "OverallAuthv1.0\\Domain\\Service\\OverallAuthService.cs",
               "ToolTip": "E:\\Code\\\u9879\u76EE--\u5B66\u4E60\\OverallAuth\\OverallAuth\\OverallAuthv1.0\\OverallAuthv1.0\\Domain\\Service\\OverallAuthService.cs",
               "RelativeToolTip": "OverallAuthv1.0\\Domain\\Service\\OverallAuthService.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAxwEcAAABuAAAAAAAAAA==",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAqwGsAAABTAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-20T12:35:03.124Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "AddMenuDTO.cs",
               "DocumentMoniker": "E:\\Code\\\u9879\u76EE--\u5B66\u4E60\\OverallAuth\\OverallAuth\\OverallAuthv1.0\\OverallAuthv1.0\\Domain\\DTO\\AddMenuDTO.cs",
               "RelativeDocumentMoniker": "OverallAuthv1.0\\Domain\\DTO\\AddMenuDTO.cs",
@@ -223,7 +197,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "IMenuService.cs",
               "DocumentMoniker": "E:\\Code\\\u9879\u76EE--\u5B66\u4E60\\OverallAuth\\OverallAuth\\OverallAuthv1.0\\OverallAuthv1.0\\Domain\\IService\\IMenuService.cs",
               "RelativeDocumentMoniker": "OverallAuthv1.0\\Domain\\IService\\IMenuService.cs",
@@ -249,7 +223,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "IRoleService.cs",
               "DocumentMoniker": "E:\\Code\\\u9879\u76EE--\u5B66\u4E60\\OverallAuth\\OverallAuth\\OverallAuthv1.0\\OverallAuthv1.0\\Domain\\IService\\IRoleService.cs",
               "RelativeDocumentMoniker": "OverallAuthv1.0\\Domain\\IService\\IRoleService.cs",
@@ -262,7 +236,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "AddRole.cs",
               "DocumentMoniker": "E:\\Code\\\u9879\u76EE--\u5B66\u4E60\\OverallAuth\\OverallAuth\\OverallAuthv1.0\\OverallAuthv1.0\\Domain\\DTO\\AddRole.cs",
               "RelativeDocumentMoniker": "OverallAuthv1.0\\Domain\\DTO\\AddRole.cs",
@@ -275,15 +249,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
+              "Title": "RoleInfoDTO.cs",
+              "DocumentMoniker": "E:\\Code\\\u9879\u76EE--\u5B66\u4E60\\OverallAuth\\OverallAuth\\OverallAuthv1.0\\OverallAuthv1.0\\Domain\\DTO\\RoleInfoDTO.cs",
+              "RelativeDocumentMoniker": "OverallAuthv1.0\\Domain\\DTO\\RoleInfoDTO.cs",
+              "ToolTip": "E:\\Code\\\u9879\u76EE--\u5B66\u4E60\\OverallAuth\\OverallAuth\\OverallAuthv1.0\\OverallAuthv1.0\\Domain\\DTO\\RoleInfoDTO.cs",
+              "RelativeToolTip": "OverallAuthv1.0\\Domain\\DTO\\RoleInfoDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-29T02:19:25.697Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "MenuController.cs",
               "DocumentMoniker": "E:\\Code\\\u9879\u76EE--\u5B66\u4E60\\OverallAuth\\OverallAuth\\OverallAuthv1.0\\OverallAuthv1.0\\Controllers\\MenuController.cs",
               "RelativeDocumentMoniker": "OverallAuthv1.0\\Controllers\\MenuController.cs",
               "ToolTip": "E:\\Code\\\u9879\u76EE--\u5B66\u4E60\\OverallAuth\\OverallAuth\\OverallAuthv1.0\\OverallAuthv1.0\\Controllers\\MenuController.cs",
               "RelativeToolTip": "OverallAuthv1.0\\Controllers\\MenuController.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAgwB4AAAA/AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-20T07:24:33.095Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserInfoDTO.cs",
+              "DocumentMoniker": "E:\\Code\\\u9879\u76EE--\u5B66\u4E60\\OverallAuth\\OverallAuth\\OverallAuthv1.0\\OverallAuthv1.0\\Domain\\DTO\\UserInfoDTO.cs",
+              "RelativeDocumentMoniker": "OverallAuthv1.0\\Domain\\DTO\\UserInfoDTO.cs",
+              "ToolTip": "E:\\Code\\\u9879\u76EE--\u5B66\u4E60\\OverallAuth\\OverallAuth\\OverallAuthv1.0\\OverallAuthv1.0\\Domain\\DTO\\UserInfoDTO.cs",
+              "RelativeToolTip": "OverallAuthv1.0\\Domain\\DTO\\UserInfoDTO.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwCMAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-29T02:28:57.523Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MenuService.cs",
+              "DocumentMoniker": "E:\\Code\\\u9879\u76EE--\u5B66\u4E60\\OverallAuth\\OverallAuth\\OverallAuthv1.0\\OverallAuthv1.0\\Domain\\Service\\MenuService.cs",
+              "RelativeDocumentMoniker": "OverallAuthv1.0\\Domain\\Service\\MenuService.cs",
+              "ToolTip": "E:\\Code\\\u9879\u76EE--\u5B66\u4E60\\OverallAuth\\OverallAuth\\OverallAuthv1.0\\OverallAuthv1.0\\Domain\\Service\\MenuService.cs",
+              "RelativeToolTip": "OverallAuthv1.0\\Domain\\Service\\MenuService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T12:34:46.125Z",
               "EditorCaption": ""
             },
             {
@@ -310,19 +323,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAkAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-20T07:05:36.346Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "RoleInfoDTO.cs",
-              "DocumentMoniker": "E:\\Code\\\u9879\u76EE--\u5B66\u4E60\\OverallAuth\\OverallAuth\\OverallAuthv1.0\\OverallAuthv1.0\\Domain\\DTO\\RoleInfoDTO.cs",
-              "RelativeDocumentMoniker": "OverallAuthv1.0\\Domain\\DTO\\RoleInfoDTO.cs",
-              "ToolTip": "E:\\Code\\\u9879\u76EE--\u5B66\u4E60\\OverallAuth\\OverallAuth\\OverallAuthv1.0\\OverallAuthv1.0\\Domain\\DTO\\RoleInfoDTO.cs",
-              "RelativeToolTip": "OverallAuthv1.0\\Domain\\DTO\\RoleInfoDTO.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAQwCEAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-29T02:19:25.697Z",
               "EditorCaption": ""
             },
             {
