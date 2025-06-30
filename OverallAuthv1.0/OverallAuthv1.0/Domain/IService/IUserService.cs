@@ -25,5 +25,7 @@ namespace OverallAuthv1._0.Domain.IService
         /// <returns></returns>
 
         Task<User> GetUserByNameAsync(string userName);
+
+
     }
 }

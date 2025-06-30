@@ -37,6 +37,7 @@
 
                     <el-table-column align="center" type="selection" width="40px" />
                     <el-table-column align="center" type="index" label="序号" width="60px" />
+                    <el-table-column align="center" prop="id" label="id" width="60px" />
                     <el-table-column align="center" label="操作" width="130">
                         <template #default="scope">
                             <el-button type="primary" size="small" text icon="Edit"
@@ -156,7 +157,7 @@ const EditForm = ref({
 const roles = ref([]);
 const title = ref('');
 const Editdialog = (row: any) => {
-    EditForm.value.id = row.index; // ✅ 关键：必须存入响应式对象中，否则无法双向绑定
+    EditForm.value.id = row.id; // ✅ 关键：必须存入响应式对象中，否则无法双向绑定
     EditForm.value.name = row.name;
     // EditForm.value.password = row.password;
     EditForm.value.describe = row.describe;
@@ -169,7 +170,7 @@ const Editdialog = (row: any) => {
     fetchRoleData().then(() => {
         // 过滤出已启用的角色
         roles.value = Roledata.value.filter(role => role.isEnable).map(role => ({
-            id: role.name, // 假设角色的唯一标识是name
+            id: role.id, // 假设角色的唯一标识是name
             name: role.name
         }));
     });

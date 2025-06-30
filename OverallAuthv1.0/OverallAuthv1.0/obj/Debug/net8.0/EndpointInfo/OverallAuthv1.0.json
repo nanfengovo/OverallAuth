@@ -343,6 +343,67 @@
         }
       }
     },
+    "/api/OverallAuth/EditUserInfo": {
+      "post": {
+        "tags": [
+          "OverallAuth"
+        ],
+        "summary": "编辑用户和给用户分配角色",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditUserInfoDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditUserInfoDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditUserInfoDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/OverallAuth/GetAllUser": {
       "get": {
         "tags": [
@@ -577,6 +638,34 @@
             "type": "string",
             "description": "最后更新时间",
             "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EditUserInfoDTO": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "用户名",
+            "nullable": true
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "该用户拥有的角色列表",
+            "nullable": true
+          },
+          "describe": {
+            "type": "string",
+            "description": "描述",
+            "nullable": true
+          },
+          "isEnable": {
+            "type": "boolean",
+            "description": "是否启用"
           }
         },
         "additionalProperties": false

@@ -37,6 +37,7 @@
 
                     <el-table-column align="center" type="selection" width="40px" />
                     <el-table-column align="center" type="index" label="序号" width="60px" />
+                    <el-table-column align="center" prop="id" label="id" width="60px" />
                     <el-table-column align="center" label="操作" width="130">
                         <template #default="scope">
                             <el-button type="primary" size="small" text icon="Edit"

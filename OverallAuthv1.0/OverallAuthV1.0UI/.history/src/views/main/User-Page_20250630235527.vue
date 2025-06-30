@@ -156,7 +156,7 @@ const EditForm = ref({
 const roles = ref([]);
 const title = ref('');
 const Editdialog = (row: any) => {
-    EditForm.value.id = row.index; // ✅ 关键：必须存入响应式对象中，否则无法双向绑定
+    EditForm.value.id = row.id; // ✅ 关键：必须存入响应式对象中，否则无法双向绑定
     EditForm.value.name = row.name;
     // EditForm.value.password = row.password;
     EditForm.value.describe = row.describe;
@@ -169,7 +169,7 @@ const Editdialog = (row: any) => {
     fetchRoleData().then(() => {
         // 过滤出已启用的角色
         roles.value = Roledata.value.filter(role => role.isEnable).map(role => ({
-            id: role.name, // 假设角色的唯一标识是name
+            id: role.id, // 假设角色的唯一标识是name
             name: role.name
         }));
     });
@@ -216,6 +216,7 @@ const Submit = async () => {
 
 //#region 获取角色数据
 interface Role {
+    id: number;
     name: string;
     menusName: string[];
     describe?: string;
@@ -231,6 +232,7 @@ const fetchRoleData = async () => {
         const res = await axios.get("http://127.0.0.1:5141/api/OverallAuth/GetAllRole");
         if (res.data.code === 200) {
             Roledata.value = res.data.data.map((item: Role) => ({
+                id: item.id, // 假设角色的唯一标识是id
                 name: item.name,
                 menusName: item.menusName,
                 describe: item.describe || '',

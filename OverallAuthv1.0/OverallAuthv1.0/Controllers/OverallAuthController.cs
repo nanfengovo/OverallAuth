@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using OverallAuthDEMO.EFcore.Model;
+using OverallAuthv1._0.Domain.DTO;
 using OverallAuthv1._0.Domain.IService;
 using OverallAuthv1._0.Domain.Service;
 
@@ -64,18 +65,6 @@ namespace OverallAuthv1._0.Controllers
                 };
             
         }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         /// <summary>
@@ -231,7 +220,56 @@ namespace OverallAuthv1._0.Controllers
             
         }
 
-
+        /// <summary>
+        /// 编辑用户和给用户分配角色
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="editUserInfo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<Result> EditUserInfo(int id, EditUserInfoDTO editUserInfo)
+        {
+            try
+            {
+                if (editUserInfo == null || string.IsNullOrEmpty(editUserInfo.Name))
+                {
+                    return new Result
+                    {
+                        Code = 400,
+                        Msg = "请求参数不能为空",
+                        Data = null
+                    };
+                }
+                var result = await _overallAuthService.EditUserInfoAsync(id,editUserInfo);
+                if (result.success)
+                {
+                    return new Result
+                    {
+                        Code = 200,
+                        Msg = "修改成功",
+                        Data = null
+                    };
+                }
+                else
+                {
+                    return new Result
+                    {
+                        Code = 500,
+                        Msg = "修改失败: " + result.msg,
+                        Data = null
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                return new Result
+                {
+                    Code = 500,
+                    Msg = "修改失败；服务端发生异常：" + ex.Message,
+                    Data = null
+                };
+            }
+        }
 
 
 

@@ -34,5 +34,11 @@ namespace OverallAuthv1._0.Domain.IService
         /// </summary>
         /// <returns></returns>
         Task<(bool success, List<UserInfoDTO> user, string Msg)> GetAllUserAsync();
+
+        /// <summary>
+        /// 编辑用户信息
+        /// </summary>
+        /// <returns></returns>
+        Task<(bool success, string msg)> EditUserInfoAsync(int id, EditUserInfoDTO editUserInfo);
     }
 }

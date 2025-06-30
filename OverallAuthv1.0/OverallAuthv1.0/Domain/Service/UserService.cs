@@ -59,5 +59,7 @@ namespace OverallAuthv1._0.Domain.Service
             var exist = await _dbcontext.Users.FirstOrDefaultAsync(u => u.Name == userName && u.IsEnable && !u.IsDeleted);
             return exist;
         }
+
+        
     }
 }

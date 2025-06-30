@@ -144,7 +144,6 @@ const EditdialogVisible = ref(false);
 
 // 定义编辑用户对话框表单数据
 const EditForm = ref({
-    id: 0, // 用户ID
     name: '',
     password: '',
     describe: '',
@@ -156,7 +155,6 @@ const EditForm = ref({
 const roles = ref([]);
 const title = ref('');
 const Editdialog = (row: any) => {
-    EditForm.value.id = row.index; // ✅ 关键：必须存入响应式对象中，否则无法双向绑定
     EditForm.value.name = row.name;
     // EditForm.value.password = row.password;
     EditForm.value.describe = row.describe;
@@ -164,7 +162,6 @@ const Editdialog = (row: any) => {
     EditForm.value.roles = row.rolesName; // 假设row中有rolesName字段
     EditdialogVisible.value = true;
     title.value = '编辑用户' + EditForm.value.name; // 设置对话框标题
-    console.log('编辑用户对话框所选的行:', row);
     // 获取角色列表
     fetchRoleData().then(() => {
         // 过滤出已启用的角色
@@ -173,12 +170,9 @@ const Editdialog = (row: any) => {
             name: role.name
         }));
     });
-
-
 }
 
 const Submit = async () => {
-    const id = EditForm.value.id; // 从响应式对象获取
     try {
         //数据合法性验证
         if (!EditForm.value.name) {
@@ -194,17 +188,9 @@ const Submit = async () => {
             roles: EditForm.value.roles // 传递角色数据
         },
             {
-                params: { id } // ✅ 通过 params 传递 id，自动拼接为 ?id=xxx [2,7](@ref)
+                params: { row.id } // ✅ 通过 params 传递 id，自动拼接为 ?id=xxx [2,7](@ref)
             }
         )
-        if (response.data.code === 200) {
-            ElMessage.success('编辑用户成功');
-            EditdialogVisible.value = false;
-            fetchUserData();
-        }
-        else {
-            ElMessage.error('编辑用户失败:', response.data.message);
-        }
     }
     catch (error: any) {
         ElMessage.error('编辑用户失败:', error);

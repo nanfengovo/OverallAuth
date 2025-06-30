@@ -10,9 +10,12 @@ namespace OverallAuthv1._0.Domain.Service
     {
         private readonly MyDbContext _dbcontext;
 
-        public OverallAuthService(MyDbContext dbcontext)
+        private readonly IUserService _userService;
+
+        public OverallAuthService(MyDbContext dbcontext, IUserService userService)
         {
             _dbcontext = dbcontext;
+            _userService = userService;
         }
 
         public async Task<(bool success, string msg)> GiveRoleMenuAsync(string roleName, int[] menuIds)
@@ -66,13 +69,13 @@ namespace OverallAuthv1._0.Domain.Service
 
         public async Task<(bool success, string msg)> GiveUserRoleAsync(string roleName, string[] rolesName)
         {
-            using var transaction = _dbcontext.Database.BeginTransaction();
+            //using var transaction = _dbcontext.Database.BeginTransaction();
             try
             {
                 var user = await _dbcontext.Users.FirstOrDefaultAsync(x => x.Name == roleName && !x.IsDeleted && x.IsEnable);
                 if (user == null)
                 {
-                    await transaction.RollbackAsync();
+                    //await transaction.RollbackAsync();
                     return (false, "用户不存在或已被禁用");
                 }
                 // 获取要移除的角色
@@ -89,13 +92,12 @@ namespace OverallAuthv1._0.Domain.Service
 
                 // 只保存一次
                 await _dbcontext.SaveChangesAsync();
-                await transaction.CommitAsync();
-
+                // await transaction.CommitAsync();
                 return (true, $"已成功分配角色");
             }
             catch (Exception ex)
             {
-                await transaction.RollbackAsync();
+                //await transaction.RollbackAsync();
                 return (false, ex.Message);
             }
         }
@@ -182,6 +184,71 @@ namespace OverallAuthv1._0.Domain.Service
             {
 
                 return (false, new List<UserInfoDTO>(), "查询失败"+ex.Message);
+            }
+        }
+
+        public async Task<(bool success, string msg)> EditUserInfoAsync(int id, EditUserInfoDTO editUserInfo)
+        {
+
+            // 开启事务
+            await using var transaction = await _dbcontext.Database.BeginTransactionAsync();
+            try
+            {
+                var exist = await _dbcontext.Users.FirstOrDefaultAsync(x => x.Id == id);
+                if (exist == null)
+                {
+                    return (false, "用户不存在");
+                }
+                else
+                {
+                    var isexist = await _dbcontext.Users.FirstOrDefaultAsync(x => x.Name == editUserInfo.Name && x.Id != id);
+                    if(isexist != null)
+                    {
+                        return (false, "用户名已存在");
+                    }
+                    else
+                    {
+                        exist.Name = editUserInfo.Name;
+                        exist.Describe = editUserInfo.Describe;
+                        exist.IsEnable = editUserInfo.IsEnable;
+                        exist.UpdateTime = DateTime.Now;
+                        await _dbcontext.SaveChangesAsync();
+
+                        string[] roles = [];
+                        List<string> roleslist = new List<string>(roles);
+                        foreach (var role in editUserInfo.Roles)
+                        {
+                            var roleExist = await _dbcontext.Roles.FirstOrDefaultAsync(x => x.Name == role && x.IsEnable && !x.IsDeleted);
+                            if (roleExist != null)
+                            {
+                                roleslist.Add(roleExist.Name);
+                            }
+                        }
+                        roles = roleslist.ToArray();
+
+                        #region 分配角色
+                        var result = await GiveUserRoleAsync(exist.Name, roles);
+                        #endregion
+                        if(result.success)
+                        {
+                            await transaction.CommitAsync(); // 提交事务
+                            return (true, "更新成功");
+                        }
+                        else
+                        {
+                            await transaction.RollbackAsync(); // 回滚事务
+                            return (false, "更新失败"+ result.msg);
+                        }
+
+                           
+                       
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                await transaction.RollbackAsync(); // 回滚事务
+                return (false, "服务端出现异常，异常信息为：" + ex.Message);
             }
         }
     }

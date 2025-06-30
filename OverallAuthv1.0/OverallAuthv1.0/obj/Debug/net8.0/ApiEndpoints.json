@@ -73,6 +73,37 @@
   },
   {
     "ContainingType": "OverallAuthv1._0.Controllers.OverallAuthController",
+    "Method": "EditUserInfo",
+    "RelativePath": "api/OverallAuth/EditUserInfo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "editUserInfo",
+        "Type": "OverallAuthv1._0.Domain.DTO.EditUserInfoDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "OverallAuthv1._0.Result",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "OverallAuthv1._0.Controllers.OverallAuthController",
     "Method": "GetAllRole",
     "RelativePath": "api/OverallAuth/GetAllRole",
     "HttpMethod": "GET",
