@@ -153,18 +153,15 @@ const EditForm = ref({
 });
 
 // 定义角色列表
-const id = ref(0);
 const roles = ref([]);
 const title = ref('');
 const Editdialog = (row: any) => {
-    //EditForm.value.id = row.id; // ✅ 关键：必须存入响应式对象中，否则无法双向绑定
+    EditForm.value.id = row.index; // ✅ 关键：必须存入响应式对象中，否则无法双向绑定
     EditForm.value.name = row.name;
     // EditForm.value.password = row.password;
-    // EditForm.value.describe = row.describe;
-    // EditForm.value.isEnable = row.isEnable;
-    // EditForm.value.roles = row.rolesName; // 假设row中有rolesName字段4
-    EditForm.value = { ...row };
-    id.value = row.id; // 获取用户ID
+    EditForm.value.describe = row.describe;
+    EditForm.value.isEnable = row.isEnable;
+    EditForm.value.roles = row.rolesName; // 假设row中有rolesName字段
     EditdialogVisible.value = true;
     title.value = '编辑用户' + EditForm.value.name; // 设置对话框标题
     console.log('编辑用户对话框所选的行:', row);
@@ -180,10 +177,8 @@ const Editdialog = (row: any) => {
 
 }
 
-const Submit = async () => {
-    console.log('提交编辑的用户数据:', EditForm);
-    // const id = EditForm.value.id; // 从响应式对象获取
-    const id = EditForm.value.id; // 直接获取值
+const Submit = async (EditForm: any) => {
+    const id = EditForm.value.id; // 从响应式对象获取
     try {
         //数据合法性验证
         if (!EditForm.value.name) {

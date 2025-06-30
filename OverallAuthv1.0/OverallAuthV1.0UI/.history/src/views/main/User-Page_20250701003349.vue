@@ -180,10 +180,9 @@ const Editdialog = (row: any) => {
 
 }
 
-const Submit = async () => {
+const Submit = async (EditForm: any) => {
     console.log('提交编辑的用户数据:', EditForm);
-    // const id = EditForm.value.id; // 从响应式对象获取
-    const id = EditForm.value.id; // 直接获取值
+    const id = EditForm.value.id; // 从响应式对象获取
     try {
         //数据合法性验证
         if (!EditForm.value.name) {

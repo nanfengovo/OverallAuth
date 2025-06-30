@@ -162,6 +162,7 @@ namespace OverallAuthv1._0.Domain.Service
                         .ToListAsync();
                     var userInfo = new UserInfoDTO
                     {
+                        Id = item.Id,
                         Name = item.Name,
                         Describe = item.Describe,
                         RolesName = userRoles.Select(x => x.Name).ToList(),

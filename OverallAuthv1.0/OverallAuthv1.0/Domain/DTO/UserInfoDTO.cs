@@ -7,6 +7,11 @@ namespace OverallAuthv1._0.Domain.DTO
         private List<string> _rolesName; // Fix CS0029: Change type to List<string>
 
         /// <summary>
+        /// 用户Id
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
         /// 用户名
         /// </summary>
         public string Name { get; set; }

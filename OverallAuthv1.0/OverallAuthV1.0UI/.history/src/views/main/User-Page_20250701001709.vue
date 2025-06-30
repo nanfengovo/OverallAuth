@@ -121,7 +121,7 @@
         <template #footer>
             <span class="dialog-footer">
                 <el-button @click="EditdialogVisible = false">取消</el-button>
-                <el-button type="primary" @click="Submit(EditForm)">确定</el-button>
+                <el-button type="primary" @click="Submit">确定</el-button>
             </span>
         </template>
     </el-dialog>
@@ -153,18 +153,15 @@ const EditForm = ref({
 });
 
 // 定义角色列表
-const id = ref(0);
 const roles = ref([]);
 const title = ref('');
 const Editdialog = (row: any) => {
-    //EditForm.value.id = row.id; // ✅ 关键：必须存入响应式对象中，否则无法双向绑定
+    EditForm.value.id = row.index; // ✅ 关键：必须存入响应式对象中，否则无法双向绑定
     EditForm.value.name = row.name;
     // EditForm.value.password = row.password;
-    // EditForm.value.describe = row.describe;
-    // EditForm.value.isEnable = row.isEnable;
-    // EditForm.value.roles = row.rolesName; // 假设row中有rolesName字段4
-    EditForm.value = { ...row };
-    id.value = row.id; // 获取用户ID
+    EditForm.value.describe = row.describe;
+    EditForm.value.isEnable = row.isEnable;
+    EditForm.value.roles = row.rolesName; // 假设row中有rolesName字段
     EditdialogVisible.value = true;
     title.value = '编辑用户' + EditForm.value.name; // 设置对话框标题
     console.log('编辑用户对话框所选的行:', row);
@@ -181,9 +178,7 @@ const Editdialog = (row: any) => {
 }
 
 const Submit = async () => {
-    console.log('提交编辑的用户数据:', EditForm);
-    // const id = EditForm.value.id; // 从响应式对象获取
-    const id = EditForm.value.id; // 直接获取值
+    const id = EditForm.value.id; // 从响应式对象获取
     try {
         //数据合法性验证
         if (!EditForm.value.name) {
@@ -191,16 +186,16 @@ const Submit = async () => {
             return;
         }
         // 发送 POST 请求到后端 API
-        const response = await axios.post("http://127.0.0.1:5141/api/OverallAuth/EditUserInfo?id=" + id, {
+        const response = await axios.post("http://127.0.0.1:5141/api/OverallAuth/EditUserInfo", {
             name: EditForm.value.name,
             pwd: EditForm.value.password,
             describe: EditForm.value.describe,
             isEnable: EditForm.value.isEnable,
             roles: EditForm.value.roles // 传递角色数据
         },
-            // {
-            //     params: { id } // ✅ 通过 params 传递 id，自动拼接为 ?id=xxx [2,7](@ref)
-            // }
+            {
+                params: { id } // ✅ 通过 params 传递 id，自动拼接为 ?id=xxx [2,7](@ref)
+            }
         )
         if (response.data.code === 200) {
             ElMessage.success('编辑用户成功');
