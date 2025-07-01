@@ -112,7 +112,7 @@
             </el-form-item>
             <el-form-item label="分配角色">
                 <!-- 动态加载已经存在且启用的角色 -->
-                <el-select v-model="Roledata1" multiple placeholder="请选择角色">
+                <el-select v-model="EditForm.roles" multiple placeholder="请选择角色">
                     <el-option v-for="role in roles" :key="role.id" :label="role.name" :value="role.id">
                     </el-option>
                 </el-select>
@@ -169,7 +169,6 @@ const EditForm = ref({
 });
 
 // 定义角色列表
-const Roledata1 = ref([]); // 用于存储角色数据
 const id = ref(0);
 const roles = ref([]);
 const title = ref('');
@@ -183,7 +182,6 @@ const Editdialog = (row: any) => {
     EditForm.value = { ...row };
     id.value = row.id; // 获取用户ID
     EditdialogVisible.value = true;
-    Roledata1.value = row.rolesName;
     title.value = '编辑用户' + EditForm.value.name; // 设置对话框标题
     console.log('编辑用户的角色信息:', row.rolesName);
     // 获取角色列表

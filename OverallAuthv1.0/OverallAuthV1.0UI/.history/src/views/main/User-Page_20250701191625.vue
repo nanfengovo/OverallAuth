@@ -112,7 +112,7 @@
             </el-form-item>
             <el-form-item label="分配角色">
                 <!-- 动态加载已经存在且启用的角色 -->
-                <el-select v-model="Roledata1" multiple placeholder="请选择角色">
+                <el-select v-model="EditForm.roles" multiple placeholder="请选择角色">
                     <el-option v-for="role in roles" :key="role.id" :label="role.name" :value="role.id">
                     </el-option>
                 </el-select>
@@ -169,28 +169,26 @@ const EditForm = ref({
 });
 
 // 定义角色列表
-const Roledata1 = ref([]); // 用于存储角色数据
 const id = ref(0);
 const roles = ref([]);
 const title = ref('');
 const Editdialog = (row: any) => {
     //EditForm.value.id = row.id; // ✅ 关键：必须存入响应式对象中，否则无法双向绑定
-    //EditForm.value.name = row.name;
+    EditForm.value.name = row.name;
     // EditForm.value.password = row.password;
     // EditForm.value.describe = row.describe;
     // EditForm.value.isEnable = row.isEnable;
-    //EditForm.value.roles = row.rolesName; // 假设row中有rolesName字段4
+    EditForm.value.roles = row.rolesName; // 假设row中有rolesName字段4
     EditForm.value = { ...row };
     id.value = row.id; // 获取用户ID
     EditdialogVisible.value = true;
-    Roledata1.value = row.rolesName;
     title.value = '编辑用户' + EditForm.value.name; // 设置对话框标题
-    console.log('编辑用户的角色信息:', row.rolesName);
+    console.log('编辑用户对话框所选的行:', row);
     // 获取角色列表
     fetchRoleData().then(() => {
         // 过滤出已启用的角色
         roles.value = Roledata.value.filter(role => role.isEnable).map(role => ({
-            id: role.name, // 假设角色的唯一标识是name
+            id: role.id, // 假设角色的唯一标识是name
             name: role.name
         }));
     });
