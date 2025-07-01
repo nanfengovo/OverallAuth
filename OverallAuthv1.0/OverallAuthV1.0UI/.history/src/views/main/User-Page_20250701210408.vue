@@ -145,35 +145,30 @@ const multipleTableRef = ref<InstanceType<typeof ElTable>>(); // 明确组件类
 const deleteUser = async () => {
     try {
         await ElMessageBox.confirm('确定删除选中项吗？', '警告', { type: 'warning' });
-        try {
-            if (!multipleTableRef.value) {
-                ElMessage.warning('表格未加载');
-                return;
-            }
-            // 获取选中的行
-            const selectedRows = multipleTableRef.value.getSelectionRows();
-            const ids = selectedRows.map((row: { id: any; }) => row.id);
-            const res = await axios.delete("http://127.0.0.1:5141/api/User/DeleteUser", { data: ids });
-            console.log(res.data);
-            if (res.data.code === 200) {
-                ElMessage.success('删除成功');
-                refresh();
-            } else {
-                ElMessage.error('删除失败');
-            }
-        }
-        catch (error) {
-            ElMessage.error('删除失败，系统异常，请稍后再试' + error);
+        if (!multipleTableRef.value) {
+            ElMessage.warning('表格未加载');
             return;
         }
-
-
+        // 获取选中的行
+        const selectedRows = multipleTableRef.value.getSelectionRows();
+        const ids = selectedRows.map((row: { id: any; }) => row.id);
+        const res = await axios.delete("http://127.0.0.1:5141/api/User/DeleteUser", { data: { ids } });
+        console.log(res.data);
+        if (res === null || res.data === null) {
+            ElMessage.error('删除失败，未获取到响应数据');
+            return;
+        }
+        if (res.data.code === 200) {
+            ElMessage.success('删除成功');
+            refresh();
+        } else {
+            ElMessage.error('删除失败');
+        }
     }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     catch (error) {
-        ElMessage.warning('删除失败，用户取消了操作');
+        return; // 用户取消操作
     }
-
 
 }
 

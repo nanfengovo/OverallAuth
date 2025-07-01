@@ -60,6 +60,23 @@ namespace OverallAuthv1._0.Domain.Service
             return exist;
         }
 
-        
+        public async Task<(bool success, string msg)> DeleteUsersAsync(int[] id)
+        {
+            var users = await _dbcontext.Users.Where(u => id.Contains(u.Id)&& !u.IsDeleted).ToListAsync();
+            if (users == null || users.Count == 0)
+            {
+                return (false, "用户不存在或已被删除");
+            }
+            else
+            {
+                foreach (var user in users)
+                {
+                    user.IsDeleted = true;
+                    user.UpdateTime = DateTime.Now;
+                }
+                await _dbcontext.SaveChangesAsync();
+                return (true, "删除成功");
+            }
+        }
     }
 }

@@ -82,5 +82,46 @@ namespace OverallAuthv1._0.Controllers
                 };
             }
         }
+
+
+
+        /// <summary>
+        /// 批量删除
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpDelete]
+        public async Task<Result> DeleteUser(int[] id)
+        {
+            try
+            {
+                var result = await _userService.DeleteUsersAsync(id);
+                if(result.success)
+                {
+                    return new Result
+                    {
+                        Code = 200,
+                        Msg = "删除成功",
+                    };
+                }
+                else
+                {
+                    return new Result
+                    {
+                        Code = 500,
+                        Msg = "删除失败: " + result.msg,
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return new Result
+                {
+                    Code = 500,
+                    Msg = "服务器错误: " + ex.Message,
+                };
+            }
+        }
     }
 }

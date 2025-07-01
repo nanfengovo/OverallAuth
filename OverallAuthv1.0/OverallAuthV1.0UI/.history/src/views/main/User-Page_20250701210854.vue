@@ -153,7 +153,7 @@ const deleteUser = async () => {
             // 获取选中的行
             const selectedRows = multipleTableRef.value.getSelectionRows();
             const ids = selectedRows.map((row: { id: any; }) => row.id);
-            const res = await axios.delete("http://127.0.0.1:5141/api/User/DeleteUser", { data: ids });
+            const res = await axios.delete("http://127.0.0.1:5141/api/User/DeleteUser", { data: { ids } });
             console.log(res.data);
             if (res.data.code === 200) {
                 ElMessage.success('删除成功');

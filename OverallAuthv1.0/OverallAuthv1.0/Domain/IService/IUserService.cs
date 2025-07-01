@@ -26,6 +26,13 @@ namespace OverallAuthv1._0.Domain.IService
 
         Task<User> GetUserByNameAsync(string userName);
 
+        /// <summary>
+        /// 单个或批量删除用户
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Task<(bool success, string msg)> DeleteUsersAsync(int[] id);
+
 
     }
 }

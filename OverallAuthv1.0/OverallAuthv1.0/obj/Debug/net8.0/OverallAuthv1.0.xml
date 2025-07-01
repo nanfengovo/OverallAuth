@@ -102,6 +102,13 @@
             <param name="user"></param>
             <returns></returns>
         </member>
+        <member name="M:OverallAuthv1._0.Controllers.UserController.DeleteUser(System.Int32[])">
+            <summary>
+            批量删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="P:OverallAuthv1._0.Domain.DTO.AddMenuDTO.Name">
             <summary>
             菜单名
@@ -367,6 +374,13 @@
             根据用户名获取用户信息
             </summary>
             <param name="userName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OverallAuthv1._0.Domain.IService.IUserService.DeleteUsersAsync(System.Int32[])">
+            <summary>
+            单个或批量删除用户
+            </summary>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="P:OverallAuthv1._0.EFcore.Model.CommomModel.Describe">
