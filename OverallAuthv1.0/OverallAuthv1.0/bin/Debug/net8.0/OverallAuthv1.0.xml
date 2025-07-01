@@ -109,6 +109,13 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:OverallAuthv1._0.Controllers.UserController.Search(OverallAuthv1._0.Domain.DTO.SearchUserDTO)">
+            <summary>
+            根据关键字搜索
+            </summary>
+            <param name="KeyWord"></param>
+            <returns></returns>
+        </member>
         <member name="P:OverallAuthv1._0.Domain.DTO.AddMenuDTO.Name">
             <summary>
             菜单名
@@ -249,6 +256,16 @@
             最后更新时间
             </summary>
         </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.SearchUserDTO.name">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.SearchUserDTO.role">
+            <summary>
+            角色名
+            </summary>
+        </member>
         <member name="P:OverallAuthv1._0.Domain.DTO.UserInfoDTO.Id">
             <summary>
             用户Id
@@ -383,6 +400,13 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:OverallAuthv1._0.Domain.IService.IUserService.SearchUsersAsync(OverallAuthv1._0.Domain.DTO.SearchUserDTO)">
+            <summary>
+            根据关键字搜索用户
+            </summary>
+            <param name="KeyWord"></param>
+            <returns></returns>
+        </member>
         <member name="P:OverallAuthv1._0.EFcore.Model.CommomModel.Describe">
             <summary>
             描述
@@ -480,22 +504,22 @@
             该角色分配的菜单 
             </summary>
         </member>
-        <member name="P:OverallAuthDEMO.EFcore.Model.User.Id">
+        <member name="P:OverallAuthDEMO.EFcore.Model.UserInfo.Id">
             <summary>
             用户Id
             </summary>
         </member>
-        <member name="P:OverallAuthDEMO.EFcore.Model.User.Name">
+        <member name="P:OverallAuthDEMO.EFcore.Model.UserInfo.Name">
             <summary>
             用户名
             </summary>
         </member>
-        <member name="P:OverallAuthDEMO.EFcore.Model.User.Pwd">
+        <member name="P:OverallAuthDEMO.EFcore.Model.UserInfo.Pwd">
             <summary>
             密码
             </summary>
         </member>
-        <member name="P:OverallAuthDEMO.EFcore.Model.User.Roles">
+        <member name="P:OverallAuthDEMO.EFcore.Model.UserInfo.Roles">
             <summary>
             该用户拥有的角色列表
             </summary>

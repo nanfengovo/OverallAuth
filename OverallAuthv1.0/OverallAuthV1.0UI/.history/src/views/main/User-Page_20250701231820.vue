@@ -397,10 +397,6 @@ function headleResetClick() {
 //#region 搜索
 const headleSearchClick = async () => {
     try {
-        if (!searchForm.name && !searchForm.role) {
-            ElMessage.warning('请输入搜索条件！');
-            return;
-        }
         const name = searchForm.name;
         const role = searchForm.role;
         const res = await axios.post("http://127.0.0.1:5141/api/User/Search", {

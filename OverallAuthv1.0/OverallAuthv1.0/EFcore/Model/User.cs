@@ -7,7 +7,7 @@ using OverallAuthv1._0.EFcore.Model;
 
 namespace OverallAuthDEMO.EFcore.Model
 {
-    public class User:CommomModel
+    public class UserInfo:CommomModel
     {
         /// <summary>
         /// 用户Id

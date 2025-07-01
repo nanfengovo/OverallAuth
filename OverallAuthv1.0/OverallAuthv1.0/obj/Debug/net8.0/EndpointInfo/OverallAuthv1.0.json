@@ -595,6 +595,56 @@
           }
         }
       }
+    },
+    "/api/User/Search": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "根据关键字搜索",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchUserDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchUserDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchUserDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -747,6 +797,22 @@
           },
           "data": {
             "description": "数据",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SearchUserDTO": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "用户名",
+            "nullable": true
+          },
+          "role": {
+            "type": "string",
+            "description": "角色名",
             "nullable": true
           }
         },

@@ -16,7 +16,7 @@ namespace OverallAuthDEMO.EFcore
         /// <summary>
         /// 用户
         /// </summary>
-        public DbSet<User> Users { get; set; }
+        public DbSet<UserInfo> Users { get; set; }
         /// <summary>
         /// 角色
         /// </summary>

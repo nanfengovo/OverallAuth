@@ -312,5 +312,31 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "OverallAuthv1._0.Controllers.UserController",
+    "Method": "Search",
+    "RelativePath": "api/User/Search",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "KeyWord",
+        "Type": "OverallAuthv1._0.Domain.DTO.SearchUserDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "OverallAuthv1._0.Result",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   }
 ]

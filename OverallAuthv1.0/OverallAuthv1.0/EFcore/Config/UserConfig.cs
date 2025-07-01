@@ -9,9 +9,9 @@ using OverallAuthDEMO.EFcore.Model;
 
 namespace OverallAuthDEMO.EFcore.Config
 {
-    internal class UserConfig : IEntityTypeConfiguration<User>
+    internal class UserConfig : IEntityTypeConfiguration<UserInfo>
     {
-        public void Configure(EntityTypeBuilder<User> builder)
+        public void Configure(EntityTypeBuilder<UserInfo> builder)
         {
             builder.ToTable("T_User");
 

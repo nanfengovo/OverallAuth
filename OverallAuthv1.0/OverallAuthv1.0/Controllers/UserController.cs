@@ -123,5 +123,46 @@ namespace OverallAuthv1._0.Controllers
                 };
             }
         }
+
+        /// <summary>
+        /// 根据关键字搜索
+        /// </summary>
+        /// <param name="KeyWord"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<Result> Search(SearchUserDTO KeyWord)
+        {
+            try
+            {
+                var result = await _userService.SearchUsersAsync(KeyWord);
+                if (result.success)
+                {
+                    return new Result
+                    {
+                        Code = 200,
+                        Msg = "查询成功",
+                        Data = result.Users
+                    };
+                }
+                else
+                {
+                    return new Result
+                    {
+                        Code = 404,
+                        Msg = result.msg,
+                        Data = null
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                return new Result
+                {
+                    Code = 500,
+                    Msg = "服务器错误: " + ex.Message,
+                    Data = null
+                };
+            }
+        }
     }
 }

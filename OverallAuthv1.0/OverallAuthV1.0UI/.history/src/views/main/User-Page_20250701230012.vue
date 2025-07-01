@@ -401,6 +401,7 @@ const headleSearchClick = async () => {
             ElMessage.warning('请输入搜索条件！');
             return;
         }
+
         const name = searchForm.name;
         const role = searchForm.role;
         const res = await axios.post("http://127.0.0.1:5141/api/User/Search", {
@@ -418,59 +419,76 @@ const headleSearchClick = async () => {
                 updateTime: item.updateTime
             }))
         }
-        else {
-            ElMessage.error('搜索失败:' + res.data.msg);
-        }
+
 
     }
-    catch (error) {
+    catch (error: any) {
         ElMessage.error('搜索失败:', error);
+    }
+}
 
+//#endregion
+
+//#region 编辑用户
+const EditdialogVisible = ref(false);
+const EditformRef = ref<InstanceType<typeof ElForm>>()
+const EditForm = ref<DialogForm>({
+    name: '',
+    password: '',
+    describe: '',
+    isEnable: false
+});
+
+const EditUser = async (row: User) => {
+    try {
+        const response = await axios.get("http://127.0.0.1:5141/api/User/GetUserById", {
+
+        })
     }
 
-}
+
 
 //#endregion
 
 
 onMounted(() => {
-    fetchUserData();
-    fetchRoleData();
-})
+        fetchUserData();
+        fetchRoleData();
+    })
 
-interface User {
-    name: string;
-    rolesName: string[];
-    describe?: string;
-    isEnable: boolean;
-    createTime?: string;
-    updateTime?: string;
-}
-
-const data = ref<User[]>([]);
-
-// 获取用户数据
-const fetchUserData = async () => {
-    try {
-        const res = await axios.get("http://127.0.0.1:5141/api/OverallAuth/GetAllUser");
-        if (res.data.code === 200) {
-            data.value = res.data.data.map((item: User) => ({
-                id: item.id,
-                name: item.name,
-                rolesName: item.rolesName,
-                describe: item.describe || '',
-                isEnable: item.isEnable,
-                createTime: item.createTime,
-                updateTime: item.updateTime
-            }));
-
-        } else {
-            console.error('获取用户数据失败:', res.data.message);
-        }
-    } catch (error) {
-        console.error('获取用户数据失败:', error);
+    interface User {
+        name: string;
+        rolesName: string[];
+        describe?: string;
+        isEnable: boolean;
+        createTime?: string;
+        updateTime?: string;
     }
-}
+
+    const data = ref<User[]>([]);
+
+    // 获取用户数据
+    const fetchUserData = async () => {
+        try {
+            const res = await axios.get("http://127.0.0.1:5141/api/OverallAuth/GetAllUser");
+            if (res.data.code === 200) {
+                data.value = res.data.data.map((item: User) => ({
+                    id: item.id,
+                    name: item.name,
+                    rolesName: item.rolesName,
+                    describe: item.describe || '',
+                    isEnable: item.isEnable,
+                    createTime: item.createTime,
+                    updateTime: item.updateTime
+                }));
+
+            } else {
+                console.error('获取用户数据失败:', res.data.message);
+            }
+        } catch (error) {
+            console.error('获取用户数据失败:', error);
+        }
+    }
 
 
 

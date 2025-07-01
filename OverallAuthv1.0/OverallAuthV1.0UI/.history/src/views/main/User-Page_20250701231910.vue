@@ -399,7 +399,6 @@ const headleSearchClick = async () => {
     try {
         if (!searchForm.name && !searchForm.role) {
             ElMessage.warning('请输入搜索条件！');
-            return;
         }
         const name = searchForm.name;
         const role = searchForm.role;

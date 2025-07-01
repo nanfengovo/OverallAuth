@@ -24,7 +24,7 @@ namespace OverallAuthv1._0.Domain.IService
         /// <param name="userName"></param>
         /// <returns></returns>
 
-        Task<User> GetUserByNameAsync(string userName);
+        Task<UserInfo> GetUserByNameAsync(string userName);
 
         /// <summary>
         /// 单个或批量删除用户
@@ -32,6 +32,14 @@ namespace OverallAuthv1._0.Domain.IService
         /// <param name="id"></param>
         /// <returns></returns>
         Task<(bool success, string msg)> DeleteUsersAsync(int[] id);
+
+        /// <summary>
+        /// 根据关键字搜索用户
+        /// </summary>
+        /// <param name="KeyWord"></param>
+        /// <returns></returns>
+
+        Task<(bool success, List<UserInfoDTO> Users,string msg)> SearchUsersAsync(SearchUserDTO KeyWord);
 
 
     }

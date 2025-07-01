@@ -22,7 +22,7 @@ namespace OverallAuthDEMO.EFcore.Model
         /// <summary>
         /// 该角色分配的用户
         /// </summary>
-        public List<User> Users { get; set; }  = new List<User>();
+        public List<UserInfo> Users { get; set; }  = new List<UserInfo>();
 
         /// <summary>
         /// 该角色分配的菜单 
