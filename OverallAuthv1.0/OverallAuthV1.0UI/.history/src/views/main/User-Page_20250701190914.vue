@@ -23,7 +23,7 @@
             </el-row>
         </el-form>
     </el-card>
-    <div class="user-content" v-loading="loading">
+    <div class="user-content">
         <div class="content-top">
             <div class="title">
                 <el-button type="primary" icon="Refresh" @click="refresh">刷新</el-button>

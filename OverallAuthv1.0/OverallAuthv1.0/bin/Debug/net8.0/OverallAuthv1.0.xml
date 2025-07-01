@@ -242,6 +242,11 @@
             最后更新时间
             </summary>
         </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.UserInfoDTO.Id">
+            <summary>
+            用户Id
+            </summary>
+        </member>
         <member name="P:OverallAuthv1._0.Domain.DTO.UserInfoDTO.Name">
             <summary>
             用户名
