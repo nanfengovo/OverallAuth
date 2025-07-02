@@ -276,7 +276,7 @@ const Submit = async () => {
             fetchUserData();
         }
         else {
-            ElMessage.error('编辑用户失败:', response.data.msg);
+            ElMessage.error('编辑用户失败:', response.data.message);
         }
     }
     catch (error: any) {

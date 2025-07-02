@@ -271,16 +271,16 @@ const Submit = async () => {
             // }
         )
         if (response.data.code === 200) {
-            ElMessage.success('修改用户成功');
+            //ElMessage.success('编辑用户成功');
             EditdialogVisible.value = false;
             fetchUserData();
         }
         else {
-            ElMessage.error('编辑用户失败:', response.data.msg);
+            ElMessage.error('编辑用户失败:', response.data.message);
         }
     }
     catch (error: any) {
-        ElMessage.error('编辑用户失败:', error);
+        //ElMessage.error('编辑用户失败:', error);
     }
 }  // 检查响应状态码
 

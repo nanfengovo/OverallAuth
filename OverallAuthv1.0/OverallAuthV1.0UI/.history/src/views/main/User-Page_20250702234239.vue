@@ -276,11 +276,11 @@ const Submit = async () => {
             fetchUserData();
         }
         else {
-            ElMessage.error('编辑用户失败:', response.data.msg);
+            ElMessage.error('编辑用户失败:', response.data.message);
         }
     }
     catch (error: any) {
-        ElMessage.error('编辑用户失败:', error);
+        //ElMessage.error('编辑用户失败:', error);
     }
 }  // 检查响应状态码
 
