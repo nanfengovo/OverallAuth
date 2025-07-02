@@ -254,7 +254,7 @@ const Submit = async () => {
     try {
         //数据合法性验证
         if (!EditForm.value.name) {
-            //ElMessage.warning('用户名不能为空！');
+            ElMessage.warning('用户名不能为空！');
             return;
         }
         console.log('编辑用户数据:', EditForm.value);
@@ -264,23 +264,23 @@ const Submit = async () => {
             //pwd: EditForm.value.password,
             describe: EditForm.value.describe,
             isEnable: EditForm.value.isEnable,
-            roles: Roledata1.value// 传递角色数据
+            roles: EditForm.value.roles // 传递角色数据
         },
             // {
             //     params: { id } // ✅ 通过 params 传递 id，自动拼接为 ?id=xxx [2,7](@ref)
             // }
         )
         if (response.data.code === 200) {
-            //ElMessage.success('编辑用户成功');
+            ElMessage.success('编辑用户成功');
             EditdialogVisible.value = false;
             fetchUserData();
         }
         else {
-            //ElMessage.error('编辑用户失败:', response.data.message);
+            ElMessage.error('编辑用户失败:', response.data.message);
         }
     }
     catch (error: any) {
-        //ElMessage.error('编辑用户失败:', error);
+        ElMessage.error('编辑用户失败:', error);
     }
 }  // 检查响应状态码
 

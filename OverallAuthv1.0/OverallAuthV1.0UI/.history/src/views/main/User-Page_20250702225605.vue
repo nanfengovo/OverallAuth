@@ -264,7 +264,7 @@ const Submit = async () => {
             //pwd: EditForm.value.password,
             describe: EditForm.value.describe,
             isEnable: EditForm.value.isEnable,
-            roles: Roledata1.value// 传递角色数据
+            roles: EditForm.value.roles // 传递角色数据
         },
             // {
             //     params: { id } // ✅ 通过 params 传递 id，自动拼接为 ?id=xxx [2,7](@ref)

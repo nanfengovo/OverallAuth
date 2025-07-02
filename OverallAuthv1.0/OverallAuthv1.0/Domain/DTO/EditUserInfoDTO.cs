@@ -17,7 +17,7 @@ namespace OverallAuthv1._0.Domain.DTO
         /// <summary>
         /// 该用户拥有的角色列表
         /// </summary>
-        public string[] Roles { get; set; }
+        public string?[] Roles { get; set; }
 
         /// <summary>
         /// 描述
