@@ -31,7 +31,7 @@
             </div>
             <el-button icon="Plus" type="primary" @click="dialogVisible = true">新增菜单</el-button>
         </div>
-        <div class="content" v-loading="loading">
+        <div class="content">
             <el-scrollbar max-height="550px">
                 <el-table :data=data border style="width: auto;" stripe>
 
@@ -243,7 +243,6 @@ onMounted(() => {
 
 //#region 获取菜单数据
 interface Menu {
-    id: number;
     name: string;
     icon: string;
     url: string;
@@ -272,7 +271,6 @@ const fetchMenuData = async () => {
         const res = await axios.get('http://127.0.0.1:5141/api/Menu/GetAllMenu');
         if (res.data.code === 200) {
             data.value = res.data.data.map((item: Menu) => ({
-                id: item.id,
                 name: item.name,
                 icon: item.icon,
                 url: item.url,

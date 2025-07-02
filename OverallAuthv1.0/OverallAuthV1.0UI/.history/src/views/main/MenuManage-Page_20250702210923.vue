@@ -26,12 +26,12 @@
     <div class="menu-content">
         <div class="content-top">
             <div class="title">
-                <el-button type="primary" icon="Refresh" @click="refresh">刷新</el-button>
+                <el-button type="primary" icon="Refresh">刷新</el-button>
                 <el-button type="danger" icon="delete">删除</el-button>
             </div>
             <el-button icon="Plus" type="primary" @click="dialogVisible = true">新增菜单</el-button>
         </div>
-        <div class="content" v-loading="loading">
+        <div class="content">
             <el-scrollbar max-height="550px">
                 <el-table :data=data border style="width: auto;" stripe>
 
@@ -94,17 +94,17 @@
                 <el-input v-model="Dialogform.name" />
             </el-form-item>
             <el-form-item label="图标">
-                <div class="icon-selector">
+                <el-input class="icon-selector" v-model="Dialogform.icon">
                     <!-- 当前选中的图标预览 -->
-                    <div v-if="Dialogform.icon" class="preview">
+                    <div v-if="selectedIcon" class="preview">
                         <el-icon :size="24">
-                            <component :is="Dialogform.icon" />
+                            <component :is="selectedIcon" />
                         </el-icon>
-                        <span class="icon-name">{{ Dialogform.icon }}</span>
+                        <span class="icon-name">{{ selectedIcon }}</span>
                     </div>
 
                     <!-- 下拉选择框 -->
-                    <el-select v-model="Dialogform.icon" filterable clearable placeholder="请选择图标" class="icon-select"
+                    <el-select v-model="selectedIcon" filterable clearable placeholder="请选择图标" class="icon-select"
                         @change="handleIconChange">
                         <el-option v-for="icon in filteredIcons" :key="icon" :value="icon" :label="icon">
                             <div class="icon-option">
@@ -115,7 +115,7 @@
                             </div>
                         </el-option>
                     </el-select>
-                </div>
+                </el-input>
             </el-form-item>
             <el-form-item label="路由">
                 <el-input v-model="Dialogform.route" />
@@ -140,29 +140,14 @@ import type { ElForm } from 'element-plus';
 import { ElMessage } from 'element-plus';
 import axios from 'axios';
 import { formatTime } from '@/utils/format'
-import { ref, computed, onMounted, reactive, nextTick } from 'vue';
+import { ref, computed, onMounted, reactive } from 'vue';
 import * as ElementPlusIcons from '@element-plus/icons-vue';
 
-//#region ---刷新
-const isMounted = ref(true);
-const loading = ref(false)
-const refresh = () => {
-    isMounted.value = false;
-    setTimeout(() => {
-        fetchMenuData();
-        loading.value = false; //0.5 后显示内容
-    }, 500);
-    loading.value = true;
-    nextTick(() => {
-        isMounted.value = true;
-    });
-}
-//#endregion
 
 //#region 新增菜单
 const dialogVisible = ref(false);
 // 选中的图标
-//const selectedIcon = ref('');
+const selectedIcon = ref('');
 interface DialogForm {
     name: string;
     icon: string;
@@ -225,7 +210,7 @@ const filteredIcons = computed(() => {
 
 // 图标选择处理
 const handleIconChange = (value: any) => {
-    Dialogform.icon = value;
+    selectedIcon.value = value;
     emit('update:modelValue', value);
 };
 
@@ -235,7 +220,7 @@ const emit = defineEmits(['update:modelValue']);
 
 onMounted(() => {
     if (props.modelValue) {
-        Dialogform.icon = props.modelValue;
+        selectedIcon.value = props.modelValue;
     }
 });
 
@@ -243,7 +228,6 @@ onMounted(() => {
 
 //#region 获取菜单数据
 interface Menu {
-    id: number;
     name: string;
     icon: string;
     url: string;
@@ -272,7 +256,6 @@ const fetchMenuData = async () => {
         const res = await axios.get('http://127.0.0.1:5141/api/Menu/GetAllMenu');
         if (res.data.code === 200) {
             data.value = res.data.data.map((item: Menu) => ({
-                id: item.id,
                 name: item.name,
                 icon: item.icon,
                 url: item.url,

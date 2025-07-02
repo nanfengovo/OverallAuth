@@ -39,7 +39,7 @@ namespace OverallAuthv1._0.Controllers
                         Data = null
                     };
                 }
-                if(user.Name == null || user.Pwd == null)
+                if( !string.IsNullOrEmpty(user.Name) || !string.IsNullOrEmpty(user.Pwd))
                 {
                     return new Result
                     {

@@ -71,7 +71,7 @@ namespace OverallAuthv1._0.Controllers
         {
             try
             {
-                if(menus != null || menus.Name !=null)
+                if(menus != null && !string.IsNullOrEmpty(menus.Name))
                 {
                     var result = await _menuService.AddMenuAsync(menus);
                     if (result.success)
