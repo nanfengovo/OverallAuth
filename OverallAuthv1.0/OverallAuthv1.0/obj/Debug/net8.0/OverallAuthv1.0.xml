@@ -29,6 +29,13 @@
             <param name="userName"></param>
             <returns></returns>
         </member>
+        <member name="M:OverallAuthv1._0.Controllers.MenuController.DeleteMenus(System.Int32[])">
+            <summary>
+            删除菜单（单个或多个）
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
         <member name="T:OverallAuthv1._0.Controllers.OverallAuthController">
             <summary>
             OverallAuth Controller 1、给角色分配菜单 2、给用户分配角色
@@ -323,6 +330,13 @@
             <summary>
             获取某个用户拥有的菜单
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OverallAuthv1._0.Domain.IService.IMenuService.DeleteMenusAsync(System.Int32[])">
+            <summary>
+            删除（单个/批量）
+            </summary>
+            <param name="ids"></param>
             <returns></returns>
         </member>
         <member name="M:OverallAuthv1._0.Domain.IService.IOverallAuthService.GiveRoleMenuAsync(System.String,System.Int32[])">

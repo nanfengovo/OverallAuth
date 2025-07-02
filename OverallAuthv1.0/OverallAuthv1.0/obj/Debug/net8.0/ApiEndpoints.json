@@ -27,6 +27,32 @@
   },
   {
     "ContainingType": "OverallAuthv1._0.Controllers.MenuController",
+    "Method": "DeleteMenus",
+    "RelativePath": "api/Menu/DeleteMenus",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ids",
+        "Type": "System.Int32[]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "OverallAuthv1._0.Result",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "OverallAuthv1._0.Controllers.MenuController",
     "Method": "GetAllMenu",
     "RelativePath": "api/Menu/GetAllMenu",
     "HttpMethod": "GET",

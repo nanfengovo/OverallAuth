@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using OverallAuthv1._0.Domain.DTO;
 using OverallAuthv1._0.Domain.IService;
@@ -155,6 +156,53 @@ namespace OverallAuthv1._0.Controllers
                 };
 
 
+            }
+        }
+
+        /// <summary>
+        /// 删除菜单（单个或多个）
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        [HttpDelete]
+        public async Task<Result> DeleteMenus(int[] ids)
+        {
+            try
+            {
+                if(ids.Count() == 0)
+                {
+                    return new Result
+                    {
+                        Code = 400,
+                        Msg = "需要删除的菜单至少要有一个！"
+                    };
+                }
+                var result = await _menuService.DeleteMenusAsync(ids);
+                if (result.success)
+                {
+                    return new Result
+                    { 
+                        Code= 200,
+                        Msg = "删除成功"
+                    };
+                }
+                else
+                {
+                    return new Result
+                    {
+                        Code =500,
+                        Msg = result.msg
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return new Result
+                {
+                    Code = 500,
+                    Msg = ex.Message,
+                };
             }
         }
     }

@@ -49,7 +49,7 @@ namespace OverallAuthv1._0.Domain.Service
 
         async Task<(bool success, List<Menu> menus)> IMenuService.GetAllMenuAsync()
         {
-            var menus = await _dbContext.Menus.ToListAsync();
+            var menus = await _dbContext.Menus.Where(x => x.IsEnable && !x.IsDeleted).ToListAsync();
             return (true, menus);
         }
 
@@ -78,6 +78,27 @@ namespace OverallAuthv1._0.Domain.Service
             catch (Exception ex)
             {
                 return (false, new List<Menu>());
+            }
+        }
+
+        public async Task<(bool success, string msg)> DeleteMenusAsync(int[] ids)
+        {
+            try
+            {
+                var menus = await _dbContext.Menus.Where(m => ids.Contains(m.Id)).ToListAsync();
+                foreach (var menu in menus)
+                {
+                    menu.IsDeleted = true;
+                    menu.UpdateTime = DateTime.Now;
+                }
+                await _dbContext.SaveChangesAsync();
+                return (true, "删除成功");
+
+            }
+            catch (Exception ex)
+            {
+
+                return (false, "服务端发生异常，异常信息为：" + ex.Message);
             }
         }
     }

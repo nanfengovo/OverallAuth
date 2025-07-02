@@ -33,7 +33,7 @@
         </div>
         <div class="content" v-loading="loading">
             <el-scrollbar max-height="550px">
-                <el-table :data=data border style="width: auto;" stripe ref="multipleTableRef">
+                <el-table :data=data border style="width: auto;" stripe>
 
                     <el-table-column align="center" type="selection" width="40px" />
                     <el-table-column align="center" type="index" label="序号" width="60px" />

@@ -27,5 +27,12 @@ namespace OverallAuthv1._0.Domain.IService
         /// </summary>
         /// <returns></returns>
         Task<(bool success, List<Menu> menus)> GetMenuByRoleAsync(string userName);
+
+        /// <summary>
+        /// 删除（单个/批量）
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        Task<(bool success, string msg)> DeleteMenusAsync(int[] ids);
     }
 }
