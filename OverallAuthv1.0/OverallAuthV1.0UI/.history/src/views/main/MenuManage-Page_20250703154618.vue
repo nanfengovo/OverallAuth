@@ -467,7 +467,6 @@ const searchForm = reactive({
 //重置
 function headleResetClick() {
     formRef.value?.resetFields();
-    fetchMenuData();
 }
 </script>
 
