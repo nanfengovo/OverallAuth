@@ -17,5 +17,12 @@ namespace OverallAuthv1._0.Domain.IService
         /// <param name="roleName"></param>
         /// <returns></returns>
         Task<bool> GetRoleByNameAsync(string roleName);
+
+        /// <summary>
+        /// 根据关键字搜索
+        /// </summary>
+        /// <param name="search"></param>
+        /// <returns></returns>
+        Task<(bool success, string msg)> SearchByKeyWordAsync(searchRoleDTO search);
     }
 }

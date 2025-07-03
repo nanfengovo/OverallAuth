@@ -4,12 +4,12 @@
             <el-row :gutter="20" ref="formRef" justify="center">
                 <el-col :span="8">
                     <el-form-item label="角色名:" prop="name">
-                        <el-input type="text" v-model="searchForm.name" placeholder="请输入需要查询的角色名:" />
+                        <el-input type="text" v-model="searchForm.role" placeholder="请输入需要查询的角色名:" />
                     </el-form-item>
                 </el-col>
                 <el-col :span="8">
                     <el-form-item label="菜单:" prop="menu">
-                        <el-input type="text" v-model="searchForm.menu" placeholder="请输入包含的菜单:" />
+                        <el-input type="text" v-model="searchForm.Permissions" placeholder="请输入包含的菜单:" />
                     </el-form-item>
                 </el-col>
                 <el-col :span="8">

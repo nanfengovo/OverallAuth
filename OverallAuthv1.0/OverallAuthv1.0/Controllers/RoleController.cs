@@ -80,5 +80,85 @@ namespace OverallAuthv1._0.Controllers
                 };
             }
         }
+
+        /// <summary>
+        /// 搜索
+        /// </summary>
+        /// <param name="keyWord"></param>
+        /// <returns></returns>
+
+        [HttpPost]
+        public async Task<Result> Search(searchRoleDTO keyWord )
+        {
+            try
+            {
+                var result = await _roleService.SearchByKeyWordAsync(keyWord);
+                if(result.success)
+                {
+                    return new Result
+                    { 
+                        Code = 200,
+                        Data = result.obj
+                    };
+                }
+                else
+                {
+                    return new Result
+                    {
+                        Code = 500,
+                        Msg = result.obj.ToString(),
+                    };
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                return new Result
+                {
+                    Code=500,
+                    Msg = "服务器错误: " + ex.Message,
+                };
+            }
+        }
+
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        [HttpDelete]
+        public async Task<Result> DeleteRole(int[] ids)
+        {
+            try
+            {
+                var result = await _roleService.DeleteRoleByIdAsync(ids);
+                if (result.success)
+                {
+                    return new Result
+                    {
+                        Code = 200,
+                        Msg = "删除成功",
+                    };
+                }
+                else
+                {
+                    return new Result
+                    {
+                        Code = 500,
+                        Msg = "删除失败: " + result.msg,
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return new Result
+                {
+                    Code = 500,
+                    Msg = "服务器错误: " + ex.Message,
+                };
+            }
+        }
     }
 }

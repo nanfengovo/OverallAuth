@@ -48,10 +48,69 @@ namespace OverallAuthv1._0.Domain.Service
             }
         }
 
+        public async Task<(bool success, string msg)> DeleteRoleByIdAsync(int[] ids)
+        {
+            try
+            {
+                var roles = await _dbContext.Roles.Where(x => ids.Contains(x.Id) && !x.IsDeleted).ToListAsync();  
+                if(roles.Count == 0 || roles ==null)
+                {
+                    return (false, "角色不存在");
+                }
+                else
+                {
+                    foreach (var role in roles)
+                    {
+                        role.IsDeleted = true;
+                        role.UpdateTime = DateTime.Now; 
+                    }
+                    await _dbContext.SaveChangesAsync();
+                    return (true, "删除成功");
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                return (false,"服务端异常"+ ex.Message);
+            }
+        }
+
         public async Task<bool> GetRoleByNameAsync(string roleName)
         {
             var exist = await _dbContext.Roles.FirstOrDefaultAsync(r => r.Name == roleName  && !r.IsDeleted);
             return exist != null;
+        }
+
+        public async Task<(bool success, object obj)> SearchByKeyWordAsync(searchRoleDTO search)
+        {
+            try
+            {
+                if(string.IsNullOrEmpty(search.Name) && string.IsNullOrEmpty(search.Menu))
+                {
+                    return (false,"请输入搜索的关键字");
+                }
+                else if(string.IsNullOrEmpty(search.Name) && !string.IsNullOrEmpty(search.Menu))
+                {
+                    var result = await _dbContext.Roles.Where(r => r.Menus.Any(m => m.Name.Contains(search.Menu))).ToListAsync();
+                    return (true, result);
+                }
+                else if (!string.IsNullOrEmpty(search.Name) && string.IsNullOrEmpty(search.Menu))
+                {
+                    var result = await _dbContext.Roles.Where(r => r.Name.Contains(search.Name)).ToListAsync();
+                    return (true, result);
+                }
+                else
+                {
+                    var result = await _dbContext.Roles.Where(r => r.Name.Contains(search.Name) && r.Menus.Any(m => m.Name.Contains(search.Menu))).ToListAsync();
+                    return (true, result);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return (false, ex.Message);
+            }
         }
     }
 }
