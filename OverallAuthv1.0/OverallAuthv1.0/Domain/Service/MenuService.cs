@@ -126,10 +126,10 @@ namespace OverallAuthv1._0.Domain.Service
                 // 检查重复性（排除当前菜单自身）
                 bool isDuplicate = await _dbContext.Menus
                     .AnyAsync(x => !x.IsDeleted &&
-                                  x.Id != id &&
-                                  (x.Name == menu.Name ||
-                                   x.URL == menu.URL ||
-                                   x.Describe == menu.Describe));
+                                    x.Id != id &&
+                                    (x.Name == menu.Name ||
+                                    x.URL == menu.URL ||
+                                    x.Describe == menu.Describe));
 
                 if (isDuplicate)
                 {
@@ -154,5 +154,39 @@ namespace OverallAuthv1._0.Domain.Service
                 return (false, $"服务器错误: {ex.Message}");
             }
         }
+
+        public async Task<(bool success, object obj)> SearchByKeyWordAsync(SearchMenuDTO searchMenu)
+        {
+            try
+            {
+                if(string.IsNullOrEmpty(searchMenu.Name) && string.IsNullOrEmpty(searchMenu.Describe))
+                {
+                    return (false, "请输入查询条件");
+                }
+                else if(!string.IsNullOrEmpty(searchMenu.Name) && string.IsNullOrEmpty(searchMenu.Describe))
+                {
+                    var menus = _dbContext.Menus.Where(x => x.Name.Contains(searchMenu.Name) && !x.IsDeleted).ToList();
+                    
+                    return (true,menus);
+                }
+                else if(string.IsNullOrEmpty(searchMenu.Name) && !string.IsNullOrEmpty(searchMenu.Describe))
+                {
+                    var menus = _dbContext.Menus.Where(x => x.Describe.Contains(searchMenu.Describe) && !x.IsDeleted).ToList();
+                    return (true, menus);
+                }
+                else
+                {
+                    var menus = _dbContext.Menus.Where(x => x.Name.Contains(searchMenu.Name) && x.Describe.Contains(searchMenu.Describe) && !x.IsDeleted).ToList();
+                    return (true,menus);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return (false, "服务端发生异常，异常信息为："+ex.Message);
+            }
+        }
+
+
     }
 }

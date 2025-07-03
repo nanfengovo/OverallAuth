@@ -36,6 +36,21 @@
             <param name="ids"></param>
             <returns></returns>
         </member>
+        <member name="M:OverallAuthv1._0.Controllers.MenuController.EditMenu(System.Int32,OverallAuthv1._0.Domain.DTO.AddMenuDTO)">
+            <summary>
+            编辑菜单
+            </summary>
+            <param name="id"></param>
+            <param name="menu"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OverallAuthv1._0.Controllers.MenuController.Search(OverallAuthv1._0.Domain.DTO.SearchMenuDTO)">
+            <summary>
+            根据关键字搜索
+            </summary>
+            <param name="keyWord"></param>
+            <returns></returns>
+        </member>
         <member name="T:OverallAuthv1._0.Controllers.OverallAuthController">
             <summary>
             OverallAuth Controller 1、给角色分配菜单 2、给用户分配角色
@@ -345,6 +360,13 @@
             </summary>
             <param name="id"></param>
             <param name="menu"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OverallAuthv1._0.Domain.IService.IMenuService.SearchByKeyWordAsync(OverallAuthv1._0.Domain.DTO.SearchMenuDTO)">
+            <summary>
+            根据关键字搜索
+            </summary>
+            <param name="searchMenu"></param>
             <returns></returns>
         </member>
         <member name="M:OverallAuthv1._0.Domain.IService.IOverallAuthService.GiveRoleMenuAsync(System.String,System.Int32[])">

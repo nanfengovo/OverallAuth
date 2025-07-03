@@ -42,5 +42,12 @@ namespace OverallAuthv1._0.Domain.IService
         /// <param name="menu"></param>
         /// <returns></returns>
         Task<(bool success,string msg)> EditMenuAsync(int id, AddMenuDTO menu);
+
+        /// <summary>
+        /// 根据关键字搜索
+        /// </summary>
+        /// <param name="searchMenu"></param>
+        /// <returns></returns>
+        Task<(bool success, object obj)> SearchByKeyWordAsync(SearchMenuDTO searchMenu);
     }
 }

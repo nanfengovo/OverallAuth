@@ -192,10 +192,12 @@
         "tags": [
           "Menu"
         ],
+        "summary": "编辑菜单",
         "parameters": [
           {
             "name": "id",
             "in": "query",
+            "description": "",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -203,6 +205,7 @@
           }
         ],
         "requestBody": {
+          "description": "",
           "content": {
             "application/json": {
               "schema": {
@@ -217,6 +220,56 @@
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/AddMenuDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Menu/Search": {
+      "get": {
+        "tags": [
+          "Menu"
+        ],
+        "summary": "根据关键字搜索",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchMenuDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchMenuDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchMenuDTO"
               }
             }
           }
@@ -917,6 +970,20 @@
           },
           "data": {
             "description": "数据",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SearchMenuDTO": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "describe": {
+            "type": "string",
             "nullable": true
           }
         },

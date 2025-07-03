@@ -129,6 +129,32 @@
     ]
   },
   {
+    "ContainingType": "OverallAuthv1._0.Controllers.MenuController",
+    "Method": "Search",
+    "RelativePath": "api/Menu/Search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "keyWord",
+        "Type": "OverallAuthv1._0.Domain.DTO.SearchMenuDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "OverallAuthv1._0.Result",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "OverallAuthv1._0.Controllers.OverallAuthController",
     "Method": "EditUserInfo",
     "RelativePath": "api/OverallAuth/EditUserInfo",

@@ -206,6 +206,12 @@ namespace OverallAuthv1._0.Controllers
             }
         }
 
+        /// <summary>
+        /// 编辑菜单
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="menu"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<Result> EditMenu(int id, AddMenuDTO menu)
         {
@@ -237,6 +243,47 @@ namespace OverallAuthv1._0.Controllers
                     Code = 500,
                     Msg = "服务器错误: " + ex.Message,
                 };
+            }
+        }
+
+        /// <summary>
+        /// 根据关键字搜索
+        /// </summary>
+        /// <param name="keyWord"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<Result> Search(SearchMenuDTO keyWord)
+        {
+            try
+            {
+                var result = await _menuService.SearchByKeyWordAsync(keyWord);
+                if(result.success)
+                {
+                    return new Result
+                    {
+                        Code = 200,
+                        Data = result.obj
+                    };
+                }
+                else
+                {
+                    return new Result
+                    {
+                        Code = 400,
+                        Msg = result.obj.ToString()
+                    };
+                }
+                
+            }
+            catch (Exception ex)
+            {
+
+                return new Result
+                {
+                    Code = 500,
+                    Msg = "服务器错误: " + ex.Message,
+                };
+                
             }
         }
     }
