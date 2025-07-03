@@ -230,10 +230,6 @@ const Submit = async () => {
             ElMessage.warning('菜单名不能为空！');
             return;
         }
-        else if (isStartsWithSlash(Dialogform.route) === false) {
-            ElMessage.error('路由必须以 / 开头');
-            return;
-        }
         // 发送 POST 请求到后端 API
         const response = await axios.post("http://127.0.0.1:5141/api/Menu/EditMenu?id=" + id, {
             name: Editform.value.name,
@@ -349,10 +345,10 @@ const AddMenu = async () => {
         if (Dialogform.name === '' || Dialogform.route === '' || Dialogform.describe === '') {
             ElMessage.error('请填写完整信息');
             return;
-        } else if (isStartsWithSlash(Dialogform.route) === false) {
-            ElMessage.error('路由必须以 / 开头');
-            return;
+        } else if (Dialogform.route) {
+
         }
+
         else {
             const res = await axios.post('http://127.0.0.1:5141/api/Menu/AddMenu', {
                 name: Dialogform.name,

@@ -179,7 +179,7 @@
         </el-form>
         <template #footer>
             <span class="dialog-footer">
-                <el-button @click="dialogEditVisible = false">取消</el-button>
+                <el-button @click="dialogVisible = false">取消</el-button>
                 <el-button type="primary" @click="Submit(Editform)">确定</el-button>
             </span>
         </template>
@@ -193,12 +193,6 @@ import { formatTime } from '@/utils/format'
 import { ref, computed, onMounted, reactive, nextTick } from 'vue';
 import * as ElementPlusIcons from '@element-plus/icons-vue';
 
-//#region 路由开头验证
-function isStartsWithSlash(str) {
-    const regex = /^\//;
-    return regex.test(str);
-}
-//#endregion
 
 //#region 编辑
 
@@ -230,10 +224,6 @@ const Submit = async () => {
             ElMessage.warning('菜单名不能为空！');
             return;
         }
-        else if (isStartsWithSlash(Dialogform.route) === false) {
-            ElMessage.error('路由必须以 / 开头');
-            return;
-        }
         // 发送 POST 请求到后端 API
         const response = await axios.post("http://127.0.0.1:5141/api/Menu/EditMenu?id=" + id, {
             name: Editform.value.name,
@@ -256,7 +246,7 @@ const Submit = async () => {
         }
     }
     catch (error: any) {
-        ElMessage.error('编辑菜单失败:', error);
+        //ElMessage.error('编辑菜单失败:', error);
     }
 }  // 检查响应状态码
 
@@ -342,15 +332,10 @@ const Dialogform = reactive<DialogForm>({
     isEnable: false,
 });
 
-
-
 const AddMenu = async () => {
     try {
         if (Dialogform.name === '' || Dialogform.route === '' || Dialogform.describe === '') {
             ElMessage.error('请填写完整信息');
-            return;
-        } else if (isStartsWithSlash(Dialogform.route) === false) {
-            ElMessage.error('路由必须以 / 开头');
             return;
         }
         else {
