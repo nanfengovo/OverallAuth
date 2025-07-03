@@ -216,19 +216,21 @@ const EditMenu = async (row: any) => {
 }
 
 const Submit = async () => {
+    console.log('提交编辑的用户数据:', EditForm);
+    // const id = EditForm.value.id; // 从响应式对象获取
     const id = Editform.value.id; // 直接获取值
-    console.log(Editform.value.name);
     try {
         //数据合法性验证
         if (!Editform.value.name) {
             ElMessage.warning('菜单名不能为空！');
             return;
         }
+        console.log('编辑用户数据:', Editform.value);
         // 发送 POST 请求到后端 API
         const response = await axios.post("http://127.0.0.1:5141/api/Menu/EditMenu?id=" + id, {
             name: Editform.value.name,
             icon: Editform.value.icon,
-            url: Editform.value.route,
+            route: Editform.value.route,
             describe: Editform.value.describe,
             isEnable: Editform.value.isEnable,
         },
@@ -237,16 +239,16 @@ const Submit = async () => {
             // }
         )
         if (response.data.code === 200) {
-            //ElMessage.success('修改菜单成功');
+            ElMessage.success('修改菜单成功');
             dialogEditVisible.value = false;
             fetchMenuData();
         }
         else {
-            //ElMessage.error('编辑菜单失败:', response.data.code);
+            ElMessage.error('编辑菜单失败:', response.data.code);
         }
     }
     catch (error: any) {
-        //ElMessage.error('编辑菜单失败:', error);
+        ElMessage.error('编辑菜单失败:', error);
     }
 }  // 检查响应状态码
 

@@ -228,7 +228,7 @@ const Submit = async () => {
         const response = await axios.post("http://127.0.0.1:5141/api/Menu/EditMenu?id=" + id, {
             name: Editform.value.name,
             icon: Editform.value.icon,
-            url: Editform.value.route,
+            route: Editform.value.route,
             describe: Editform.value.describe,
             isEnable: Editform.value.isEnable,
         },

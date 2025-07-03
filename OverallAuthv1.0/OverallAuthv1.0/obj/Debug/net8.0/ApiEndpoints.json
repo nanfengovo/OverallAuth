@@ -53,6 +53,37 @@
   },
   {
     "ContainingType": "OverallAuthv1._0.Controllers.MenuController",
+    "Method": "EditMenu",
+    "RelativePath": "api/Menu/EditMenu",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "menu",
+        "Type": "OverallAuthv1._0.Domain.DTO.AddMenuDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "OverallAuthv1._0.Result",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "OverallAuthv1._0.Controllers.MenuController",
     "Method": "GetAllMenu",
     "RelativePath": "api/Menu/GetAllMenu",
     "HttpMethod": "GET",

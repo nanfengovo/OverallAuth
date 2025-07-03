@@ -228,7 +228,7 @@ const Submit = async () => {
         const response = await axios.post("http://127.0.0.1:5141/api/Menu/EditMenu?id=" + id, {
             name: Editform.value.name,
             icon: Editform.value.icon,
-            url: Editform.value.route,
+            route: Editform.value.route,
             describe: Editform.value.describe,
             isEnable: Editform.value.isEnable,
         },
@@ -237,16 +237,16 @@ const Submit = async () => {
             // }
         )
         if (response.data.code === 200) {
-            //ElMessage.success('修改菜单成功');
+            ElMessage.success('修改菜单成功');
             dialogEditVisible.value = false;
             fetchMenuData();
         }
         else {
-            //ElMessage.error('编辑菜单失败:', response.data.code);
+            ElMessage.error('编辑菜单失败:', response.data.code);
         }
     }
     catch (error: any) {
-        //ElMessage.error('编辑菜单失败:', error);
+        ElMessage.error('编辑菜单失败:', error);
     }
 }  // 检查响应状态码
 
