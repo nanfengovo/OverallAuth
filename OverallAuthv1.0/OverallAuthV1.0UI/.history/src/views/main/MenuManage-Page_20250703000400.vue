@@ -39,8 +39,7 @@
                     <el-table-column align="center" type="index" label="序号" width="60px" />
                     <el-table-column align="center" label="操作" width="130">
                         <!-- <template #default="scope"> -->
-                        <el-button type="primary" size="small" text icon="Edit"
-                            @click="dialogEditVisible = true;">编辑</el-button>
+                        <el-button type="primary" size="small" text icon="Edit">编辑</el-button>
                         <!-- <el-button :type="scope.row.isOpen ? 'danger' : 'primary'" size="small" :text="true"
                                 :icon="scope.row.isOpen ? 'CircleCloseFilled' : 'SuccessFilled'">
                                 {{ scope.row.isOpen ? '禁用' : '启用' }}
@@ -139,22 +138,22 @@
 
     <!-- 编辑菜单对话框 -->
     <el-dialog v-model="dialogEditVisible" title="添加菜单" width="30%" draggable center>
-        <el-form :model="Editform" label-width="120px">
+        <el-form :model="Dialogform" label-width="120px">
             <el-form-item label="菜单名">
-                <el-input v-model="Editform.name" />
+                <el-input v-model="Dialogform.name" />
             </el-form-item>
             <el-form-item label="图标">
                 <div class="icon-selector">
                     <!-- 当前选中的图标预览 -->
                     <div v-if="Dialogform.icon" class="preview">
                         <el-icon :size="24">
-                            <component :is="Editform.icon" />
+                            <component :is="Dialogform.icon" />
                         </el-icon>
-                        <span class="icon-name">{{ Editform.icon }}</span>
+                        <span class="icon-name">{{ Dialogform.icon }}</span>
                     </div>
 
                     <!-- 下拉选择框 -->
-                    <el-select v-model="Editform.icon" filterable clearable placeholder="请选择图标" class="icon-select"
+                    <el-select v-model="Dialogform.icon" filterable clearable placeholder="请选择图标" class="icon-select"
                         @change="handleIconChange">
                         <el-option v-for="icon in filteredIcons" :key="icon" :value="icon" :label="icon">
                             <div class="icon-option">
@@ -168,13 +167,13 @@
                 </div>
             </el-form-item>
             <el-form-item label="路由">
-                <el-input v-model="Editform.route" />
+                <el-input v-model="Dialogform.route" />
             </el-form-item>
             <el-form-item label="描述">
-                <el-input v-model="Editform.describe" type="textarea" />
+                <el-input v-model="Dialogform.describe" type="textarea" />
             </el-form-item>
             <el-form-item label="是否启用">
-                <el-switch v-model="Editform.isEnable" active-color="#13ce66" inactive-color="#ff4949" />
+                <el-switch v-model="Dialogform.isEnable" active-color="#13ce66" inactive-color="#ff4949" />
             </el-form-item>
         </el-form>
         <template #footer>
@@ -196,14 +195,6 @@ import * as ElementPlusIcons from '@element-plus/icons-vue';
 
 //#region 编辑
 const dialogEditVisible = ref(false);
-const Editform = reactive<DialogForm>({
-    name: '',
-    icon: '',
-    route: '',
-    describe: '',
-    isEnable: false,
-})
-
 const handleEdit = (row: any) => {
     Dialogform.name = row.name;
     Dialogform.icon = row.icon;

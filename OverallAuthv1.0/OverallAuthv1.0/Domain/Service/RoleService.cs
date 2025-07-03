@@ -50,7 +50,7 @@ namespace OverallAuthv1._0.Domain.Service
 
         public async Task<bool> GetRoleByNameAsync(string roleName)
         {
-            var exist = await _dbContext.Roles.FirstOrDefaultAsync(r => r.Name == roleName && r.IsEnable && !r.IsDeleted);
+            var exist = await _dbContext.Roles.FirstOrDefaultAsync(r => r.Name == roleName  && !r.IsDeleted);
             return exist != null;
         }
     }

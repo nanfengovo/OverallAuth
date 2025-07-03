@@ -72,7 +72,7 @@ namespace OverallAuthv1._0.Domain.Service
             //using var transaction = _dbcontext.Database.BeginTransaction();
             try
             {
-                var user = await _dbcontext.Users.FirstOrDefaultAsync(x => x.Name == roleName && !x.IsDeleted && x.IsEnable);
+                var user = await _dbcontext.Users.FirstOrDefaultAsync(x => x.Name == roleName && !x.IsDeleted);
                 if (user == null)
                 {
                     //await transaction.RollbackAsync();

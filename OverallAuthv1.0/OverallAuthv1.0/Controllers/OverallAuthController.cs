@@ -135,7 +135,7 @@ namespace OverallAuthv1._0.Controllers
                     return new Result
                     {
                         Code = 404,
-                        Msg = "角色不存在或未启用无法分配权限",
+                        Msg = "角色不存在无法分配权限",
                         Data = null
                     };
                 }
