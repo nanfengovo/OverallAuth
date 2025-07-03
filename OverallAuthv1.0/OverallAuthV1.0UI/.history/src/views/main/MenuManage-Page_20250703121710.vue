@@ -55,7 +55,7 @@
                             </el-icon>
                         </template>
                     </el-table-column>
-                    <el-table-column align="center" prop="route" label="路由" width="180" />
+                    <el-table-column align="center" prop="url" label="路由" width="180" />
                     <el-table-column align="center" prop="describe" label="描述" width="180" />
                     <el-table-column align="center" prop="isEnable" label="是否启用" width="100">
                         <template #default="scope">
@@ -203,14 +203,12 @@ const Editform = ref({
     id: 0, // 用户ID
     name: '',
     icon: '',
-    route: '',
     describe: '',
     isEnable: false,
 });
 
 const title = ref('');
 const EditMenu = async (row: any) => {
-    dialogEditVisible.value = true;
     Editform.value = { ...row }
     console.log(Editform.value);
     title.value = row.name;
@@ -315,7 +313,7 @@ const AddMenu = async () => {
             const res = await axios.post('http://127.0.0.1:5141/api/Menu/AddMenu', {
                 name: Dialogform.name,
                 icon: Dialogform.icon,
-                route: Dialogform.route,
+                url: Dialogform.route,
                 describe: Dialogform.describe,
                 isEnable: Dialogform.isEnable,
             });
@@ -401,7 +399,7 @@ const fetchMenuData = async () => {
                 id: item.id,
                 name: item.name,
                 icon: item.icon,
-                route: item.url,
+                url: item.url,
                 describe: item.describe || '',
                 isEnable: item.isEnable,
                 createTime: item.createTime,

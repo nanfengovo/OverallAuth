@@ -101,5 +101,58 @@ namespace OverallAuthv1._0.Domain.Service
                 return (false, "服务端发生异常，异常信息为：" + ex.Message);
             }
         }
+
+        public async Task<(bool success, string msg)> EditMenuAsync(int id, AddMenuDTO menu)
+        {
+            try
+            {
+                // 验证必要字段
+                if (string.IsNullOrWhiteSpace(menu.Name) ||
+                    string.IsNullOrWhiteSpace(menu.URL) ||
+                    string.IsNullOrWhiteSpace(menu.Describe))
+                {
+                    return (false, "菜单名、路由和菜单描述均不能为空！");
+                }
+
+                // 获取当前菜单（不限制启用状态，但需未删除）
+                var existingMenu = await _dbContext.Menus
+                    .FirstOrDefaultAsync(x => x.Id == id && !x.IsDeleted);
+
+                if (existingMenu == null)
+                {
+                    return (false, "菜单不存在或已被删除");
+                }
+
+                // 检查重复性（排除当前菜单自身）
+                bool isDuplicate = await _dbContext.Menus
+                    .AnyAsync(x => !x.IsDeleted &&
+                                  x.Id != id &&
+                                  (x.Name == menu.Name ||
+                                   x.URL == menu.URL ||
+                                   x.Describe == menu.Describe));
+
+                if (isDuplicate)
+                {
+                    return (false, "修改失败！名称/URL/描述与其他菜单冲突");
+                }
+
+                // 更新字段
+                existingMenu.Name = menu.Name;
+                existingMenu.URL = menu.URL;
+                existingMenu.Describe = menu.Describe;
+                existingMenu.Icon = menu.Icon;
+                existingMenu.IsEnable = menu.IsEnable;
+                existingMenu.UpdateTime = DateTime.Now;
+
+                // 提交更改
+                await _dbContext.SaveChangesAsync();
+                return (true, "菜单修改成功");
+            }
+            catch (Exception ex)
+            {
+                // 实际项目中建议记录日志
+                return (false, $"服务器错误: {ex.Message}");
+            }
+        }
     }
 }

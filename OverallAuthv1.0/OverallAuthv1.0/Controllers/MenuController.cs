@@ -205,5 +205,39 @@ namespace OverallAuthv1._0.Controllers
                 };
             }
         }
+
+        [HttpPost]
+        public async Task<Result> EditMenu(int id, AddMenuDTO menu)
+        {
+            try
+            {
+                var result = await _menuService.EditMenuAsync(id, menu);
+                if (result.success)
+                {
+                    return new Result
+                    {
+                        Code = 200,
+                        Msg = result.msg
+                    };
+                }
+                else
+                {
+                    return new Result
+                    {
+                        Code = 500,
+                        Msg = result.msg
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return new Result
+                {
+                    Code = 500,
+                    Msg = "服务器错误: " + ex.Message,
+                };
+            }
+        }
     }
 }

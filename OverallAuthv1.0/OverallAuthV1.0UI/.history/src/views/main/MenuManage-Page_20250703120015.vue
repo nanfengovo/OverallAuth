@@ -39,8 +39,8 @@
                     <el-table-column align="center" type="index" label="序号" width="60px" />
                     <el-table-column align="center" label="操作" width="130">
                         <template #default="scope">
-                            <el-button type="primary" size="small" text icon="Edit"
-                                @click="EditMenu(scope.row)">编辑</el-button>
+                            <el-button type="primary" size="small" text icon="Edit" @click="dialogEditVisible = true;"
+                                @="EditMenu(scope.row)">编辑</el-button>
                             <!-- <el-button :type="scope.row.isOpen ? 'danger' : 'primary'" size="small" :text="true"
                                 :icon="scope.row.isOpen ? 'CircleCloseFilled' : 'SuccessFilled'">
                                 {{ scope.row.isOpen ? '禁用' : '启用' }}
@@ -55,7 +55,7 @@
                             </el-icon>
                         </template>
                     </el-table-column>
-                    <el-table-column align="center" prop="route" label="路由" width="180" />
+                    <el-table-column align="center" prop="url" label="路由" width="180" />
                     <el-table-column align="center" prop="describe" label="描述" width="180" />
                     <el-table-column align="center" prop="isEnable" label="是否启用" width="100">
                         <template #default="scope">
@@ -138,7 +138,7 @@
 
 
     <!-- 编辑菜单对话框 -->
-    <el-dialog v-model="dialogEditVisible" :title="'编辑' + title + '菜单'" width="30%" draggable center>
+    <el-dialog v-model="dialogEditVisible" title="编辑{{Editform.name}}菜单" width="30%" draggable center>
         <el-form :model="Editform" label-width="120px">
             <el-form-item label="菜单名">
                 <el-input v-model="Editform.name" />
@@ -199,31 +199,26 @@ import * as ElementPlusIcons from '@element-plus/icons-vue';
 
 
 const dialogEditVisible = ref(false);
-const Editform = ref({
+const EditForm = ref({
     id: 0, // 用户ID
     name: '',
     icon: '',
-    route: '',
     describe: '',
     isEnable: false,
 });
 
-const title = ref('');
 const EditMenu = async (row: any) => {
-    dialogEditVisible.value = true;
-    Editform.value = { ...row }
-    console.log(Editform.value);
-    title.value = row.name;
+    EditForm.value = { ...row }
 }
 
-// const handleEdit = (row: any) => {
-//     Dialogform.name = row.name;
-//     Dialogform.icon = row.icon;
-//     Dialogform.route = row.route;
-//     Dialogform.describe = row.describe;
-//     Dialogform.isEnable = row.isEnable;
-//     dialogEditVisible.value = true;
-// }
+const handleEdit = (row: any) => {
+    Dialogform.name = row.name;
+    Dialogform.icon = row.icon;
+    Dialogform.route = row.route;
+    Dialogform.describe = row.describe;
+    Dialogform.isEnable = row.isEnable;
+    dialogEditVisible.value = true;
+}
 //#endregion
 
 //#region 菜单数据
@@ -315,7 +310,7 @@ const AddMenu = async () => {
             const res = await axios.post('http://127.0.0.1:5141/api/Menu/AddMenu', {
                 name: Dialogform.name,
                 icon: Dialogform.icon,
-                route: Dialogform.route,
+                url: Dialogform.route,
                 describe: Dialogform.describe,
                 isEnable: Dialogform.isEnable,
             });
@@ -401,7 +396,7 @@ const fetchMenuData = async () => {
                 id: item.id,
                 name: item.name,
                 icon: item.icon,
-                route: item.url,
+                url: item.url,
                 describe: item.describe || '',
                 isEnable: item.isEnable,
                 createTime: item.createTime,

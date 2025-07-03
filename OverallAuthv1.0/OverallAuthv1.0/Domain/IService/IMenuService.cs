@@ -34,5 +34,13 @@ namespace OverallAuthv1._0.Domain.IService
         /// <param name="ids"></param>
         /// <returns></returns>
         Task<(bool success, string msg)> DeleteMenusAsync(int[] ids);
+
+        /// <summary>
+        /// 编辑菜单
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="menu"></param>
+        /// <returns></returns>
+        Task<(bool success,string msg)> EditMenuAsync(int id, AddMenuDTO menu);
     }
 }

@@ -372,7 +372,7 @@ interface Menu {
     id: number;
     name: string;
     icon: string;
-    url: string;
+    route: string;
     describe: string;
     isEnable: boolean;
     createTime: Date;
@@ -401,7 +401,7 @@ const fetchMenuData = async () => {
                 id: item.id,
                 name: item.name,
                 icon: item.icon,
-                route: item.url,
+                route: item.route,
                 describe: item.describe || '',
                 isEnable: item.isEnable,
                 createTime: item.createTime,

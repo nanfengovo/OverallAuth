@@ -401,7 +401,7 @@ const fetchMenuData = async () => {
                 id: item.id,
                 name: item.name,
                 icon: item.icon,
-                route: item.url,
+                url: item.url,
                 describe: item.describe || '',
                 isEnable: item.isEnable,
                 createTime: item.createTime,
