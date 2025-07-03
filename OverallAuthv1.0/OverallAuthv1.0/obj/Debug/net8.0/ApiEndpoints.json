@@ -132,7 +132,7 @@
     "ContainingType": "OverallAuthv1._0.Controllers.MenuController",
     "Method": "Search",
     "RelativePath": "api/Menu/Search",
-    "HttpMethod": "GET",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -321,7 +321,7 @@
   {
     "ContainingType": "OverallAuthv1._0.Controllers.RoleController",
     "Method": "AddRole",
-    "RelativePath": "api/Role",
+    "RelativePath": "api/Role/AddRole",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -329,6 +329,58 @@
       {
         "Name": "role",
         "Type": "OverallAuthv1._0.Domain.DTO.AddRole",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "OverallAuthv1._0.Result",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "OverallAuthv1._0.Controllers.RoleController",
+    "Method": "DeleteRole",
+    "RelativePath": "api/Role/DeleteRole",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ids",
+        "Type": "System.Int32[]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "OverallAuthv1._0.Result",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "OverallAuthv1._0.Controllers.RoleController",
+    "Method": "Search",
+    "RelativePath": "api/Role/Search",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "keyWord",
+        "Type": "OverallAuthv1._0.Domain.DTO.searchRoleDTO",
         "IsRequired": true
       }
     ],

@@ -249,7 +249,7 @@
       }
     },
     "/api/Menu/Search": {
-      "get": {
+      "post": {
         "tags": [
           "Menu"
         ],
@@ -607,7 +607,7 @@
         }
       }
     },
-    "/api/Role": {
+    "/api/Role/AddRole": {
       "post": {
         "tags": [
           "Role"
@@ -629,6 +629,118 @@
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/AddRole"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Role/Search": {
+      "post": {
+        "tags": [
+          "Role"
+        ],
+        "summary": "搜索",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/searchRoleDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/searchRoleDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/searchRoleDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Role/DeleteRole": {
+      "delete": {
+        "tags": [
+          "Role"
+        ],
+        "summary": "删除",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int32"
+                }
               }
             }
           }
@@ -1000,6 +1112,20 @@
           "role": {
             "type": "string",
             "description": "角色名",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "searchRoleDTO": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "menu": {
+            "type": "string",
             "nullable": true
           }
         },

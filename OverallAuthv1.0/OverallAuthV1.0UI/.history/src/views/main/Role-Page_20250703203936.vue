@@ -157,10 +157,10 @@ const fetchRoleData = async () => {
                 updateTime: item.updateTime
             }));
         } else {
-            ElMessage.error('获取角色数据失败:', res.data.message);
+            console.error('获取角色数据失败:', res.data.message);
         }
     } catch (error) {
-        ElMessageS.error('获取角色数据失败:', error);
+        console.error('获取角色数据失败:', error);
     }
 }
 

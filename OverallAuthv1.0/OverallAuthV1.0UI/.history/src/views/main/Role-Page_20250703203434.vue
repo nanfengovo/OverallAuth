@@ -95,7 +95,6 @@ const searchForm = reactive({
 //重置
 function headleResetClick() {
     formRef.value?.resetFields();
-    fetchRoleData();
 }
 //#endregion
 
@@ -106,9 +105,11 @@ const headleSearchClick = async () => {
         return;
     }
     try {
-        const res = await axios.post("http://127.0.0.1:5141/api/Role/Search", {
-            name: searchForm.name,
-            menu: searchForm.menu
+        const res = await axios.get("http://127.0.0.1:5141/api/Role/Search", {
+            params: {
+                name: searchForm.name,
+                menu: searchForm.menu
+            }
         });
         if (res.data.code === 200) {
             data.value = res.data.data.map((item: Role) => ({
@@ -157,10 +158,10 @@ const fetchRoleData = async () => {
                 updateTime: item.updateTime
             }));
         } else {
-            ElMessage.error('获取角色数据失败:', res.data.message);
+            console.error('获取角色数据失败:', res.data.message);
         }
     } catch (error) {
-        ElMessageS.error('获取角色数据失败:', error);
+        console.error('获取角色数据失败:', error);
     }
 }
 

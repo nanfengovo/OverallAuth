@@ -23,6 +23,13 @@ namespace OverallAuthv1._0.Domain.IService
         /// </summary>
         /// <param name="search"></param>
         /// <returns></returns>
-        Task<(bool success, string msg)> SearchByKeyWordAsync(searchRoleDTO search);
+        Task<(bool success, object obj)> SearchByKeyWordAsync(searchRoleDTO search);
+
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        Task<(bool success, string msg)> DeleteRoleByIdAsync(int[] ids);
     }
 }

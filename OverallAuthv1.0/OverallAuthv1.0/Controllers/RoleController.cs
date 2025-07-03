@@ -8,7 +8,7 @@ namespace OverallAuthv1._0.Controllers
     /// <summary>
     /// Role Controller
     /// </summary>
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class RoleController : ControllerBase
     {
@@ -160,5 +160,7 @@ namespace OverallAuthv1._0.Controllers
                 };
             }
         }
+
+       
     }
 }

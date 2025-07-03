@@ -113,7 +113,7 @@ const headleSearchClick = async () => {
         if (res.data.code === 200) {
             data.value = res.data.data.map((item: Role) => ({
                 name: item.name,
-                menusName: item.menusName,
+                menusName: item.menusName.toString(),
                 describe: item.describe || '',
                 isEnable: item.isEnable,
                 createTime: item.createTime,

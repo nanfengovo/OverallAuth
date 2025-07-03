@@ -112,6 +112,20 @@
             <param name="role"></param>
             <returns></returns>
         </member>
+        <member name="M:OverallAuthv1._0.Controllers.RoleController.Search(OverallAuthv1._0.Domain.DTO.searchRoleDTO)">
+            <summary>
+            搜索
+            </summary>
+            <param name="keyWord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OverallAuthv1._0.Controllers.RoleController.DeleteRole(System.Int32[])">
+            <summary>
+            删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
         <member name="T:OverallAuthv1._0.Controllers.UserController">
             <summary>
             User Controller
@@ -415,6 +429,20 @@
             角色是否存在且启用
             </summary>
             <param name="roleName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OverallAuthv1._0.Domain.IService.IRoleService.SearchByKeyWordAsync(OverallAuthv1._0.Domain.DTO.searchRoleDTO)">
+            <summary>
+            根据关键字搜索
+            </summary>
+            <param name="search"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OverallAuthv1._0.Domain.IService.IRoleService.DeleteRoleByIdAsync(System.Int32[])">
+            <summary>
+            删除
+            </summary>
+            <param name="ids"></param>
             <returns></returns>
         </member>
         <member name="M:OverallAuthv1._0.Domain.IService.IUserService.AddUserAsync(OverallAuthv1._0.Domain.DTO.AddUser)">

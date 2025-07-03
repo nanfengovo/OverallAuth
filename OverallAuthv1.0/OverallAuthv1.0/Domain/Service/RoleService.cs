@@ -3,6 +3,7 @@ using OverallAuthDEMO.EFcore;
 using OverallAuthDEMO.EFcore.Model;
 using OverallAuthv1._0.Domain.DTO;
 using OverallAuthv1._0.Domain.IService;
+using System.Data;
 
 namespace OverallAuthv1._0.Domain.Service
 {
@@ -93,17 +94,77 @@ namespace OverallAuthv1._0.Domain.Service
                 else if(string.IsNullOrEmpty(search.Name) && !string.IsNullOrEmpty(search.Menu))
                 {
                     var result = await _dbContext.Roles.Where(r => r.Menus.Any(m => m.Name.Contains(search.Menu))).ToListAsync();
-                    return (true, result);
+                    var newRoles = new List<RoleInfoDTO>();
+                    foreach (var item in result)
+                    {
+                        var roleId = item.Id;
+                        var roleMenus = await _dbContext.Menus
+                            .Where(x => x.IsDeleted == false && x.IsEnable && x.Roles.Any(r => r.Id == roleId))
+                            .ToListAsync();
+
+                        var role = new RoleInfoDTO
+                        {
+
+                            Name = item.Name,
+                            Describe = item.Describe,
+                            menusName = roleMenus.Select(x => x.Name).ToList(),
+                            IsEnable = item.IsEnable,
+                            CreateTime = item.CreateTime.ToString("yyyy-MM-dd HH:mm:ss"),
+                            UpdateTime = item.UpdateTime.ToString("yyyy-MM-dd HH:mm:ss")
+                        };
+                        newRoles.Add(role);
+                    }
+                    return (true, newRoles);
                 }
                 else if (!string.IsNullOrEmpty(search.Name) && string.IsNullOrEmpty(search.Menu))
                 {
                     var result = await _dbContext.Roles.Where(r => r.Name.Contains(search.Name)).ToListAsync();
-                    return (true, result);
+                    var newRoles = new List<RoleInfoDTO>();
+                    foreach (var item in result)
+                    {
+                        var roleId = item.Id;
+                        var roleMenus = await _dbContext.Menus
+                            .Where(x => x.IsDeleted == false && x.IsEnable && x.Roles.Any(r => r.Id == roleId))
+                            .ToListAsync();
+
+                        var role = new RoleInfoDTO
+                        {
+
+                            Name = item.Name,
+                            Describe = item.Describe,
+                            menusName = roleMenus.Select(x => x.Name).ToList(),
+                            IsEnable = item.IsEnable,
+                            CreateTime = item.CreateTime.ToString("yyyy-MM-dd HH:mm:ss"),
+                            UpdateTime = item.UpdateTime.ToString("yyyy-MM-dd HH:mm:ss")
+                        };
+                        newRoles.Add(role);
+                    }
+                    return (true, newRoles);
                 }
                 else
                 {
                     var result = await _dbContext.Roles.Where(r => r.Name.Contains(search.Name) && r.Menus.Any(m => m.Name.Contains(search.Menu))).ToListAsync();
-                    return (true, result);
+                    var newRoles = new List<RoleInfoDTO>();
+                    foreach (var item in result)
+                    {
+                        var roleId = item.Id;
+                        var roleMenus = await _dbContext.Menus
+                            .Where(x => x.IsDeleted == false && x.IsEnable && x.Roles.Any(r => r.Id == roleId))
+                            .ToListAsync();
+
+                        var role = new RoleInfoDTO
+                        {
+
+                            Name = item.Name,
+                            Describe = item.Describe,
+                            menusName = roleMenus.Select(x => x.Name).ToList(),
+                            IsEnable = item.IsEnable,
+                            CreateTime = item.CreateTime.ToString("yyyy-MM-dd HH:mm:ss"),
+                            UpdateTime = item.UpdateTime.ToString("yyyy-MM-dd HH:mm:ss")
+                        };
+                        newRoles.Add(role);
+                    }
+                    return (true, newRoles);
                 }
             }
             catch (Exception ex)

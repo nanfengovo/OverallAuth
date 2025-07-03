@@ -2,5 +2,8 @@
 {
     public class searchRoleDTO
     {
+        public string Name { get; set; }
+
+        public string Menu { get; set; }
     }
 }
