@@ -482,12 +482,10 @@ const headleSearch = async () => {
                 createTime: item.createTime,
                 updateTime: item.updateTime || new Date().toISOString()
             }));
-        } else {
-            ElMessage.error('搜索失败');
         }
     }
     catch (error) {
-        ElMessage.error('搜索失败' + error);
+
     }
 }
 //#endregion

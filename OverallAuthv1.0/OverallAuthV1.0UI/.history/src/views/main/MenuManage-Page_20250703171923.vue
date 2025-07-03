@@ -13,7 +13,7 @@
                     </el-form-item>
                 </el-col>
                 <el-col :span="8">
-                    <el-button type="primary" icon="search" @click="headleSearch">
+                    <el-button type="primary" icon="search" @click="headleSearchClick">
                         查询
                     </el-button>
                     <el-button icon="Refresh" @click="headleResetClick">
@@ -459,7 +459,7 @@ const fetchMenuData = async () => {
 
 
 //#region 搜索
-const headleSearch = async () => {
+const handleSearch = async () => {
     try {
         if (searchForm.name === '' && searchForm.describe === '') {
             ElMessage.warning('请输入搜索条件');
@@ -471,23 +471,9 @@ const headleSearch = async () => {
             name: name,
             describe: describe
         });
-        if (res.data.code === 200) {
-            data.value = res.data.data.map((item: Menu) => ({
-                id: item.id,
-                name: item.name,
-                icon: item.icon,
-                route: item.url,
-                describe: item.describe || '',
-                isEnable: item.isEnable,
-                createTime: item.createTime,
-                updateTime: item.updateTime || new Date().toISOString()
-            }));
-        } else {
-            ElMessage.error('搜索失败');
-        }
     }
     catch (error) {
-        ElMessage.error('搜索失败' + error);
+
     }
 }
 //#endregion
