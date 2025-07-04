@@ -289,7 +289,6 @@ const fetchRoleData = async () => {
                 createTime: item.createTime,
                 updateTime: item.updateTime
             }));
-            console.log(res.data.data);
         } else {
             ElMessage.error('获取角色数据失败:', res.data.message);
         }

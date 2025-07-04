@@ -26,14 +26,14 @@
     <div class="role-content">
         <div class="content-top">
             <div class="title">
-                <el-button type="primary" icon="Refresh" @click="refresh">刷新</el-button>
-                <el-button type="danger" icon="delete" @click="headleDeleteClick">删除</el-button>
+                <el-button type="primary" icon="Refresh">刷新</el-button>
+                <el-button type="danger" icon="delete">删除</el-button>
             </div>
             <el-button icon="Plus" type="primary" @click="headleAddClick">新增角色</el-button>
         </div>
-        <div class="content" v-loading="loading">
+        <div class="content">
             <el-scrollbar max-height="550px">
-                <el-table :data=data border style="width: auto;" stripe ref="multipleTableRef">
+                <el-table :data=data border style="width: auto;" stripe>
 
                     <el-table-column align="center" type="selection" width="40px" />
                     <el-table-column align="center" type="index" label="序号" width="60px" />
@@ -105,29 +105,11 @@
 // }
 // ]
 
-import { ElMessageBox, ElMessage, type ElForm, ElTable } from 'element-plus';
+import { ElMessage, type ElForm } from 'element-plus';
 import type { LoadFunction } from 'element-plus'
-import { reactive, ref, nextTick } from 'vue';
+import { reactive, ref } from 'vue';
 import { onMounted } from 'vue';
 import axios from 'axios';
-
-const isMounted = ref(true);
-const loading = ref(false)
-//#region ---刷新
-
-const refresh = () => {
-    isMounted.value = false;
-    setTimeout(() => {
-        fetchRoleData();
-        loading.value = false; //0.5 后显示内容
-    }, 500);
-    loading.value = true;
-    nextTick(() => {
-        isMounted.value = true;
-    });
-}
-//#endregion
-
 
 interface Tree {
     name: string
@@ -157,12 +139,7 @@ const loadNode: LoadFunction = (node, resolve) => {
         hasChild = false
     } else if (node.data.name === 'User') {
         hasChild = false
-    } else if (node.data.name === 'Role') {
-        hasChild = false
-    } else if (node.data.name === 'menu') {
-        hasChild = false
-    }
-    else {
+    } else {
         hasChild = Math.random() > 0.5
     }
     setTimeout(() => {
@@ -228,44 +205,12 @@ const headleSearchClick = async () => {
 }
 //#endregion
 
-//#region 删除
-const multipleTableRef = ref<InstanceType<typeof ElTable>>(); // 明确组件类型
-const headleDeleteClick = async (row: Role) => {
-    try {
-        await ElMessageBox.confirm('确定删除选中项吗？', '警告', { type: 'warning' });
-        try {
-            if (!multipleTableRef.value) {
-                ElMessage.warning('表格未加载');
-                return;
-            }
-            // 获取选中的行
-            const selectedRows = multipleTableRef.value.getSelectionRows();
-            const ids = selectedRows.map((row: { id: any; }) => row.id);
-            const res = await axios.delete("http://127.0.0.1:5141/api/Role/DeleteRole", { data: ids });
-            if (res.data.code === 200) {
-                ElMessage.success('删除成功');
-                refresh();
-            } else {
-                ElMessage.error('删除失败');
-            }
-        }
-        catch (error) {
-            ElMessage.error('删除失败，系统异常，请稍后再试' + error);
-            return;
-        }
-    } catch (error) {
-
-    }
-}
-//#endregion
-
 
 onMounted(() => {
     fetchRoleData();
 })
 
 interface Role {
-    id: number;
     name: string;
     menusName: string[];
     describe?: string;
@@ -281,7 +226,6 @@ const fetchRoleData = async () => {
         const res = await axios.get("http://127.0.0.1:5141/api/OverallAuth/GetAllRole");
         if (res.data.code === 200) {
             data.value = res.data.data.map((item: Role) => ({
-                id: item.id,
                 name: item.name,
                 menusName: item.menusName,
                 describe: item.describe || '',
@@ -289,7 +233,6 @@ const fetchRoleData = async () => {
                 createTime: item.createTime,
                 updateTime: item.updateTime
             }));
-            console.log(res.data.data);
         } else {
             ElMessage.error('获取角色数据失败:', res.data.message);
         }

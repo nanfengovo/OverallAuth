@@ -33,7 +33,7 @@
         </div>
         <div class="content" v-loading="loading">
             <el-scrollbar max-height="550px">
-                <el-table :data=data border style="width: auto;" stripe ref="multipleTableRef">
+                <el-table :data=data border style="width: auto;" stripe>
 
                     <el-table-column align="center" type="selection" width="40px" />
                     <el-table-column align="center" type="index" label="序号" width="60px" />
@@ -105,7 +105,7 @@
 // }
 // ]
 
-import { ElMessageBox, ElMessage, type ElForm, ElTable } from 'element-plus';
+import { ElMessageBox, ElMessage, type ElForm } from 'element-plus';
 import type { LoadFunction } from 'element-plus'
 import { reactive, ref, nextTick } from 'vue';
 import { onMounted } from 'vue';
@@ -229,7 +229,6 @@ const headleSearchClick = async () => {
 //#endregion
 
 //#region 删除
-const multipleTableRef = ref<InstanceType<typeof ElTable>>(); // 明确组件类型
 const headleDeleteClick = async (row: Role) => {
     try {
         await ElMessageBox.confirm('确定删除选中项吗？', '警告', { type: 'warning' });
@@ -241,7 +240,8 @@ const headleDeleteClick = async (row: Role) => {
             // 获取选中的行
             const selectedRows = multipleTableRef.value.getSelectionRows();
             const ids = selectedRows.map((row: { id: any; }) => row.id);
-            const res = await axios.delete("http://127.0.0.1:5141/api/Role/DeleteRole", { data: ids });
+            const res = await axios.delete("http://127.0.0.1:5141/api/User/DeleteUser", { data: ids });
+            console.log(res.data);
             if (res.data.code === 200) {
                 ElMessage.success('删除成功');
                 refresh();
@@ -253,8 +253,6 @@ const headleDeleteClick = async (row: Role) => {
             ElMessage.error('删除失败，系统异常，请稍后再试' + error);
             return;
         }
-    } catch (error) {
-
     }
 }
 //#endregion
@@ -265,7 +263,6 @@ onMounted(() => {
 })
 
 interface Role {
-    id: number;
     name: string;
     menusName: string[];
     describe?: string;
@@ -281,7 +278,6 @@ const fetchRoleData = async () => {
         const res = await axios.get("http://127.0.0.1:5141/api/OverallAuth/GetAllRole");
         if (res.data.code === 200) {
             data.value = res.data.data.map((item: Role) => ({
-                id: item.id,
                 name: item.name,
                 menusName: item.menusName,
                 describe: item.describe || '',
@@ -289,7 +285,6 @@ const fetchRoleData = async () => {
                 createTime: item.createTime,
                 updateTime: item.updateTime
             }));
-            console.log(res.data.data);
         } else {
             ElMessage.error('获取角色数据失败:', res.data.message);
         }

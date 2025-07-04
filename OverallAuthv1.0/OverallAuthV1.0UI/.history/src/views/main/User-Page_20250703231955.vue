@@ -23,7 +23,7 @@
             </el-row>
         </el-form>
     </el-card>
-    <div class="user-content">
+    <div class="user-content" v-loading="loading">
         <div class="content-top">
             <div class="title">
                 <el-button type="primary" icon="Refresh" @click="refresh">刷新</el-button>
@@ -31,7 +31,7 @@
             </div>
             <el-button icon="Plus" type="primary" @click="dialogVisible = true">新增用户</el-button>
         </div>
-        <div class="content" v-loading="loading">
+        <div class="content">
             <el-scrollbar max-height="550px">
                 <el-table :data=data border style="width: auto;" stripe ref="multipleTableRef">
 

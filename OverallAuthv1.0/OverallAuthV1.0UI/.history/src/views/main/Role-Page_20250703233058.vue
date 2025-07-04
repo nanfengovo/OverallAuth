@@ -242,6 +242,7 @@ const headleDeleteClick = async (row: Role) => {
             const selectedRows = multipleTableRef.value.getSelectionRows();
             const ids = selectedRows.map((row: { id: any; }) => row.id);
             const res = await axios.delete("http://127.0.0.1:5141/api/Role/DeleteRole", { data: ids });
+            console.log(res.data);
             if (res.data.code === 200) {
                 ElMessage.success('删除成功');
                 refresh();
@@ -265,7 +266,6 @@ onMounted(() => {
 })
 
 interface Role {
-    id: number;
     name: string;
     menusName: string[];
     describe?: string;
@@ -281,7 +281,6 @@ const fetchRoleData = async () => {
         const res = await axios.get("http://127.0.0.1:5141/api/OverallAuth/GetAllRole");
         if (res.data.code === 200) {
             data.value = res.data.data.map((item: Role) => ({
-                id: item.id,
                 name: item.name,
                 menusName: item.menusName,
                 describe: item.describe || '',
@@ -289,7 +288,6 @@ const fetchRoleData = async () => {
                 createTime: item.createTime,
                 updateTime: item.updateTime
             }));
-            console.log(res.data.data);
         } else {
             ElMessage.error('获取角色数据失败:', res.data.message);
         }

@@ -6,6 +6,8 @@ namespace OverallAuthv1._0.Domain.DTO
     {
         private List<string> _menusName; // Fix CS0029: Change type to List<string>
 
+        public int Id { get; set; }
+
         /// <summary>
         /// 角色名
         /// </summary>
