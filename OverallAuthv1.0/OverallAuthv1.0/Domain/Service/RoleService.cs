@@ -44,7 +44,9 @@ namespace OverallAuthv1._0.Domain.Service
                         Describe = role.Describe,
                         IsEnable = role.IsEnable,
                         CreateTime = DateTime.Now,
-                        UpdateTime = DateTime.Now
+                        UpdateTime = DateTime.Now,
+                        IsDeleted = false
+                        
                     };
 
                     _dbContext.Roles.Add(newRole);

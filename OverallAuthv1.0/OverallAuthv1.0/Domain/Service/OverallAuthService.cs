@@ -26,7 +26,7 @@ namespace OverallAuthv1._0.Domain.Service
             {
                 var role = await _dbcontext.Roles
                     .Include(r => r.Menus)  // 确保加载关联的菜单
-                    .FirstOrDefaultAsync(x => x.Name == roleName && x.IsDeleted == false && x.IsEnable);
+                    .FirstOrDefaultAsync(x => x.Name == roleName && x.IsDeleted == false );
 
                 if (role == null)
                 {
