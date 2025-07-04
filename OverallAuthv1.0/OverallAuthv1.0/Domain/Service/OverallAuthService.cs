@@ -21,7 +21,7 @@ namespace OverallAuthv1._0.Domain.Service
         public async Task<(bool success, string msg)> GiveRoleMenuAsync(string roleName, int[] menuIds)
         {
 
-            using var transaction = await _dbcontext.Database.BeginTransactionAsync();
+            //using var transaction = await _dbcontext.Database.BeginTransactionAsync();
             try
             {
                 var role = await _dbcontext.Roles
@@ -30,7 +30,7 @@ namespace OverallAuthv1._0.Domain.Service
 
                 if (role == null)
                 {
-                    await transaction.RollbackAsync();
+                    //await transaction.RollbackAsync();
                     return (false, "角色不存在或已被禁用");
                 }
 
@@ -53,13 +53,13 @@ namespace OverallAuthv1._0.Domain.Service
 
                 // 只保存一次
                 await _dbcontext.SaveChangesAsync();
-                await transaction.CommitAsync();
+                //await transaction.CommitAsync();
 
                 return (true, $"已成功分配 菜单权限");
             }
             catch (Exception ex)
             {
-                await transaction.RollbackAsync();
+                //await transaction.RollbackAsync();
                 return (false, ex.Message);
             }
 
@@ -119,7 +119,7 @@ namespace OverallAuthv1._0.Domain.Service
 
                     var role = new RoleInfoDTO 
                     {
-                        
+                        Id = item.Id,
                         Name = item.Name,
                         Describe = item.Describe,
                         menusName = roleMenus.Select(x => x.Name).ToList(),

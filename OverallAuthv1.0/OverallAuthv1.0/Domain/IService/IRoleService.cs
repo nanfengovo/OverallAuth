@@ -9,7 +9,7 @@ namespace OverallAuthv1._0.Domain.IService
         /// </summary>
         /// <param name="role"></param>
         /// <returns></returns>
-        Task<(bool success, string msg)> AddRoleAsync(AddRole role);
+        Task<(bool success, string msg)> AddRoleAsync(AddRoleDTO role);
 
         /// <summary>
         /// 角色是否存在且启用

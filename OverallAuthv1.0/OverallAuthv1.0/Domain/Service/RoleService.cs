@@ -11,16 +11,26 @@ namespace OverallAuthv1._0.Domain.Service
     {
         private readonly MyDbContext _dbContext;
 
-        public RoleService(MyDbContext dbContext)
+        private readonly IOverallAuthService _overallAuthService;
+
+        public RoleService(MyDbContext dbContext, IOverallAuthService overallAuthService)
         {
             _dbContext = dbContext;
+            _overallAuthService = overallAuthService;
         }
 
-
-        public async Task<(bool success, string msg)> AddRoleAsync(AddRole role)
+        /// <summary>
+        /// 添加角色 （添加基本的角色信息+给角色分配菜单）
+        /// </summary>
+        /// <param name="role"></param>
+        /// <returns></returns>
+        public async Task<(bool success, string msg)> AddRoleAsync(AddRoleDTO role)
         {
+            // 开启事务
+            await using var transaction = await _dbContext.Database.BeginTransactionAsync();
             try
             {
+                
                 var exist = await _dbContext.Roles.FirstOrDefaultAsync(r => r.Name == role.Name);
                 if(exist != null)
                 {
@@ -35,16 +45,35 @@ namespace OverallAuthv1._0.Domain.Service
                         IsEnable = role.IsEnable,
                         CreateTime = DateTime.Now,
                         UpdateTime = DateTime.Now
-                    }; 
+                    };
 
                     _dbContext.Roles.Add(newRole);
                     await _dbContext.SaveChangesAsync();
-                    return (true, "添加成功");
+
+                    #region 给角色分配菜单
+                    var result = await _overallAuthService.GiveRoleMenuAsync(role.Name, role.menuIds);
+                    #endregion
+
+                  
+                    
+
+                    if(result.success)
+                    {
+                        await transaction.CommitAsync();//提交事务
+                        return (true, "添加成功");
+                    }
+                    else
+                    {
+                        await transaction.RollbackAsync();//回滚事务
+                        return (false,"添加失败"+result.msg);
+                    }
+
+                    
                 }
             }
             catch (Exception ex)
             {
-
+                await transaction.RollbackAsync();//回滚事务
                 return (false, ex.Message);
             }
         }

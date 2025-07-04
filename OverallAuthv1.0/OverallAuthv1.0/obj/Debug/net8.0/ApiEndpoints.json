@@ -328,7 +328,7 @@
     "Parameters": [
       {
         "Name": "role",
-        "Type": "OverallAuthv1._0.Domain.DTO.AddRole",
+        "Type": "OverallAuthv1._0.Domain.DTO.AddRoleDTO",
         "IsRequired": true
       }
     ],

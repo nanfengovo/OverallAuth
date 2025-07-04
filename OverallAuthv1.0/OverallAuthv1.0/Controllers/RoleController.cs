@@ -25,7 +25,7 @@ namespace OverallAuthv1._0.Controllers
         /// <param name="role"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<Result> AddRole(AddRole role)
+        public async Task<Result> AddRole(AddRoleDTO role)
         {
             try
             {

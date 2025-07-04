@@ -105,7 +105,7 @@
             Role Controller
             </summary>
         </member>
-        <member name="M:OverallAuthv1._0.Controllers.RoleController.AddRole(OverallAuthv1._0.Domain.DTO.AddRole)">
+        <member name="M:OverallAuthv1._0.Controllers.RoleController.AddRole(OverallAuthv1._0.Domain.DTO.AddRoleDTO)">
             <summary>
             添加角色
             </summary>
@@ -208,6 +208,36 @@
             </summary>
         </member>
         <member name="P:OverallAuthv1._0.Domain.DTO.AddRole.UpdateTime">
+            <summary>
+            最后更新时间
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.AddRoleDTO.Name">
+            <summary>
+            角色名
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.AddRoleDTO.Describe">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.AddRoleDTO.menuIds">
+            <summary>
+            角色拥有的菜单
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.AddRoleDTO.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.AddRoleDTO.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:OverallAuthv1._0.Domain.DTO.AddRoleDTO.UpdateTime">
             <summary>
             最后更新时间
             </summary>
@@ -417,7 +447,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:OverallAuthv1._0.Domain.IService.IRoleService.AddRoleAsync(OverallAuthv1._0.Domain.DTO.AddRole)">
+        <member name="M:OverallAuthv1._0.Domain.IService.IRoleService.AddRoleAsync(OverallAuthv1._0.Domain.DTO.AddRoleDTO)">
             <summary>
             add role
             </summary>
@@ -477,6 +507,13 @@
             根据关键字搜索用户
             </summary>
             <param name="KeyWord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OverallAuthv1._0.Domain.Service.RoleService.AddRoleAsync(OverallAuthv1._0.Domain.DTO.AddRoleDTO)">
+            <summary>
+            添加角色 （添加基本的角色信息+给角色分配菜单）
+            </summary>
+            <param name="role"></param>
             <returns></returns>
         </member>
         <member name="P:OverallAuthv1._0.EFcore.Model.CommomModel.Describe">

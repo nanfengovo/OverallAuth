@@ -618,17 +618,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/AddRole"
+                "$ref": "#/components/schemas/AddRoleDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/AddRole"
+                "$ref": "#/components/schemas/AddRoleDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/AddRole"
+                "$ref": "#/components/schemas/AddRoleDTO"
               }
             }
           }
@@ -974,7 +974,7 @@
         },
         "additionalProperties": false
       },
-      "AddRole": {
+      "AddRoleDTO": {
         "type": "object",
         "properties": {
           "name": {
@@ -985,6 +985,15 @@
           "describe": {
             "type": "string",
             "description": "描述",
+            "nullable": true
+          },
+          "menuIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "description": "角色拥有的菜单",
             "nullable": true
           },
           "isEnable": {
