@@ -31,5 +31,14 @@ namespace OverallAuthv1._0.Domain.IService
         /// <param name="ids"></param>
         /// <returns></returns>
         Task<(bool success, string msg)> DeleteRoleByIdAsync(int[] ids);
+
+
+        /// <summary>
+        /// 编辑角色
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="editRole"></param>
+        /// <returns></returns>
+        Task<(bool success, string msg)> EditRoleAsync(int id, AddRoleDTO editRole);
     }
 }

@@ -372,6 +372,37 @@
   },
   {
     "ContainingType": "OverallAuthv1._0.Controllers.RoleController",
+    "Method": "EditRole",
+    "RelativePath": "api/Role/EditRole",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "editRole",
+        "Type": "OverallAuthv1._0.Domain.DTO.AddRoleDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "OverallAuthv1._0.Result",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "OverallAuthv1._0.Controllers.RoleController",
     "Method": "Search",
     "RelativePath": "api/Role/Search",
     "HttpMethod": "POST",

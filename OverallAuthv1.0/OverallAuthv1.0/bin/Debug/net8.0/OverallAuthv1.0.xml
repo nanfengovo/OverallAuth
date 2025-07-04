@@ -126,6 +126,14 @@
             <param name="ids"></param>
             <returns></returns>
         </member>
+        <member name="M:OverallAuthv1._0.Controllers.RoleController.EditRole(System.Int32,OverallAuthv1._0.Domain.DTO.AddRoleDTO)">
+            <summary>
+            编辑角色
+            </summary>
+            <param name="id"></param>
+            <param name="editRole"></param>
+            <returns></returns>
+        </member>
         <member name="T:OverallAuthv1._0.Controllers.UserController">
             <summary>
             User Controller
@@ -473,6 +481,14 @@
             删除
             </summary>
             <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OverallAuthv1._0.Domain.IService.IRoleService.EditRoleAsync(System.Int32,OverallAuthv1._0.Domain.DTO.AddRoleDTO)">
+            <summary>
+            编辑角色
+            </summary>
+            <param name="id"></param>
+            <param name="editRole"></param>
             <returns></returns>
         </member>
         <member name="M:OverallAuthv1._0.Domain.IService.IUserService.AddUserAsync(OverallAuthv1._0.Domain.DTO.AddUser)">

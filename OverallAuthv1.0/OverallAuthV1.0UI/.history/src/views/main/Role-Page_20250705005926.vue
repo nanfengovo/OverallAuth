@@ -434,7 +434,6 @@ const DialogEditform = ref({
     checkedKeys: [] as number[] // 用于 :default-checked-keys
 })
 const Editdialog = async (row: Role) => {
-    DialogEditform.value.id = row.id;
     treeRef.value?.setCheckedKeys([]); // 强制清空组件内部状态
     treeRef.value?.store?.setCheckedKeys([]); // 操作内部Store
     dialogEditVisible.value = true;

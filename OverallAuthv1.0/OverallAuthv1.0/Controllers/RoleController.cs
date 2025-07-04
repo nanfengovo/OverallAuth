@@ -161,6 +161,55 @@ namespace OverallAuthv1._0.Controllers
             }
         }
 
-       
+        /// <summary>
+        /// 编辑角色
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="editRole"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<Result> EditRole(int id,AddRoleDTO editRole)
+        {
+            try
+            {
+                if (editRole.Name == "" )
+                {
+                    return new Result
+                    {
+                        Code = 500,
+                        Msg = "角色名不能为空！！"
+                    };
+                }
+                else
+                {
+                    var result = await _roleService.EditRoleAsync(id, editRole);
+                    if (result.success)
+                    {
+                        return new Result
+                        {
+                            Code = 200,
+                            Msg = $"{result.msg}"
+                        };
+                    }
+                    else
+                    {
+                        return new Result
+                        {
+                            Code = 400,
+                            Msg = $"{editRole.Name}"
+                        };
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return new Result
+                {
+                    Code = 500,
+                    Msg = ex.Message
+                };
+            }
+        }
     }
 }

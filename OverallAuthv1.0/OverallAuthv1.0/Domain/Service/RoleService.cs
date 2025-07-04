@@ -108,6 +108,61 @@ namespace OverallAuthv1._0.Domain.Service
             }
         }
 
+        public async Task<(bool success, string msg)> EditRoleAsync(int id, AddRoleDTO editRole)
+        {
+            //开启事务
+            await using var tran = await _dbContext.Database.BeginTransactionAsync();
+            try
+            {
+                var exist = await _dbContext.Roles.FirstOrDefaultAsync(x =>x.Id == id && !x.IsDeleted );
+                if(exist == null)
+                {
+                    return (false, "该角色被删除或不存在！！");
+                }
+                else
+                {
+                    var rolename = exist.Name;
+                    #region 给角色分配菜单
+                    var result = await _overallAuthService.GiveRoleMenuAsync(rolename, editRole.menuIds);
+                    #endregion
+                    exist.Name = editRole.Name;
+                    var isSaneName = await _dbContext.Roles.AnyAsync(x => x.Id != id && x.Name == editRole.Name); 
+                    if(isSaneName)
+                    {
+                        return (false, "需要修改的角色名已经存在！！");
+                    }
+                    else
+                    {
+                        exist.IsEnable = editRole.IsEnable;
+                        exist.Describe = editRole.Describe;
+                        exist.UpdateTime = DateTime.Now;
+                        await _dbContext.SaveChangesAsync();
+                    }
+
+                    
+
+
+
+
+                    if (result.success)
+                    {
+                        await tran.CommitAsync();//提交事务
+                        return (true, "编辑成功");
+                    }
+                    else
+                    {
+                        await tran.RollbackAsync();//回滚事务
+                        return (false, "编辑失败" + result.msg);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                await tran.RollbackAsync();//回滚事务
+                return (false,ex.Message);
+            }
+        }
+
         public async Task<bool> GetRoleByNameAsync(string roleName)
         {
             var exist = await _dbContext.Roles.FirstOrDefaultAsync(r => r.Name == roleName  && !r.IsDeleted);
