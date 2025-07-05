@@ -23,8 +23,14 @@
 ![image](https://github.com/user-attachments/assets/4712b64d-fdcc-43aa-83f7-f3871c435360)
 #### 角色管理
 ![image](https://github.com/user-attachments/assets/461402dc-4cf1-4ca2-b427-0b989a60577e)
+##### 添加角色
+![image](https://github.com/user-attachments/assets/4676876e-31c0-4573-be8d-e8bda9c2596a)
+##### 编辑角色
+![image](https://github.com/user-attachments/assets/402b6488-0e22-48d5-baf5-490389f12dea)
 #### 菜单管理
 ![image](https://github.com/user-attachments/assets/8a9e0d10-8e0a-4c27-bdc5-2b22d8e2d9bc)
+##### 添加菜单
+![image](https://github.com/user-attachments/assets/08dbe1e7-bb82-47e8-84da-9fd0ccddfeb5)
 
 ### 权限
 admin 拥有拥有全部的菜单
