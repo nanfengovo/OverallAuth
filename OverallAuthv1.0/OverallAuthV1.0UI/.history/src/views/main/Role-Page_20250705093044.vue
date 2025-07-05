@@ -124,7 +124,8 @@
             </el-form-item> -->
             <el-form-item label="菜单">
                 <el-tree ref="treeRef" :data="menusdata" :props="props" node-key="id" show-checkbox lazy
-                    :check-strictly="true" :default-checked-keys="DialogEditform.checkedKeys" @check="handleTreeCheck">
+                    :check-strictly="true" :default-checked-keys="DialogEditform.checkedKeys"
+                    @check-change="handleCheckChange">
                     <template #default="{ node, data }">
                         <span class="custom-tree-node">
                             <el-icon>
@@ -423,10 +424,7 @@ const headleAddClick = async () => {
 //#region 编辑角色
 const dialogEditVisible = ref(false);
 const treeRef = ref(); // 用于操作 el-tree 组件
-const handleTreeCheck = (data, checkObj) => {
-    // checkObj.checkedKeys 包含当前所有选中节点的 id
-    DialogEditform.value.checkedKeys = checkObj.checkedKeys;
-};
+
 
 const DialogEditform = ref({
     id: 0,
@@ -538,7 +536,6 @@ const EditRole = async () => {
 
     }
     catch (error) {
-        ElMessage.error('编辑失败' + error.message);
     }
 }
 

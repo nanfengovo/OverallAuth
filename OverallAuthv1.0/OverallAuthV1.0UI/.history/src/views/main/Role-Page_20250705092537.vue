@@ -123,8 +123,9 @@
                     @check-change="handleCheckChange" />
             </el-form-item> -->
             <el-form-item label="菜单">
-                <el-tree ref="treeRef" :data="menusdata" :props="props" node-key="id" show-checkbox lazy
-                    :check-strictly="true" :default-checked-keys="DialogEditform.checkedKeys" @check="handleTreeCheck">
+                <el-tree ref="treeRef" :data="menusdata" :props="props" node-key="id" show-checkbox lazy 
+                     :check-strictly="true" :default-checked-keys="DialogEditform.checkedKeys"
+                    @check-change="handleCheckChange">
                     <template #default="{ node, data }">
                         <span class="custom-tree-node">
                             <el-icon>
@@ -166,8 +167,8 @@ import { ElMessageBox, ElMessage, type ElForm, ElTable } from 'element-plus';
 import { reactive, ref, nextTick } from 'vue';
 import { onMounted } from 'vue';
 import axios from 'axios';
-// import { id } from 'element-plus/es/locales.mjs';
-// import { describe } from 'node:test';
+import { id } from 'element-plus/es/locales.mjs';
+import { describe } from 'node:test';
 
 // import fetchMenuData from '@/views/main/MenuManage-Page.vue'
 
@@ -314,7 +315,6 @@ interface menu {
     id: number;
     name: string;
     icon: string;
-    checked?: boolean;
 }
 const menusdata = ref<menu[]>([]);
 const fetchMenuData = async () => {
@@ -423,10 +423,7 @@ const headleAddClick = async () => {
 //#region 编辑角色
 const dialogEditVisible = ref(false);
 const treeRef = ref(); // 用于操作 el-tree 组件
-const handleTreeCheck = (data, checkObj) => {
-    // checkObj.checkedKeys 包含当前所有选中节点的 id
-    DialogEditform.value.checkedKeys = checkObj.checkedKeys;
-};
+
 
 const DialogEditform = ref({
     id: 0,
@@ -485,13 +482,6 @@ const Editdialog = async (row: Role) => {
             .map(menu => menu.id);
 
         console.log("有效菜单名:", validMenuNames, "选中ID:", DialogEditform.value.checkedKeys);
-        //如果菜单被选中添加到checkedKeys
-        menusdata.value.forEach(element => {
-            if (element.checked) {
-                DialogEditform.value.checkedKeys.push(element.id)
-            }
-        });
-        console.log(DialogEditform.value.checkedKeys);
 
     }
 
@@ -538,7 +528,6 @@ const EditRole = async () => {
 
     }
     catch (error) {
-        ElMessage.error('编辑失败' + error.message);
     }
 }
 

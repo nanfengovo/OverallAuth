@@ -123,8 +123,9 @@
                     @check-change="handleCheckChange" />
             </el-form-item> -->
             <el-form-item label="菜单">
-                <el-tree ref="treeRef" :data="menusdata" :props="props" node-key="id" show-checkbox lazy
-                    :check-strictly="true" :default-checked-keys="DialogEditform.checkedKeys" @check="handleTreeCheck">
+                <el-tree ref="treeRef" :data="menusdata" :props="props" node-key="id" show-checkbox lazy :key="treeKey"
+                    :load="loadNode" :check-strictly="true" :default-checked-keys="DialogEditform.checkedKeys"
+                    @check-change="handleCheckChange">
                     <template #default="{ node, data }">
                         <span class="custom-tree-node">
                             <el-icon>
@@ -166,8 +167,8 @@ import { ElMessageBox, ElMessage, type ElForm, ElTable } from 'element-plus';
 import { reactive, ref, nextTick } from 'vue';
 import { onMounted } from 'vue';
 import axios from 'axios';
-// import { id } from 'element-plus/es/locales.mjs';
-// import { describe } from 'node:test';
+import { id } from 'element-plus/es/locales.mjs';
+import { describe } from 'node:test';
 
 // import fetchMenuData from '@/views/main/MenuManage-Page.vue'
 
@@ -314,7 +315,6 @@ interface menu {
     id: number;
     name: string;
     icon: string;
-    checked?: boolean;
 }
 const menusdata = ref<menu[]>([]);
 const fetchMenuData = async () => {
@@ -423,10 +423,7 @@ const headleAddClick = async () => {
 //#region 编辑角色
 const dialogEditVisible = ref(false);
 const treeRef = ref(); // 用于操作 el-tree 组件
-const handleTreeCheck = (data, checkObj) => {
-    // checkObj.checkedKeys 包含当前所有选中节点的 id
-    DialogEditform.value.checkedKeys = checkObj.checkedKeys;
-};
+
 
 const DialogEditform = ref({
     id: 0,
@@ -475,40 +472,31 @@ const Editdialog = async (row: Role) => {
         return;
 
 
-    } else {
-        // 3. 计算选中节点ID
-        DialogEditform.value.checkedKeys = menusdata.value
-            .filter(menu =>
-                menu.name && // 防御：确保菜单名存在
-                validMenuNames.includes(menu.name) // 精确匹配有效名称
-            )
-            .map(menu => menu.id);
-
-        console.log("有效菜单名:", validMenuNames, "选中ID:", DialogEditform.value.checkedKeys);
-        //如果菜单被选中添加到checkedKeys
-        menusdata.value.forEach(element => {
-            if (element.checked) {
-                DialogEditform.value.checkedKeys.push(element.id)
-            }
-        });
-        console.log(DialogEditform.value.checkedKeys);
-
     }
 
+    // 3. 计算选中节点ID
+    DialogEditform.value.checkedKeys = menusdata.value
+        .filter(menu =>
+            menu.name && // 防御：确保菜单名存在
+            validMenuNames.includes(menu.name) // 精确匹配有效名称
+        )
+        .map(menu => menu.id);
+
+    console.log("有效菜单名:", validMenuNames, "选中ID:", DialogEditform.value.checkedKeys);
 
 
 }
 
-// const loadNode = async (node, resolve) => {
-//     const children = await loadData();
-//     resolve(children);
-//     nextTick(() => {
-//         // 新节点加载后再次清空
-//         if (DialogEditform.value.checkedKeys.length === 0) {
-//             treeRef.value?.setCheckedKeys([]);
-//         }
-//     });
-// };
+const loadNode = async (node, resolve) => {
+    const children = await loadData();
+    resolve(children);
+    nextTick(() => {
+        // 新节点加载后再次清空
+        if (DialogEditform.value.checkedKeys.length === 0) {
+            treeRef.value?.setCheckedKeys([]);
+        }
+    });
+};
 
 const EditRole = async () => {
     try {
@@ -538,7 +526,6 @@ const EditRole = async () => {
 
     }
     catch (error) {
-        ElMessage.error('编辑失败' + error.message);
     }
 }
 
