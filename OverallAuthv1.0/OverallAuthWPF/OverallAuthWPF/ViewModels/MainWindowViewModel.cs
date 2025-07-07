@@ -67,18 +67,18 @@ namespace OverallAuthWPF.ViewModels
             UpdateIconData();
 
             // 设置定时器每秒更新一次时间
-            var timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(1);
-            timer.Tick += (sender, args) =>
-            {
-                // 更新时间
-                CurrentTime = DateTime.Now.ToString("HH:mm");
-                CurrentDate = DateTime.Now.ToString("MM月dd日  dddd", new System.Globalization.CultureInfo("zh-CN"));
+            //var timer = new DispatcherTimer();
+            //timer.Interval = TimeSpan.FromSeconds(1);
+            //timer.Tick += (sender, args) =>
+            //{
+            //    // 更新时间
+            //    CurrentTime = DateTime.Now.ToString("HH:mm");
+            //    CurrentDate = DateTime.Now.ToString("MM月dd日  dddd", new System.Globalization.CultureInfo("zh-CN"));
 
-                // 更新图标
-                UpdateIconData();
-            };
-            timer.Start();
+            //    // 更新图标
+            //    UpdateIconData();
+            //};
+            //timer.Start();
             _regionManager = regionManager;
             
             HomeCmm = new DelegateCommand(GoHome);

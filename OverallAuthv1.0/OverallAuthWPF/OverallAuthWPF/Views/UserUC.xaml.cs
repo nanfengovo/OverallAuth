@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Example;
+using OverallAuthWPF.APIHelper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,9 @@ namespace OveralllAuth_V1.Views
         public UserUC()
         {
             InitializeComponent();
+            
         }
+
+       
     }
 }

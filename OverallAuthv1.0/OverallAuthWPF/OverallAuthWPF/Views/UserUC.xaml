@@ -6,8 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:OveralllAuth_V1.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="450"
-    d:DesignWidth="800"
+    d:DesignHeight="1000"
+    d:DesignWidth="1600"
     mc:Ignorable="d">
     <UserControl.Resources>
         <Style x:Key="DynamicPlaceholderStyle" TargetType="TextBox">
@@ -124,6 +124,7 @@
                             <Button
                                 Background="Transparent"
                                 BorderThickness="0"
+                                Command="{Binding LoadDataCommand}"
                                 Content="刷新"
                                 FontSize="16"
                                 Foreground="White" />
@@ -169,6 +170,7 @@
                         AutoGenerateColumns="False"
                         CanUserAddRows="False"
                         CanUserDeleteRows="False"
+                        ColumnHeaderHeight="40"
                         EnableRowVirtualization="True"
                         GridLinesVisibility="All"
                         HeadersVisibility="Column"
@@ -180,6 +182,20 @@
 
                         <!--  列定义  -->
                         <DataGrid.Columns>
+                            <!--  全选复选框列  -->
+                            <DataGridCheckBoxColumn Width="Auto" Header="全选">
+                                <DataGridCheckBoxColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <CheckBox
+                                            HorizontalAlignment="Center"
+                                            Content="全选"
+                                            IsChecked="{Binding DataContext.IsAllSelected, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
+                                    </DataTemplate>
+                                </DataGridCheckBoxColumn.HeaderTemplate>
+                                <DataGridCheckBoxColumn.Binding>
+                                    <Binding Mode="TwoWay" Path="IsSelected" />
+                                </DataGridCheckBoxColumn.Binding>
+                            </DataGridCheckBoxColumn>
                             <!--  序号列  -->
                             <DataGridTextColumn
                                 Width="Auto"
@@ -209,11 +225,11 @@
 
                             <DataGridTextColumn
                                 Width="*"
-                                Binding="{Binding Username}"
+                                Binding="{Binding Name}"
                                 Header="用户名" />
                             <DataGridTextColumn
                                 Width="*"
-                                Binding="{Binding Role}"
+                                Binding="{Binding RoleName}"
                                 Header="角色" />
                             <DataGridTextColumn
                                 Width="*"
