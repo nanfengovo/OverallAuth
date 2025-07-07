@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OverallAuthv1.0")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c4d357d51db4a353c2eefea13c806182791b08bf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+848998896b8fbbe21387ab227e4d71eb62b61cf3")]
 [assembly: System.Reflection.AssemblyProductAttribute("OverallAuthv1.0")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OverallAuthv1.0")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
