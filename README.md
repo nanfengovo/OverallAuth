@@ -32,8 +32,7 @@
 ##### 添加菜单
 ![image](https://github.com/user-attachments/assets/08dbe1e7-bb82-47e8-84da-9fd0ccddfeb5)
 
-### 前端WPF版
-![image](https://github.com/user-attachments/assets/233f0b3c-745d-4b30-a235-2002d8d061c5)
+
 
 
 ### 权限
@@ -42,7 +41,8 @@ admin 拥有拥有全部的菜单
 test 用户只拥有仪表盘的权限
 ![image](https://github.com/user-attachments/assets/bb61e116-94f3-4b1f-9dcc-4b5567eb2729)
 
-
+## 前端WPF版
+![image](https://github.com/user-attachments/assets/233f0b3c-745d-4b30-a235-2002d8d061c5)
 
 
 
