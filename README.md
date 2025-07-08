@@ -5,7 +5,7 @@
 ## 快速启动
 ### 后端 打开sln 编译运行
 ![image](https://github.com/user-attachments/assets/6aac7b1f-26fa-4e5f-b43d-84dcbabe3278)
-### 前端 
+### 前端 Vue版
 > npm install
 > npm run dev
 > 输入admin 123456
@@ -31,6 +31,10 @@
 ![image](https://github.com/user-attachments/assets/8a9e0d10-8e0a-4c27-bdc5-2b22d8e2d9bc)
 ##### 添加菜单
 ![image](https://github.com/user-attachments/assets/08dbe1e7-bb82-47e8-84da-9fd0ccddfeb5)
+
+### 前端WPF版
+![image](https://github.com/user-attachments/assets/233f0b3c-745d-4b30-a235-2002d8d061c5)
+
 
 ### 权限
 admin 拥有拥有全部的菜单
