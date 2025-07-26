@@ -10,10 +10,11 @@ using System.Windows.Data;
 using OverallAuthWPF.APIHelper.Model;
 using System.Threading;
 using MvvmHelpers.Commands;
+using Prism.Regions;
 
 namespace OveralllAuth_V1.ViewModels
 {
-    public class UserUCViewModel : BindableBase
+    public class UserUCViewModel : BindableBase,INavigationAware
     {
         private readonly ApiService _apiService;
 
@@ -81,6 +82,22 @@ namespace OveralllAuth_V1.ViewModels
             {
                 IsLoading = false;
             }
+        }
+
+        public async void OnNavigatedTo(NavigationContext navigationContext)
+        {
+            // 路由切换后触发数据加载
+            await LoadDataAsync();
+        }
+
+        public bool IsNavigationTarget(NavigationContext navigationContext)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnNavigatedFrom(NavigationContext navigationContext)
+        {
+            throw new NotImplementedException();
         }
     }
 }

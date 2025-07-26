@@ -1,13 +1,14 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace OverallAuthWPF.APIHelper.Model
 {
-    public class User
+    public class User 
     {
         [JsonProperty("id")]
         public int Id { get; set; }
@@ -16,7 +17,7 @@ namespace OverallAuthWPF.APIHelper.Model
         public string Name { get; set; }
 
         [JsonProperty("rolesName")]
-        public List<string> RoleNames { get; set; } // 角色名称列表
+        public List<string> RoleName { get; set; } // 角色名称列表
 
         [JsonProperty("describe")]
         public string Description { get; set; }     // 描述信息
@@ -29,5 +30,7 @@ namespace OverallAuthWPF.APIHelper.Model
 
         [JsonProperty("updateTime")]
         public DateTime? UpdateTime { get; set; }    // 更新时间（可为空）
+
+       
     }
 }

@@ -175,6 +175,7 @@
                         GridLinesVisibility="All"
                         HeadersVisibility="Column"
                         HorizontalGridLinesBrush="LightGray"
+                        IsReadOnly="True"
                         ItemsSource="{Binding Users}"
                         SelectionMode="Single"
                         SelectionUnit="FullRow"
@@ -208,16 +209,31 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <Button
-                                                Margin="2"
-                                                Padding="5"
-                                                Command="{Binding EditCommand}"
-                                                Content="编辑" />
-                                            <Button
-                                                Margin="2"
-                                                Padding="5"
-                                                Command="{Binding DeleteCommand}"
-                                                Content="删除" />
+                                            <Border
+                                                Margin="5"
+                                                Background="#409eff"
+                                                CornerRadius="5">
+                                                <Button
+                                                    Margin="2"
+                                                    Padding="5"
+                                                    Background="Transparent"
+                                                    BorderThickness="0"
+                                                    Command="{Binding EditCommand}"
+                                                    Content="编辑" />
+                                            </Border>
+                                            <Border
+                                                Margin="5"
+                                                Background="#f56c6c"
+                                                CornerRadius="5">
+                                                <Button
+                                                    Margin="2"
+                                                    Padding="5"
+                                                    Background="Transparent"
+                                                    BorderThickness="0"
+                                                    Command="{Binding DeleteCommand}"
+                                                    Content="删除" />
+                                            </Border>
+
                                         </StackPanel>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
